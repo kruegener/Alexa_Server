@@ -19,8 +19,12 @@ def index(request):
 	# else:
 	# 	return HttpResponse("TRIGGERED!!!!")
 	name_list = Person.objects.all()
-	context = {'name_list': name_list}
+	context = {'People': name_list}
 	return render(request, 'AlexaHandler/list.html', context)
+
+def live(request):
+	context = {'Title': "Live Alexa"}
+	return render(request, 'AlexaHandler/live.html', context)
 
 def setVar(request, var):
 	return HttpResponse(var)

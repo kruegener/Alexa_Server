@@ -44,6 +44,14 @@ INSTALLED_APPS = [
     'channels',
 ]
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "ROUTING": "AlexaHandler.routing.channel_routing",
+        #"ROUTING": "???",
+    },
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

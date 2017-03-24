@@ -4,6 +4,11 @@ from django_alexa.api import fields, intent, ResponseBuilder
 from .views import trigger
 from AlexaHandler.models import Person
 
+from channels.handler import AsgiHandler
+from channels import Group
+
+import json
+
 @intent(slots=None, app="AlexaHandler")
 def LaunchRequest(session):
     """
@@ -12,7 +17,9 @@ def LaunchRequest(session):
     B two S Launch
     """
 
-    trigger()
+    #trigger()
+
+
 
     return ResponseBuilder.create_response(message="What's your name?",
                                            reprompt="",
@@ -57,15 +64,25 @@ def SetName(session, name="default"):
     my name is {name}
     {name}
     """
+
     NAMES = Person.objects.all()
     kwargs = {}
     if name in NAMES:
         kwargs['message'] = "Welcome back {0}!".format(name)
+        msg = "Welcome back {0}!".format(name)
     else:
         kwargs['message'] = "So you are {0}. Haven't seen you before! Let's add you to the List.".format(name)
+        msg = "Welcome back {0}!".format(name)
         p = Person(first_name=name)
         p.save()
         print("saved: ", name)
+
+    data = {"msg" : msg,
+            "optional" : 'JSON information'}
+
+    Group("alexa").send({
+        "text": json.dumps(data),
+    })
 
     if session.get('launched'):
         kwargs['reprompt'] = "Try again."

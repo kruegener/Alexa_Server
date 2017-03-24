@@ -1,0 +1,20 @@
+{% extends "AlexaHandler/base.html" %}
+{% block script %}
+<script type="text/javascript">
+var socket = new WebSocket("ws://" + window.location.host + "/alexa/");
+socket.onmessage = function(e) {
+	console.log(e.data);
+	data = JSON.parse(e.data);
+	console.log(data.msg);
+	box = document.getElementById("content");
+	box.innerHTML = box.innerHTML + "<br>" + data.msg + "&nbsp" + data.optional;
+	//alert(e.data);
+}
+</script>
+{% endblock %}
+{% block body %}
+<h1> LIVE ALEXA Test</h1>
+<div id="content">
+
+</div>
+{% endblock %}
