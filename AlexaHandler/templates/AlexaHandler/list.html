@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+<div id="list">
+	{% for person in People %}
+	<p id ="Person{{person.first_name}}" >{{person}} is known.</p>
+	{% endfor %}
+</div>
+{% endblock %}
