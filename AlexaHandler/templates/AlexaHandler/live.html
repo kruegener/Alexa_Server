@@ -1,20 +1,52 @@
 {% extends "AlexaHandler/base.html" %}
-{% block script %}
+
+{% block head %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<style>
+    [id^="draggable"] { width: 150px; height: 150px; padding: 0.5em; }
+
+    [id^="child"] { width: 50px; height: 50px; padding: 0.5em; }
+    
+#content { width: 150px; height: 150px; padding: 0.5em; }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <script type="text/javascript">
+
+// make containment specific
+function new_draw() {
+    $( "[id^='draggable']" ).draggable();
+    $("[id^='child']").draggable({ containment: "[id^='draggable']" });
+};
+ID_map = {};
+new_draw();
 var socket = new WebSocket("ws://" + window.location.host + "/alexa/");
 socket.onmessage = function(e) {
 	console.log(e.data);
 	data = JSON.parse(e.data);
-	console.log(data.msg);
-	box = document.getElementById("content");
-	box.innerHTML = box.innerHTML + "<br>" + data.msg + "&nbsp" + data.optional;
+	console.log(data.type);
+	//box = document.getElementById("content");
+    // get all Flows and map flowIDs to ids
+    
+    $.each(data.NodeFlows, function(i, v) {
+        var flowID = v.FlowID;
+        var ID = v.id;
+        console.log("value: ", flowID, " ", ID);
+        ID_map[ID] = flowID;
+        document.body.innerHTML += "<div id=draggable_" + flowID + " class='ui-widget-content'><p>" + flowID + "<br>" + "</p></div>";
+    });
+    // put nodes in the flows
+    
 	//alert(e.data);
+	new_draw();
 }
 </script>
 {% endblock %}
+
 {% block body %}
 <h1> LIVE ALEXA Test</h1>
-<div id="content">
-
-</div>
 {% endblock %}
