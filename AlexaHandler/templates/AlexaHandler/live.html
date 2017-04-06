@@ -1,50 +1,132 @@
 {% extends "AlexaHandler/base.html" %}
+{% load static %}
 
 {% block head %}
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 <style>
-    [id^="draggable"] { width: 150px; height: 150px; padding: 0.5em; }
+    .draggable { background: #deb; line-height: 40px; padding: 15px; float: left; margin: 1em; border: 1px dotted;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.5);}
+    .child { width: 50px; height: 50px; padding: 0.5em; }
 
-    [id^="child"] { width: 50px; height: 50px; padding: 0.5em; }
-    
 #content { width: 150px; height: 150px; padding: 0.5em; }
+</style>
+<style>
+
+      .demo {
+         border:5px double;
+         z-index:2;
+         display:table;
+         border-radius:90px;
+         /*pointer-events:none;*/
+         color: rgb(200,200,200);
+         color: rgba(0,0,0,0.7);
+      }
+      .demo:hover {
+         color:#55f;
+      }
+      .demo2 {
+         border:3px dotted #051;
+         opacity: 0.5;
+         z-index:1;
+         border-radius:100%;
+         pointer-events:none;
+      }
+      .fast {
+         border:3px solid #051;
+         opacity: 1;
+         z-index:1;
+         border-radius:100%;
+         pointer-events:none;
+      }
+      .demo3 {
+         border:7px dashed #951;
+         opacity: 0.5;
+         z-index:1;
+         pointer-events:none;
+         border-radius:21px;
+      }
+      .demo span {
+         z-index: 1;
+         background:black;
+         color: white;
+         opacity:0.7;
+         position: absolute;
+         display:block;
+         margin: auto;
+         padding: 0.3em 0.6em;
+         border-radius:10px;
+         box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+      }
+      .demo:hover span {
+         background: #55f;
+         opacity:1;
+      }
+      .connection-border-right span {
+         left: 1em;
+      }
+      .connection-border-left span {
+         right: 1em;
+      }
+      .connection-border-top span {
+         top: 1em;
+      }
+      .connection-border-bottom span {
+         bottom: 1em;
+      }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="http://creativecouple.github.com/jquery-timing/jquery-timing.min.js"></script>
+<script src="{% static "AlexaHandler/jquery.connections.js" %}"></script>
 
 <script type="text/javascript">
 
 // make containment specific
 function new_draw() {
-    $( "[id^='draggable']" ).draggable();
-    $("[id^='child']").draggable({ containment: "[id^='draggable']" });
+    $( ".draggable" ).draggable();
+    $(".draggable").connections({'class': 'fast'});
 };
+
 ID_map = {};
-new_draw();
 var socket = new WebSocket("ws://" + window.location.host + "/alexa/");
 socket.onmessage = function(e) {
 	console.log(e.data);
 	data = JSON.parse(e.data);
 	console.log(data.type);
+
 	//box = document.getElementById("content");
     // get all Flows and map flowIDs to ids
-    
+  if(data.type=="init"){
+    console.log("init called");
     $.each(data.NodeFlows, function(i, v) {
         var flowID = v.FlowID;
         var ID = v.id;
         console.log("value: ", flowID, " ", ID);
         ID_map[ID] = flowID;
-        document.body.innerHTML += "<div id=draggable_" + flowID + " class='ui-widget-content'><p>" + flowID + "<br>" + "</p></div>";
+        document.body.innerHTML += "<div id=draggable_" + flowID + " class='draggable ui-widget-content'><p>" + flowID + "<br>" + "</p></div>";
     });
     // put nodes in the flows
-    
+
+  }
+
+  if(data.type=="content_update"){
+    console.log("update called");
+    console.log("JSON", data);
+    document.body.innerHTML += "<div id=draggable_" + "msg" + " class='draggable ui-widget-content'><p>" + data.msg + "<br>" + "</p></div>";
+  }
 	//alert(e.data);
 	new_draw();
 }
+
 </script>
+<script type="text/JavaScript">
+   $(document).ready(function() {
+       $.repeat().add('connection').each($).connections('update').wait(0);
+});
+</script>
+
 {% endblock %}
 
 {% block body %}
