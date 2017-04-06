@@ -23,14 +23,14 @@ def to_dict(instance):
 
 def ws_message(message):
     #print(message.content['text'])
-    
+
     data = {"msg" : "[user] %s" % message.content['text'],
-            "optional" : 'chat'}
-    
+            "optional" : 'chat', "type" : "content_update"}
+
     Group("alexa").send({
         "text": json.dumps(data),
     })
-    
+
     #Group("alexa").send({
     #    "text": "[user] %s" % message.content['text'],
     #})
@@ -38,10 +38,10 @@ def ws_message(message):
 def ws_add(message):
     # Accept the incoming connection
     message.reply_channel.send({"accept": True})
-    
+
     # Add them to the chat group (again implement different )
     Group("alexa").add(message.reply_channel)
-    
+
     # check if session exists (add ?room= ...)
     oldCS = ClientSession.objects.all().filter(SessID='alexa').exists()
     print("NEW: ", oldCS)
@@ -52,10 +52,10 @@ def ws_add(message):
     else:
         CS = ClientSession.objects.get(SessID='alexa')
         print("got old CS")
-    
+
     #data = {"msg" : "jo",
             #"optional" : 'asd'}
-    
+
     # get Session nodeFlows
     NFs = NodeFlow.objects.filter(Sess = CS).iterator()
     NFs = [nf for nf in NFs]
@@ -75,11 +75,11 @@ def ws_add(message):
     # get SessionVars
     Vars = SessionVar.objects.filter(Sess = CS).iterator()
     Vars = [to_dict(var) for var in Vars]
-    
+
     print("NodeFlows: ", NFs)
     print("Nodes: ", Ns)
     print("Vars: ", Vars)
-    
+
     data = {"type": "init",
             "NodeFlows": [to_dict(nf) for nf in NFs],
             "Nodes": Ns,
@@ -90,7 +90,7 @@ def ws_add(message):
         "text": json.dumps(data),
     })
     # send reply_channel all variable_names and nodes as JSON
-    
+
 
 # Connected to websocket.disconnect
 def ws_disconnect(message):

@@ -1,4 +1,5 @@
 {% extends "AlexaHandler/base.html" %}
+{% load static %}
 
 {% block head %}
 
@@ -6,47 +7,105 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style>
-    [id^="draggable"] { width: 150px; height: 150px; padding: 0.5em; }
+    .draggable { width: 150px; height: 150px; padding: 0.5em; position:absolute}
 
     [id^="child"] { width: 50px; height: 50px; padding: 0.5em; }
-    
+
 #content { width: 150px; height: 150px; padding: 0.5em; }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+<script src="{% static "AlexaHandler/jsplumb.js" %}"></script>
+
 <script type="text/javascript">
 
+var plumbing = jsPlumb.getInstance();
+var last_name = "";
+
+plumbing.importDefaults({
+  ConnectionsDetachable:false,
+  ReattachConnections:true
+});
 // make containment specific
-function new_draw() {
-    $( "[id^='draggable']" ).draggable();
-    $("[id^='child']").draggable({ containment: "[id^='draggable']" });
-};
-ID_map = {};
-new_draw();
+
+var dynamicAnchors = ["Left", "Right", "Top", "Bottom"];
+
+var common = {detachable:false,
+              anchor:dynamicAnchors,
+              endpoint:[ "Rectangle", {
+                cssClass:"myEndpoint",
+                width:30,
+                height:10
+              }],};
+
+function new_plumb(){
+  //jsPlumb block
+  console.log("new_plumb started");
+  plumbing.draggable($(".draggable"));
+}
+
 var socket = new WebSocket("ws://" + window.location.host + "/alexa/");
+var msg_count = 0;
 socket.onmessage = function(e) {
 	console.log(e.data);
 	data = JSON.parse(e.data);
 	console.log(data.type);
+
+  if(data.type=="init"){
 	//box = document.getElementById("content");
     // get all Flows and map flowIDs to ids
-    
+
     $.each(data.NodeFlows, function(i, v) {
         var flowID = v.FlowID;
         var ID = v.id;
         console.log("value: ", flowID, " ", ID);
-        ID_map[ID] = flowID;
-        document.body.innerHTML += "<div id=draggable_" + flowID + " class='ui-widget-content'><p>" + flowID + "<br>" + "</p></div>";
+        var name = "draggable_" + flowID;
+        //ID_map[ID] = flowID;
+        document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content'><p>" + flowID + "<br>" + "</p></div>";
+        name = "draggable_" + flowID;
+
+        if(last_name != ""){
+          plumbing.connect({
+            source:name,
+            target:last_name,
+          }, common);
+        }
+        last_name = name;
     });
     // put nodes in the flows
-    
-	//alert(e.data);
-	new_draw();
+
+  	//alert(e.data);
+    new_plumb();
+  }
+
+
+  else if(data.type=="content_update"){
+    console.log("update called");
+    console.log("JSON", data);
+    name = "draggable_" + "msg" + msg_count;
+    msg_count += 1;
+    document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content'><p>" + data.msg + "<br>" + "</p></div>";
+    plumbing.connect({
+      source:last_name,
+      target:name,
+    }, common);
+    last_name = name;
+
+  }
+  plumbing.draggable($(".draggable"));
+  //jsPlumb.repaintEverything();
+
 }
+
+
+
 </script>
 {% endblock %}
 
 {% block body %}
 <h1> LIVE ALEXA Test</h1>
+<div id="plumbing block">
+plumbing
+</div>
 {% endblock %}
