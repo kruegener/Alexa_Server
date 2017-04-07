@@ -7,11 +7,14 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style>
-    .draggable { width: 150px; height: 150px; padding: 0.5em; position:absolute}
+    .draggable { width: 150px; height: 150px; padding: 0.5em; position:absolute; z-index: 10}
 
-    [id^="child"] { width: 50px; height: 50px; padding: 0.5em; }
+    .window { z-index:20; }
+    .jtk-connector { z-index:4; }
+    .jtk-endpoint { z-index:11; }
+    .jtk-overlay { z-index:12; }
 
-#content { width: 150px; height: 150px; padding: 0.5em; }
+    #content { width: 150px; height: 150px; padding: 0.5em; }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -22,6 +25,10 @@
 
 var plumbing = jsPlumb.getInstance();
 var last_name = "";
+var grid_count = 0;
+var width = $(window).width();
+var height = $(window).height();
+var xGrid = Math.floor((width-150)/200);
 
 plumbing.importDefaults({
   ConnectionsDetachable:false,
@@ -33,9 +40,12 @@ var dynamicAnchors = ["Left", "Right", "Top", "Bottom"];
 
 var common = {detachable:false,
               anchor:dynamicAnchors,
+              connector: ["Bezier", {
+                            curviness:50,
+              }],
               endpoint:[ "Rectangle", {
                 cssClass:"myEndpoint",
-                width:30,
+                width:10,
                 height:10
               }],};
 
@@ -62,9 +72,9 @@ socket.onmessage = function(e) {
         console.log("value: ", flowID, " ", ID);
         var name = "draggable_" + flowID;
         //ID_map[ID] = flowID;
-        document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content'><p>" + flowID + "<br>" + "</p></div>";
+        document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (grid_count%xGrid)*200 + "; top: " + (150 + Math.floor(grid_count/xGrid)*200) + "'><p>" + flowID + "<br>" + "</p></div>";
         name = "draggable_" + flowID;
-
+        grid_count += 1;
         if(last_name != ""){
           plumbing.connect({
             source:name,
@@ -85,7 +95,9 @@ socket.onmessage = function(e) {
     console.log("JSON", data);
     name = "draggable_" + "msg" + msg_count;
     msg_count += 1;
-    document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content'><p>" + data.msg + "<br>" + "</p></div>";
+    console.log(xGrid, grid_count);
+    document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (grid_count%xGrid)*200 + " ; top: " + (150 + Math.floor(grid_count/xGrid)*200) + "'><p>" + data.msg + "<br>" + "</p></div>";
+    grid_count += 1;
     plumbing.connect({
       source:last_name,
       target:name,
