@@ -7,6 +7,9 @@ from AlexaHandler.models import *
 import json
 from django.forms.models import model_to_dict
 from django.db.models.fields.related import ManyToManyField
+from .Block.BaseBlock import BaseBlock
+from .Block.MessageBlock import MessageBlock
+import pickle
 
 def to_dict(instance):
     opts = instance._meta
@@ -24,11 +27,26 @@ def to_dict(instance):
 def ws_message(message):
     #print(message.content['text'])
 
-    data = {"msg" : "[user] %s" % message.content['text'],
-            "optional" : 'chat', "type" : "content_update"}
+    #data = {"msg" : "[user] %s" % message.content['text'],
+    #        "optional" : 'chat', "type" : "content_update"}
 
+    #Group("alexa").send({
+    #    "text": json.dumps(data),
+    #})
+
+
+    block = MessageBlock(name="[user] " + str(message.reply_channel),
+                         session="alexa",
+                         msg=message.content['text'])
+    print("BLOCK", block)
+    pickle.dump(block, open("cache/block.p", "wb"), -1)
+    block_re = pickle.load(open( "cache/block.p", "rb" ))
+    print("BLOCK_RE", block_re)
     Group("alexa").send({
-        "text": json.dumps(data),
+        "text": block.GetNode()
+    })
+    Group("alexa").send({
+        "text": block_re.GetNode()
     })
 
     #Group("alexa").send({

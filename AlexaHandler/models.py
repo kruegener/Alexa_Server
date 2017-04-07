@@ -1,4 +1,5 @@
 from django.db import models
+from .Block import BaseBlock
 
 # Create your models here.
 
@@ -26,7 +27,7 @@ class SessionFile(models.Model):
     filePath = models.FilePathField(path="/home/alexa_server/Desktop/Alexa_server/storage", recursive = True, allow_folders = True)
     
     def __str__(self):
-		return self.Sess
+        return self.Sess
 
 class SessionVarFile(models.Model):
     # Session
@@ -37,7 +38,7 @@ class SessionVarFile(models.Model):
     varFile = models.ForeignKey('SessionFile', on_delete=models.CASCADE)
     
     def __str__(self):
-		return self.VarName
+        return self.VarName
     
 class SessionVar(models.Model):
     # Session
@@ -48,7 +49,7 @@ class SessionVar(models.Model):
     VarType = models.CharField(max_length=1000)
     
     def __str__(self):
-		return self.VarName
+        return self.VarName
 
 class Node(models.Model):
     # belonging to nodeFlow
@@ -62,7 +63,7 @@ class Node(models.Model):
     Vars = models.ManyToManyField('SessionVar', blank=True)
     
     def __str__(self):
-		return self.NodeID
+        return self.NodeID
 
 class NodeFlow(models.Model):
     # Session
@@ -75,6 +76,10 @@ class NodeFlow(models.Model):
     def __str__(self):
         return self.FlowID
 
+class BlockChain(models.Model):
+    # Session
+    Sess = models.ForeignKey('ClientSession', on_delete=models.CASCADE)
+
     
 class ClientSession(models.Model):
     # id is already set by django, but lets get the messageThing
@@ -82,5 +87,5 @@ class ClientSession(models.Model):
     SessID = models.CharField(max_length=100)
     
     def __str__(self):
-		return self.SessID
+        return self.SessID
 

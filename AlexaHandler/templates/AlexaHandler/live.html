@@ -7,7 +7,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style>
-    .draggable { width: 150px; height: 150px; padding: 0.5em; position:absolute; z-index: 10}
+    .draggable { width: 150px;
+        height: 150px;
+        adding: 0.5em;
+        position:absolute;
+        z-index: 10;
+        overflow : hidden;}
 
     .window { z-index:20; }
     .jtk-connector { z-index:4; }
@@ -57,6 +62,7 @@ function new_plumb(){
 
 var socket = new WebSocket("ws://" + window.location.host + "/alexa/");
 var msg_count = 0;
+var block_count = 0;
 socket.onmessage = function(e) {
 	console.log(e.data);
 	data = JSON.parse(e.data);
@@ -103,8 +109,25 @@ socket.onmessage = function(e) {
       target:name,
     }, common);
     last_name = name;
-
   }
+
+  else if(data.type=="block"){
+    console.log("update called");
+    console.log("JSON", data);
+    name = "draggable_" + "block" + block_count;
+    block_count += 1;
+    console.log(xGrid, grid_count);
+    document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (grid_count%xGrid)*200 + " ; top: " + (150 + Math.floor(grid_count/xGrid)*200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+    console.log("name", name);
+    document.getElementById(name).innerHtml += "<p>" + data.block_name + "<br>" + data.msg + "</p>";
+    grid_count += 1;
+    plumbing.connect({
+      source:last_name,
+      target:name,
+    }, common);
+    last_name = name;
+  }
+
   plumbing.draggable($(".draggable"));
   //jsPlumb.repaintEverything();
 
