@@ -15,6 +15,6 @@ class MessageBlock (BaseBlock):
                 "block_type": self.type,
                 "block_id": self.name,
                 "content_type": "text",
-                "ms": self.msg,
+                "msg": self.msg,
                 }
         return json.dumps(data)

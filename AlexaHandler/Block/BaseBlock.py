@@ -47,4 +47,4 @@ class BaseBlock:
 
     # str
     def __str__(self):
-        return "{0} is a {1} type block.".format(self.name, self.Type)
+        return "{0} is a {1} type block.".format(self.name, self.type)

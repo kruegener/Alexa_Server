@@ -15,7 +15,7 @@ class BlockChain:
         self.ConnectionList = []
 
 
-        
+
         # inital save
         self.Chain_pickle()
 
@@ -50,7 +50,8 @@ class BlockChain:
     def delBlocksAll(self):
         self.BlockList = []
         self.ConnectionList = []
-        print("Blockchain empty")
+        print("Blockchain emptied")
+        self.Chain_pickle()
 
     def addConnectionByElement(self, Block1, Block2):
         self.ConnectionList.append([self.BlockList.index(Block1), self.BlockList.index(Block2)])

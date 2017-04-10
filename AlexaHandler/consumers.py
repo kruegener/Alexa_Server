@@ -1,16 +1,20 @@
 ''' making the consumers '''
-
-from channels.handler import AsgiHandler
+from __future__ import print_function
 from channels import Group
 # maybe define __all__ in models for private objects/funcs
 from AlexaHandler.models import *
 import json
-from django.forms.models import model_to_dict
 from django.db.models.fields.related import ManyToManyField
-
+# enforced ordering
+from channels.sessions import channel_session, enforce_ordering
+from channels.auth import channel_session_user, channel_session_user_from_http
+# block Import
 from .Block.BlockChain import *
 
 import pickle
+import sys
+
+# TODO not really using this anymore
 
 def to_dict(instance):
     opts = instance._meta
@@ -25,21 +29,36 @@ def to_dict(instance):
             data[f.name] = f.value_from_object(instance)
     return data
 
+
 def ws_message(message):
+    # TODO if more than one Session not feasible
     global SessChain
-    block = MessageBlock(name="[user] " + str(message.reply_channel),
-                         session="alexa",
-                         msg=message.content['text'])
-    # add to Chain
-    SessChain.addBlock(block)
+    data = json.loads(message.content['text'])
+    # print("JSON: ", data, "DATA: ", message.content['text'])
+    if data['type'] == "msg" :
+        block = MessageBlock(name="[user] " + str(message.reply_channel),
+                             session="alexa",
+                             msg=data['msg'])
+        # add to Chain
+        SessChain.addBlock(block)
+        # send to group
+        Group("alexa").send({
+            "text": block.GetNode()
+        })
+        print("BLOCK", block)
+
+    elif data['type'] == "command" :
+        # print(data['cmd'], file = sys.stderr)
+        if data['cmd'] == "del_all":
+            SessChain.delBlocksAll()
+            data = {"type": "reset"}
+            Group("alexa").send({
+                "text": json.dumps(data)
+            })
+
+
     # "autosave"
     SessChain.Chain_pickle()
-
-    print("BLOCK", block)
-    #pickle.dump(block, open("cache/block.p", "wb"), -1)
-    Group("alexa").send({
-        "text": block.GetNode()
-    })
 
 
 def ws_add(message):
