@@ -78,10 +78,15 @@
             block_count += 1;
             console.log(xGrid, grid_count);
             yOff = 180;
-            document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count%xGrid)*200) + 20) + " ; top: " + (yOff + Math.floor(grid_count/xGrid)*200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+            if (data.block_type == "message") {
+                document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count % xGrid) * 200) + 20) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+            }
+            else {
+                console.log(data);
+            }
             // TODO material design grid fail
             //document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='mdl-cell draggable ui-widget-content'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
-            componentHandler.upgradeElement(document.getElementById(name));
+            //componentHandler.upgradeElement(document.getElementById(name));
 
             //par.innerHtml = "<p>" +  data.block_type + "<br>" + data.block_id + "<br>" + data.msg + "</p>";
             console.log("name", name);
@@ -117,59 +122,14 @@
             data = JSON.parse(e.data);
             console.log(data.type);
 
-            if(data.type=="block"){
+            if (data.type == "block") {
                 new_block(data);
             }
-            else if(data.type=="reset"){
+            else if (data.type == "reset") {
                 reset();
             }
 
             plumbing.draggable($(".draggable"));
-
-            // old node code
-            {% comment %} if(data.type=="init"){
-               //box = document.getElementById("content");
-               // get all Flows and map flowIDs to ids
-
-               $.each(data.NodeFlows, function(i, v) {
-                   var flowID = v.FlowID;
-                   var ID = v.id;
-                   console.log("value: ", flowID, " ", ID);
-                   var name = "draggable_" + flowID;
-                   //ID_map[ID] = flowID;
-                   document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (grid_count%xGrid)*200 + "; top: " + (150 + Math.floor(grid_count/xGrid)*200) + "'><p>" + flowID + "<br>" + "</p></div>";
-                   name = "draggable_" + flowID;
-                   grid_count += 1;
-                   if(last_name != ""){
-                     plumbing.connect({
-                       source:name,
-                       target:last_name,
-                     }, common);
-                   }
-                   last_name = name;
-               });
-               // put nodes in the flows
-
-                 //alert(e.data);
-               new_plumb();
-             }
-
-
-             else if(data.type=="content_update"){
-               console.log("update called");
-               console.log("JSON", data);
-               name = "draggable_" + "msg" + msg_count;
-               msg_count += 1;
-               console.log(xGrid, grid_count);
-               document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (grid_count%xGrid)*200 + " ; top: " + (150 + Math.floor(grid_count/xGrid)*200) + "'><p>" + data.msg + "<br>" + "</p></div>";
-               grid_count += 1;
-               plumbing.connect({
-                 source:last_name,
-                 target:name,
-               }, common);
-               last_name = name;
-             }{% endcomment %}
-
 
         }
 

@@ -2,20 +2,18 @@
 from __future__ import print_function
 from channels import Group
 # maybe define __all__ in models for private objects/funcs
-from AlexaHandler.models import *
+from .models import *
 import json
 from django.db.models.fields.related import ManyToManyField
-# enforced ordering
+
+# TODO enforced ordering
 from channels.sessions import channel_session, enforce_ordering
 from channels.auth import channel_session_user, channel_session_user_from_http
 # block Import
 from .Block.BlockChain import *
-
 import pickle
-import sys
 
 # TODO not really using this anymore
-
 def to_dict(instance):
     opts = instance._meta
     data = {}
@@ -64,6 +62,18 @@ def ws_message(message):
                     "text": block.GetNode()
                 })
 
+        elif data['cmd'] == "img":
+            print("img ordered")
+            block = ImageBlock(name="test_image",
+                                 session="alexa",
+                                 img_path="/home/alexa_server/Alexa_Server/import/test.jpg")
+            # add to Chain
+            SessChain.addBlock(block)
+            # send to group
+            Group("alexa").send({
+                "text": block.GetNode()
+            })
+            print("BLOCK", block)
 
     # "autosave"
     SessChain.Chain_pickle()
@@ -86,7 +96,8 @@ def ws_add(message):
 
     if not oldSess:
         print("new Session")
-        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa', pickle="cache/alexa.p")
+        # TODO pickle field
+        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa', pickle="cache/alexa/alexa.p")
         SessModel.save()
         SessChain = BlockChain(name="alexa", session="alexa")
         print(SessChain)
@@ -111,4 +122,5 @@ def ws_add(message):
 
 # Connected to websocket.disconnect
 def ws_disconnect(message):
+    # TODO implement longer timeout (say days) or put a timestamp check in the exchanged data
     Group("alexa").discard(message.reply_channel)

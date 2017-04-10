@@ -37,14 +37,14 @@ class BaseBlock:
     def GetNode(self):
         import json
         data = {"type": "block",
-                "block_type": "base",
+                "block_type": self.type,
                 "block_id": self.name,
                 "content_type": self.content_type,
-                "text": "Base Block",
+                "text": "",
                 }
         return json.dumps(data)
 
 
     # str
     def __str__(self):
-        return "{0} is a {1} type block.".format(self.name, self.type)
+        return "{0}: type {1}".format(self.name, self.type)

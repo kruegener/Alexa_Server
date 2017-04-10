@@ -1,8 +1,11 @@
 from __future__ import print_function
 
+# import here for easier import in consumers
 from .BaseBlock import BaseBlock
 from .MessageBlock import MessageBlock
+from .ImageBlock import ImageBlock
 import sys
+import os
 import pickle
 class BlockChain:
 
@@ -61,13 +64,14 @@ class BlockChain:
 
     def Chain_pickle(self):
         # TODO get path from somewhere
-        path = "/home/alexa_server/Alexa_Server/cache/" + self.name + ".p"
-        pickle.dump(self, open(path, "wb"))
+        path = "/home/alexa_server/Alexa_Server/cache/" + self.session
+        # checking if dir already exists
+        if not os.path.exists(path):
+            os.makedirs(path)
+        file = path + "/" + self.name + ".p"
+        pickle.dump(self, open(file, "wb"))
         print("pickling", self)
-        #f = open(path, 'wb')
-        #pickle.dump(self.__dict__, f, -1)
-        #f.close()
 
     def __str__(self):
-        msg = self.name + ": Blocklist: " + str(len(self.BlockList)) + " Connections: " + str(len(self.ConnectionList))
+        msg = "BlockChain: " + self.name + ": Blocklist: " + str(len(self.BlockList)) + " Connections: " + str(len(self.ConnectionList))
         return msg

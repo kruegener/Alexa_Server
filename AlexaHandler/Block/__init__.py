@@ -1,1 +1,1 @@
-__all__ = ["BaseBlock", "MessageBlock", "BlockChain"]
+__all__ = ["BaseBlock", "MessageBlock", "ImageBlock", "BlockChain"]

@@ -95,7 +95,8 @@ class BlockChainModel(models.Model):
     # list all associated blocks as Json
     Chain = models.ManyToManyField("BlockModel")
     # pickle
-    pickle = models.FilePathField(path="cache/")
+    # TODO on Model delete -> Cache delete
+    pickle = models.FilePathField(path="cache/", recursive=True)
 
     def __str__(self):
         return self.name
