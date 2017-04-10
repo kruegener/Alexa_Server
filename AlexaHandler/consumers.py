@@ -56,6 +56,14 @@ def ws_message(message):
                 "text": json.dumps(data)
             })
 
+        elif data['cmd'] == "init":
+            print("init config ordered")
+            # serve BlockChain Contents to client
+            for block in SessChain.getBlockList():
+                message.reply_channel.send({
+                    "text": block.GetNode()
+                })
+
 
     # "autosave"
     SessChain.Chain_pickle()
@@ -72,7 +80,7 @@ def ws_add(message):
 
     # boolean
     oldSess = BlockChainModel.objects.all().filter(Sess='alexa').exists()
-    print("New: ", oldSess)
+    print("Old Session: ", oldSess)
 
     # Generating new Blockchain, looking up in active variables or from pickle_cache
 
@@ -99,13 +107,6 @@ def ws_add(message):
         print("got old Session")
         print(SessChain)
 
-
-    # serve BlockChain Contents to client
-
-    for block in SessChain.getBlockList():
-        message.reply_channel.send({
-            "text": block.GetNode()
-        })
 
 
 # Connected to websocket.disconnect
