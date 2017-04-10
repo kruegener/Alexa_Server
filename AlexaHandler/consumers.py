@@ -103,7 +103,7 @@ def ws_add(message):
     # serve BlockChain Contents to client
 
     for block in SessChain.getBlockList():
-        Group("alexa").send({
+        message.reply_channel.send({
             "text": block.GetNode()
         })
 
