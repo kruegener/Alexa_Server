@@ -76,9 +76,29 @@ class NodeFlow(models.Model):
     def __str__(self):
         return self.FlowID
 
-class BlockChain(models.Model):
+class BlockModel(models.Model):
     # Session
-    Sess = models.ForeignKey('ClientSession', on_delete=models.CASCADE)
+    #Chain = models.ForeignKey('BlockChainModel', on_delete=models.CASCADE)
+    # name
+    name = models.CharField(max_length = 1000, default="block")
+    # Pickle File
+    #pickle = models.FilePathField(path = "cache/")
+
+    def __str__(self):
+        return self.name
+
+class BlockChainModel(models.Model):
+    # Session
+    Sess = models.CharField(max_length=1000)
+    # chain name
+    name = models.CharField(max_length=1000, default="block_chain")
+    # list all associated blocks as Json
+    Chain = models.ManyToManyField("BlockModel")
+    # pickle
+    pickle = models.FilePathField(path="cache/")
+
+    def __str__(self):
+        return self.name
 
     
 class ClientSession(models.Model):

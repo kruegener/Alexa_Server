@@ -7,8 +7,9 @@ from AlexaHandler.models import *
 import json
 from django.forms.models import model_to_dict
 from django.db.models.fields.related import ManyToManyField
-from .Block.BaseBlock import BaseBlock
-from .Block.MessageBlock import MessageBlock
+
+from .Block.BlockChain import *
+
 import pickle
 
 def to_dict(instance):
@@ -25,33 +26,21 @@ def to_dict(instance):
     return data
 
 def ws_message(message):
-    #print(message.content['text'])
-
-    #data = {"msg" : "[user] %s" % message.content['text'],
-    #        "optional" : 'chat', "type" : "content_update"}
-
-    #Group("alexa").send({
-    #    "text": json.dumps(data),
-    #})
-
-
+    global SessChain
     block = MessageBlock(name="[user] " + str(message.reply_channel),
                          session="alexa",
                          msg=message.content['text'])
+    # add to Chain
+    SessChain.addBlock(block)
+    # "autosave"
+    SessChain.Chain_pickle()
+
     print("BLOCK", block)
-    pickle.dump(block, open("cache/block.p", "wb"), -1)
-    block_re = pickle.load(open( "cache/block.p", "rb" ))
-    print("BLOCK_RE", block_re)
+    #pickle.dump(block, open("cache/block.p", "wb"), -1)
     Group("alexa").send({
         "text": block.GetNode()
     })
-    Group("alexa").send({
-        "text": block_re.GetNode()
-    })
 
-    #Group("alexa").send({
-    #    "text": "[user] %s" % message.content['text'],
-    #})
 
 def ws_add(message):
     # Accept the incoming connection
@@ -59,55 +48,45 @@ def ws_add(message):
 
     # Add them to the chat group (again implement different )
     Group("alexa").add(message.reply_channel)
+    # TODO: change when more than one Session
+    global SessChain
 
-    # check if session exists (add ?room= ...)
-    oldCS = ClientSession.objects.all().filter(SessID='alexa').exists()
-    print("NEW: ", oldCS)
-    if not oldCS:
-        print("new CS")
-        CS = ClientSession(SessID = 'alexa')
-        CS.save()
+    # boolean
+    oldSess = BlockChainModel.objects.all().filter(Sess='alexa').exists()
+    print("New: ", oldSess)
+
+    # Generating new Blockchain, looking up in active variables or from pickle_cache
+
+    if not oldSess:
+        print("new Session")
+        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa', pickle="cache/alexa.p")
+        SessModel.save()
+        SessChain = BlockChain(name="alexa", session="alexa")
+        print(SessChain)
     else:
-        CS = ClientSession.objects.get(SessID='alexa')
-        print("got old CS")
 
-    #data = {"msg" : "jo",
-            #"optional" : 'asd'}
+        SessModel = BlockChainModel.objects.get(Sess='alexa')
 
-    # get Session nodeFlows
-    NFs = NodeFlow.objects.filter(Sess = CS).iterator()
-    NFs = [nf for nf in NFs]
-    # hierarchical NodeFlow node list
-    NsI = []
-    # non-hierarchical
-    Ns = []
-    # get Nodes for NodeFlows
-    for NF in NFs:
-        NsI.append(Node.objects.filter(Flow = NF).iterator())
-    # hierarchical Nodes in lists for flows
-    NsI = [[to_dict(N) for N in nf] for nf in NsI]
-    # all nodes unwrapped, easier to process client side
-    for nf in NsI:
-        for n in nf:
-            Ns.append(n)
-    # get SessionVars
-    Vars = SessionVar.objects.filter(Sess = CS).iterator()
-    Vars = [to_dict(var) for var in Vars]
+        try:
+            SessChain
+        except NameError:
+            print("reload from Cache")
+            SessChain = pickle.load(open(SessModel.pickle, "rb"))
+            print(SessChain)
+        else:
+            print("was already in active memory")
 
-    print("NodeFlows: ", NFs)
-    print("Nodes: ", Ns)
-    print("Vars: ", Vars)
+        print(SessModel)
+        print("got old Session")
+        print(SessChain)
 
-    data = {"type": "init",
-            "NodeFlows": [to_dict(nf) for nf in NFs],
-            "Nodes": Ns,
-            "Vars": Vars,
-           }
-    # get varNames
-    message.reply_channel.send({
-        "text": json.dumps(data),
-    })
-    # send reply_channel all variable_names and nodes as JSON
+
+    # serve BlockChain Contents to client
+
+    for block in SessChain.getBlockList():
+        Group("alexa").send({
+            "text": block.GetNode()
+        })
 
 
 # Connected to websocket.disconnect
