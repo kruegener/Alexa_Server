@@ -37,18 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #own Apps
     'django_alexa',
     'rest_framework',
     'AlexaHandler',
-    "sslserver",
     'channels',
+    "sslserver",
+
 ]
 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "ROUTING": "AlexaHandler.routing.channel_routing",
-        #"ROUTING": "???",
     },
 }
 
@@ -142,3 +143,5 @@ CACHE_DIR = (
 CACHE_URL = (
     "http://talktoyourdata.upc.edu/AlexaHandler/cache"
 )
+
+SECURE_SSL_REDIRECT = False

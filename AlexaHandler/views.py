@@ -31,7 +31,3 @@ def serve_cache(request):
 	print("SERVE PATH: ", path)
 	image_data = open(path, "rb").read()
 	return HttpResponse(image_data, content_type="image/png")
-
-def trigger():
-	print("Triggered")
-	TRIGGER = True

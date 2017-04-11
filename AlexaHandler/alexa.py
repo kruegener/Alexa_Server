@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 from django_alexa.api import fields, intent, ResponseBuilder
 
-from .views import trigger
 from AlexaHandler.models import Person
 
 from channels.handler import AsgiHandler

@@ -60,9 +60,15 @@ def ws_message(message):
             # artificial sleep to show off loading
             time.sleep(1)
             # serve BlockChain Contents to client
-            for block in SessChain.getBlockList():
+            if SessChain.getBlockListLength() != 0:
+                for block in SessChain.getBlockList():
+                    message.reply_channel.send({
+                        "text": block.GetNode()
+                    })
+            else:
+                data = {"type": "init_done"}
                 message.reply_channel.send({
-                    "text": block.GetNode()
+                    "text": json.dumps(data)
                 })
 
         elif data['cmd'] == "img":

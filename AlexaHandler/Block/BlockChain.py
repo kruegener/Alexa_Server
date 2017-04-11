@@ -36,6 +36,9 @@ class BlockChain:
     def getBlockList(self):
         return self.BlockList
 
+    def getBlockListLength(self):
+        return len(self.BlockList)
+
     def delBlockById(self, index):
         if index < len(self.BlockList):
             del self.BlockList[index]
