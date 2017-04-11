@@ -44,6 +44,8 @@ class BaseBlock:
                 }
         return json.dumps(data)
 
+    def delBlock(self):
+        del self
 
     # str
     def __str__(self):

@@ -7,6 +7,8 @@ from .ImageBlock import ImageBlock
 import sys
 import os
 import pickle
+from django.conf import settings
+
 class BlockChain:
 
     def __init__(self, name="block_chain", session=""):
@@ -51,6 +53,10 @@ class BlockChain:
             print("Couldn't delete! Block is not in BlockChain", file=sys.stderr)
 
     def delBlocksAll(self):
+
+        for block in self.BlockList:
+            block.delBlock()
+
         self.BlockList = []
         self.ConnectionList = []
         print("Blockchain emptied")
@@ -63,8 +69,7 @@ class BlockChain:
         self.ConnectionList.append([index1, index2])
 
     def Chain_pickle(self):
-        # TODO get path from somewhere
-        path = "/home/alexa_server/Alexa_Server/cache/" + self.session
+        path = settings.CACHE_DIR + "/" + self.session
         # checking if dir already exists
         if not os.path.exists(path):
             os.makedirs(path)

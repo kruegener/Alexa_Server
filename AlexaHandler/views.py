@@ -3,12 +3,10 @@ from django.http import HttpResponse
 from django.apps import apps
 import os
 from django.template import loader
-
+from django.conf import settings
 from .models import Person
 
 # Create your views here.
-
-TRIGGER = False
 
 def index(request):
 	# acc = ""
@@ -26,8 +24,13 @@ def live(request):
 	context = {'Title': "Live Alexa"}
 	return render(request, 'AlexaHandler/live.html', context)
 
-def setVar(request, var):
-	return HttpResponse(var)
+def serve_cache(request):
+	print("File_Request: ", request.path.split("cache", 1)[1])
+	file = request.path.split("cache", 1)[1]
+	path = settings.CACHE_DIR + file
+	print("SERVE PATH: ", path)
+	image_data = open(path, "rb").read()
+	return HttpResponse(image_data, content_type="image/png")
 
 def trigger():
 	print("Triggered")

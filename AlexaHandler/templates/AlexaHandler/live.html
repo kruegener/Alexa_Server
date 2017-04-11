@@ -42,6 +42,9 @@
             background-color: #f7f3ff;
         }
 
+        img {
+            max-width:100%;
+        }
         .window { z-index:20; }
         .jtk-connector { z-index:4; }
         .jtk-endpoint { z-index:11; }
@@ -112,6 +115,17 @@
             if (data.block_type == "message") {
                 document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
             }
+            else if (data.block_type == "image") {
+                var div = document.createElement("div");
+                div.id = name;
+                div.className = "draggable ui-widget-content";
+                div.style = "left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200);
+                var img = document.createElement("img");
+                img.src = data.call_path;
+                div.appendChild(img);
+                var par = document.getElementById("plumbing_block");
+                par.append(div);
+            }
             else {
                 console.log(data);
             }
@@ -148,7 +162,7 @@
             socket.send(JSON.stringify({"type" : "msg", "msg" : "msg"}));
         }
 
-        function send_iamge_populate(){
+        function send_image_populate(){
             socket.send(JSON.stringify({"type" : "command", "cmd" : "img"}));
         }
 

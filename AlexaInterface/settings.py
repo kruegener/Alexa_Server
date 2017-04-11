@@ -133,5 +133,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    "/static/AlexaHandler",
+    "/static/AlexaHandler"
 ]
+
+CACHE_DIR = (
+    "/home/alexa_server/Alexa_Server/cache"
+)
+CACHE_URL = (
+    "http://talktoyourdata.upc.edu/AlexaHandler/cache"
+)

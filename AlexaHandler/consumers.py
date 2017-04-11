@@ -67,7 +67,7 @@ def ws_message(message):
 
         elif data['cmd'] == "img":
             print("img ordered")
-            block = ImageBlock(name="test_image",
+            block = ImageBlock(name="test.jpg",
                                  session="alexa",
                                  img_path="/home/alexa_server/Alexa_Server/import/test.jpg")
             # add to Chain
