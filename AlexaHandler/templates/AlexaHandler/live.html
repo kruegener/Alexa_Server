@@ -53,8 +53,8 @@
         #content { width: 150px; height: 150px; padding: 0.5em; }
     </style>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- material design -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
@@ -64,6 +64,29 @@
     <script src="{% static "AlexaHandler/reconnecting-websocket.min.js" %}"></script>
 
     <script type="text/javascript">
+
+        (function defer() {
+            if (window.jQuery) {
+                //alert("jQuery loaded");
+            } else {
+                console.log("check");
+                setTimeout(function() { defer() }, 50);
+            }
+        })();
+
+    </script>
+
+    <script type="text/javascript">
+        console.log("in local script");
+        //
+        //alert("my own");
+        window.onload = function()
+        {
+            if (!window.jQuery) {
+                alert('jQuery is not loaded');
+            }
+        }
+
         var plumbing = jsPlumb.getInstance();
         var last_name = "";
         var grid_count = 0;
@@ -99,7 +122,8 @@
             });
         }
 
-        var socket = new ReconnectingWebSocket("wss://" + window.location.host + "/alexa/");
+        var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+        //alert(socket.readyState);
         socket.debug = true;
         var msg_count = 0;
         var block_count = 0;
@@ -188,9 +212,10 @@
             });
 
         }
-
+        
         socket.onopen = function(e)
         {
+            //alert(socket.readyState);
             if(init) {
                 // get inital
                 socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
