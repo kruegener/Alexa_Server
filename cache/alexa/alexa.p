@@ -28,7 +28,7 @@ p12
 S'message'
 p13
 sg4
-S'[user] daphne.response.RFSDVyFvPa!jFdZcQDzKF'
+S'[user] daphne.response.wrEhcOUfVz!PQJMPblwrO'
 p14
 sba(iAlexaHandler.Block.MessageBlock
 MessageBlock
@@ -42,51 +42,85 @@ g11
 sg12
 g13
 sg4
-S'[user] daphne.response.RFSDVyFvPa!jFdZcQDzKF'
+S'[user] daphne.response.wrEhcOUfVz!PQJMPblwrO'
 p18
-sba(iAlexaHandler.Block.MessageBlock
-MessageBlock
+sba(iAlexaHandler.Block.ImageBlock
+ImageBlock
 p19
 (dp20
-g9
-Vmsg
+S'cached'
 p21
+I01
 sg2
 g11
 sg12
-g13
-sg4
-S'[user] daphne.response.RFSDVyFvPa!jFdZcQDzKF'
+S'image'
 p22
-sba(iAlexaHandler.Block.MessageBlock
-MessageBlock
+sg4
+S'test.jpg'
 p23
-(dp24
-g9
-Vmsg
+sS'img_path'
+p24
+S'/home/alexa_server/Alexa_Server/cache/alexa/test.jpg'
 p25
-sg2
-g11
-sg12
-g13
-sg4
-S'[user] daphne.response.RFSDVyFvPa!jFdZcQDzKF'
-p26
 sba(iAlexaHandler.Block.MessageBlock
 MessageBlock
-p27
-(dp28
+p26
+(dp27
 g9
 Vmsg
-p29
+p28
 sg2
 g11
 sg12
 g13
 sg4
-S'[user] daphne.response.RFSDVyFvPa!jFdZcQDzKF'
+S'[user] daphne.response.wrEhcOUfVz!PQJMPblwrO'
+p29
+sba(iAlexaHandler.Block.ImageBlock
+ImageBlock
 p30
+(dp31
+g21
+I01
+sg2
+g11
+sg12
+g22
+sg4
+g23
+sg24
+S'/home/alexa_server/Alexa_Server/cache/alexa/test.jpg'
+p32
+sba(iAlexaHandler.Block.MessageBlock
+MessageBlock
+p33
+(dp34
+g9
+Vmsg
+p35
+sg2
+g11
+sg12
+g13
+sg4
+S'[user] daphne.response.wrEhcOUfVz!PQJMPblwrO'
+p36
+sba(iAlexaHandler.Block.MessageBlock
+MessageBlock
+p37
+(dp38
+g9
+Vmsg
+p39
+sg2
+g11
+sg12
+g13
+sg4
+S'[user] daphne.response.wrEhcOUfVz!PQJMPblwrO'
+p40
 sbasS'ConnectionList'
-p31
-(lp32
+p41
+(lp42
 sb.

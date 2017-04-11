@@ -99,7 +99,7 @@
             });
         }
 
-        var socket = new ReconnectingWebSocket("ws://" + window.location.host + "/alexa/");
+        var socket = new ReconnectingWebSocket("wss://" + window.location.host + "/alexa/");
         socket.debug = true;
         var msg_count = 0;
         var block_count = 0;

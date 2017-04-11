@@ -141,7 +141,10 @@ CACHE_DIR = (
     "/home/alexa_server/Alexa_Server/cache"
 )
 CACHE_URL = (
-    "http://talktoyourdata.upc.edu/AlexaHandler/cache"
+    "https://talktoyourdata.upc.edu/AlexaHandler/cache"
 )
 
 SECURE_SSL_REDIRECT = False
+
+# set Amazon App ID
+os.environ["ALEXA_APP_ID_AlexaHandler"] = "amzn1.ask.skill.e54c5b30-3545-4d27-8a0a-72eaa0c479fa"
