@@ -4,6 +4,7 @@ from channels import Group
 # maybe define __all__ in models for private objects/funcs
 from .models import *
 import json
+import time
 from django.db.models.fields.related import ManyToManyField
 
 # TODO enforced ordering
@@ -56,6 +57,8 @@ def ws_message(message):
 
         elif data['cmd'] == "init":
             print("init config ordered")
+            # artificial sleep to show off loading
+            time.sleep(1)
             # serve BlockChain Contents to client
             for block in SessChain.getBlockList():
                 message.reply_channel.send({

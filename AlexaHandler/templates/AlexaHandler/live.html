@@ -7,12 +7,40 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <style>
+        html{
+            min-height:100%;/* make sure it is at least as tall as the viewport */
+            position:relative;
+        }
+        body {
+            height:100%;
+        }
         .draggable { width: 150px;
             height: 150px;
             adding: 0.5em;
             position:absolute;
             z-index: 10;
             overflow : hidden;}
+
+        #plumbing_block {
+            display:block;
+            overflow:hidden;
+            height: 100vh;
+            left: 0;
+            top: 20%;
+            right: 0;
+            bottom: 0;
+            background-color: #f7fff0;
+        }
+
+        #bar {
+            display:block;
+            overflow:auto;
+            height: 20%;
+            width: 100%;
+            top: 0%;
+            left: 0%;
+            background-color: #f7f3ff;
+        }
 
         .window { z-index:20; }
         .jtk-connector { z-index:4; }
@@ -63,7 +91,9 @@
         function new_plumb(){
             //jsPlumb block
             console.log("new_plumb started");
-            plumbing.draggable($(".draggable"));
+            plumbing.draggable($(".draggable"), {
+                containment:"plumbing_block"
+            });
         }
 
         var socket = new ReconnectingWebSocket("ws://" + window.location.host + "/alexa/");
@@ -77,15 +107,16 @@
             name = "draggable_" + "block" + block_count;
             block_count += 1;
             console.log(xGrid, grid_count);
-            yOff = 180;
+            yOff = height*.2;
+            xOff = 20;
             if (data.block_type == "message") {
-                document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count % xGrid) * 200) + 20) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+                document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
             }
             else {
                 console.log(data);
             }
             // TODO material design grid fail
-            //document.getElementById("plumbing block").innerHTML += "<div id=" + name + " class='mdl-cell draggable ui-widget-content'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+            //document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='mdl-cell draggable ui-widget-content'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
             //componentHandler.upgradeElement(document.getElementById(name));
 
             //par.innerHtml = "<p>" +  data.block_type + "<br>" + data.block_id + "<br>" + data.msg + "</p>";
@@ -103,7 +134,7 @@
         }
 
         function reset(){
-            plumbing.empty("plumbing block");
+            plumbing.empty("plumbing_block");
             last_name = "";
             grid_count = 0;
             block_count = 0;
@@ -117,10 +148,19 @@
             socket.send(JSON.stringify({"type" : "msg", "msg" : "msg"}));
         }
 
+        function send_iamge_populate(){
+            socket.send(JSON.stringify({"type" : "command", "cmd" : "img"}));
+        }
+
         socket.onmessage = function(e) {
             console.log(e.data);
             data = JSON.parse(e.data);
             console.log(data.type);
+
+            if(init){
+                init = false;
+                document.getElementById("plumbing_block").innerHTML = "";
+            }
 
             if (data.type == "block") {
                 new_block(data);
@@ -129,7 +169,9 @@
                 reset();
             }
 
-            plumbing.draggable($(".draggable"));
+            plumbing.draggable($(".draggable") , {
+                containment:"plumbinb_block"
+            });
 
         }
 
@@ -138,7 +180,6 @@
             if(init) {
                 // get inital
                 socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
-                init = false;
             }
         };
 
@@ -147,20 +188,27 @@
 {% endblock %}
 
 {% block body %}
-    <h1> LIVE ALEXA Test</h1>
-    <!-- Accent-colored raised button with ripple -->
-    <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-        Reset
-    </button>
-    <button onclick="send_populate()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Populate
-    </button>
-    <button onclick="send_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-        <i class="material-icons">add</i>
-    </button>
+
+    <div id = "bar">
+        <h1> LIVE ALEXA Test</h1>
+        <!-- Accent-colored raised button with ripple -->
+        <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            Reset
+        </button>
+        <button onclick="send_populate()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Populate
+        </button>
+        <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+            <i class="material-icons">add</i>
+        </button>
+
+    </div>
 
 
-    <div id = "plumbing block" class="mdl-grid">
+    <div id ="plumbing_block" class="mdl-grid">
+        <!-- MDL Progress Bar with Indeterminate Progress -->
+
+            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
 
     </div>
 
