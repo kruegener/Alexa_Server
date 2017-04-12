@@ -47,7 +47,7 @@ class BaseBlock:
     def delBlock(self):
         del self
 
-    def executeBlock(self):
+    def executeBlock(self, *args):
         # MUST OVERRIDE
         print("execute not defined")
 

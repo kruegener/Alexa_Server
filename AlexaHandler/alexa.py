@@ -18,11 +18,7 @@ def LaunchRequest(session):
     Launch
     """
 
-    #trigger()
-
-
-
-    return ResponseBuilder.create_response(message="What's your name?",
+    return ResponseBuilder.create_response(message="open",
                                            reprompt="",
                                            end_session=False,
                                            launched=True)

@@ -2,6 +2,8 @@ from .BaseBlock import BaseBlock
 import os
 from shutil import copyfile
 from django.conf import settings
+import json
+from channels import Group
 
 class ImageBlock(BaseBlock):
 
@@ -64,7 +66,6 @@ class ImageBlock(BaseBlock):
         if not self.cached:
             self.makeCached()
         print("get image Node")
-        import json
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
         data = {"type": "block",
                 "block_type": self.type,
@@ -73,3 +74,13 @@ class ImageBlock(BaseBlock):
                 "call_path": call_path,
                 }
         return json.dumps(data)
+
+    def executeBlock(self, num):
+        data = {"type": "cmd",
+                "block_id": num,
+                "cmd": "light_up",
+                }
+        print("executing ImageBlock")
+        Group("alexa").send({
+            "text": json.dumps(data)
+        })
