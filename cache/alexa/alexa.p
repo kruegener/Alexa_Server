@@ -28,7 +28,7 @@ p12
 S'message'
 p13
 sg4
-S'[user] daphne.response.vtAagaILia!zGLtGxzUAO'
+S'[user] daphne.response.sXWMIVgrlm!cPMgkWxSbM'
 p14
 sba(iAlexaHandler.Block.MessageBlock
 MessageBlock
@@ -42,7 +42,7 @@ g11
 sg12
 g13
 sg4
-S'[user] daphne.response.vtAagaILia!zGLtGxzUAO'
+S'[user] daphne.response.sXWMIVgrlm!cPMgkWxSbM'
 p18
 sba(iAlexaHandler.Block.ImageBlock
 ImageBlock
@@ -63,64 +63,25 @@ sS'img_path'
 p24
 S'/home/alexa_server/Alexa_Server/cache/alexa/test.jpg'
 p25
-sba(iAlexaHandler.Block.MessageBlock
-MessageBlock
-p26
-(dp27
-g9
-Vmsg
-p28
-sg2
-g11
-sg12
-g13
-sg4
-S'[user] daphne.response.vtAagaILia!zGLtGxzUAO'
-p29
 sba(iAlexaHandler.Block.ImageBlock
 ImageBlock
-p30
-(dp31
+p26
+(dp27
 g21
 I01
 sg2
-g11
+S'alexa'
+p28
 sg12
-g22
+S'image'
+p29
 sg4
-g23
+S'test.jpg'
+p30
 sg24
 S'/home/alexa_server/Alexa_Server/cache/alexa/test.jpg'
-p32
-sba(iAlexaHandler.Block.MessageBlock
-MessageBlock
-p33
-(dp34
-g9
-Vmsg
-p35
-sg2
-g11
-sg12
-g13
-sg4
-S'[user] daphne.response.vtAagaILia!KmVckSbxCe'
-p36
-sba(iAlexaHandler.Block.MessageBlock
-MessageBlock
-p37
-(dp38
-g9
-Vmsg
-p39
-sg2
-g11
-sg12
-g13
-sg4
-S'[user] daphne.response.vtAagaILia!KmVckSbxCe'
-p40
+p31
 sbasS'ConnectionList'
-p41
-(lp42
+p32
+(lp33
 sb.

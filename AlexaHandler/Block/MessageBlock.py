@@ -1,4 +1,6 @@
 from .BaseBlock import BaseBlock
+import json
+from channels import Group
 
 class MessageBlock (BaseBlock):
 
@@ -10,7 +12,6 @@ class MessageBlock (BaseBlock):
 
     # Node builder
     def GetNode(self):
-        import json
         data = {"type": "block",
                 "block_type": self.type,
                 "block_id": self.name,
@@ -18,3 +19,13 @@ class MessageBlock (BaseBlock):
                 "msg": self.msg,
                 }
         return json.dumps(data)
+
+    def executeBlock(self, num):
+        data = {"type": "cmd",
+                "block_id": num,
+                "cmd": "light_up",
+                }
+        print("executing MessageBlock")
+        Group("alexa").send({
+            "text": json.dumps(data)
+        })

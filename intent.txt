@@ -1,0 +1,51 @@
+('NAMES: ', <QuerySet [<Person: Moritz>, <Person: pol>, <Person: Test>, <Person: sergi>, <Person: Alex>, <Person: David>, <Person: pizza>, <Person: maria>]>)
+
+#### SCHEMAS FOR AlexaHandler ####
+{
+    "intents": [
+        {
+            "intent": "executeBlock", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
+            "intent": "LaunchRequest", 
+            "slots": []
+        }, 
+        {
+            "intent": "AddFileRequest", 
+            "slots": []
+        }, 
+        {
+            "intent": "SetName", 
+            "slots": [
+                {
+                    "name": "name", 
+                    "type": "NAMES"
+                }
+            ]
+        }
+    ]
+}
+
+NAMES:
+  Moritz
+  pol
+  Test
+  sergi
+  Alex
+  David
+  pizza
+  maria
+
+executeBlock read message {num}
+LaunchRequest launch
+AddFileRequest test
+SetName my name is {name}
+SetName {name}
+
+#####################################

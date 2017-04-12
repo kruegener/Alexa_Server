@@ -1,9 +1,9 @@
 from __future__ import print_function
 
 # import here for easier import in consumers
-from .BaseBlock import BaseBlock
-from .MessageBlock import MessageBlock
-from .ImageBlock import ImageBlock
+#from .BaseBlock import BaseBlock
+#from .MessageBlock import MessageBlock
+#from .ImageBlock import ImageBlock
 import sys
 import os
 import pickle
@@ -39,7 +39,7 @@ class BlockChain:
     def getBlockListLength(self):
         return len(self.BlockList)
 
-    def delBlockById(self, index):
+    def delBlockByIndex(self, index):
         if index < len(self.BlockList):
             del self.BlockList[index]
             # check if list is really emptying
@@ -54,6 +54,9 @@ class BlockChain:
 
         else:
             print("Couldn't delete! Block is not in BlockChain", file=sys.stderr)
+
+    def getBlockId(self, Block):
+        return self.BlockList.index(Block)
 
     def delBlocksAll(self):
 

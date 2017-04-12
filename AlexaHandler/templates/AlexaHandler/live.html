@@ -93,7 +93,7 @@
         var grid_count = 0;
         var width = $(window).width();
         var height = $(window).height();
-        var xGrid = Math.floor((width-150)/200);
+        var xGrid = Math.floor( (width-150)/200);
         var init = true;
 
         plumbing.importDefaults({
@@ -149,7 +149,7 @@
                 img.src = data.call_path;
                 div.appendChild(img);
                 var par = document.getElementById("plumbing_block");
-                par.append(div);
+                $(par).append(div);
             }
             else {
                 console.log(data);
@@ -191,6 +191,11 @@
             socket.send(JSON.stringify({"type" : "command", "cmd" : "img"}));
         }
 
+        function light_up(data){
+            name = "draggable_block" + data.block_id;
+            $( "#" + name ).effect("highlight", {}, 3000);
+        }
+
         socket.onmessage = function(e) {
             console.log(e.data);
             data = JSON.parse(e.data);
@@ -204,8 +209,11 @@
             if (data.type == "block") {
                 new_block(data);
             }
-            else if (data.type == "reset") {
-                reset();
+            else if (data.type == "cmd") {
+                if(data.cmd == "reset")
+                    reset();
+                else if(data.cmd == "light_up")
+                    light_up(data);
             }
 
             plumbing.draggable($(".draggable") , {

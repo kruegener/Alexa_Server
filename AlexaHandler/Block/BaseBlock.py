@@ -47,6 +47,10 @@ class BaseBlock:
     def delBlock(self):
         del self
 
+    def executeBlock(self):
+        # MUST OVERRIDE
+        print("execute not defined")
+
     # str
     def __str__(self):
         return "{0}: type {1}".format(self.name, self.type)

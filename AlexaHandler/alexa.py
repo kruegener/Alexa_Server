@@ -3,17 +3,19 @@ from django_alexa.api import fields, intent, ResponseBuilder
 
 from AlexaHandler.models import Person
 
-from channels.handler import AsgiHandler
 from channels import Group
 
 import json
+
+# Importing Alexa Functionality from Block Module
+from .Block import Alexa
 
 @intent(slots=None, app="AlexaHandler")
 def LaunchRequest(session):
     """
     B 2 S Lab is a go
     ---
-    B two S Launch
+    Launch
     """
 
     #trigger()

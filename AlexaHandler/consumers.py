@@ -7,12 +7,17 @@ import json
 import time
 from django.db.models.fields.related import ManyToManyField
 
+
 # TODO enforced ordering
 from channels.sessions import channel_session, enforce_ordering
 from channels.auth import channel_session_user, channel_session_user_from_http
 # block Import
-from .Block.BlockChain import *
+from .Block.MessageBlock import MessageBlock
+from .Block.ImageBlock import ImageBlock
+from .Block.BlockChain import BlockChain
 import pickle
+
+SessChain = "init"
 
 # TODO not really using this anymore
 def to_dict(instance):
@@ -50,7 +55,8 @@ def ws_message(message):
         # print(data['cmd'], file = sys.stderr)
         if data['cmd'] == "del_all":
             SessChain.delBlocksAll()
-            data = {"type": "reset"}
+            data = {"type": "cmd",
+                    "cmd": "reset"}
             Group("alexa").send({
                 "text": json.dumps(data)
             })
@@ -84,6 +90,10 @@ def ws_message(message):
             })
             print("BLOCK", block)
 
+        elif data['cmd'] == "alexa":
+            print("alexa called")
+
+
     # "autosave"
     SessChain.Chain_pickle()
 
@@ -116,6 +126,9 @@ def ws_add(message):
 
         try:
             SessChain
+            # first step in session handling
+            if type(SessChain) != BlockChain:
+                SessChain = pickle.load(open(SessModel.pickle, "rb"))
         except NameError:
             print("reload from Cache")
             SessChain = pickle.load(open(SessModel.pickle, "rb"))
@@ -133,3 +146,15 @@ def ws_add(message):
 def ws_disconnect(message):
     # TODO implement longer timeout (say days) or put a timestamp check in the exchanged data
     Group("alexa").discard(message.reply_channel)
+
+
+# alexa / session wrapper
+def getSessChain():
+
+    global SessChain
+
+    try:
+        SessChain
+        return SessChain
+    except NameError:
+        print("SessChain currently not defined")
