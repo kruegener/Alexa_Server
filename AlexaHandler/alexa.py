@@ -48,7 +48,6 @@ def AddFileRequest(session):
 
 
 NAMES = Person.objects.all()
-print("NAMES: ", NAMES)
 
 class Name(fields.AmazonSlots):
     name = fields.AmazonCustom(label="NAMES", choices=NAMES)
