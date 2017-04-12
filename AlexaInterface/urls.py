@@ -18,11 +18,12 @@ from django.contrib import admin
 
 from django.conf import settings
 from django.conf.urls.static import static
+import AlexaHandler
 
 urlpatterns = [
 	url(r'^AlexaHandler/', include('AlexaHandler.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'', admin.site.urls),
+    url(r'', AlexaHandler.views.live, name='live'),
     url(r'^', include('django_alexa.urls')),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
