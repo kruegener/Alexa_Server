@@ -201,19 +201,27 @@
             data = JSON.parse(e.data);
             console.log(data.type);
 
-            if(init){
-                init = false;
-                document.getElementById("plumbing_block").innerHTML = "";
-            }
+            // maybe somewhere else
+
 
             if (data.type == "block") {
+                if(init){
+                    init = false;
+                    document.getElementById("plumbing_block").innerHTML = "";
+                }
                 new_block(data);
             }
             else if (data.type == "cmd") {
-                if(data.cmd == "reset")
+                if(data.cmd == "reset"){
                     reset();
-                else if(data.cmd == "light_up")
+                }
+                else if(data.cmd == "ready") {
+                    if(init)
+                        socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
+                }
+                else if(data.cmd == "light_up") {
                     light_up(data);
+                }
             }
 
             plumbing.draggable($(".draggable") , {
@@ -222,13 +230,8 @@
 
         }
 
-        socket.onopen = function(e)
-        {
-            //alert(socket.readyState);
-            if(init) {
-                // get inital
-                socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
-            }
+        socket.onopen = function(e){
+            console.log("socket is open");
         };
 
 

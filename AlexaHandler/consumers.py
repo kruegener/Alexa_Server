@@ -140,7 +140,11 @@ def ws_add(message):
         print("got old Session")
         print(SessChain)
 
-
+    # TODO: add timestamp, because if server reboots, the whole thing is sent again
+    data = {"type": "cmd",
+            "cmd": "ready"}
+    message.reply_channel.send({"text": json.dumps(data)})
+    print("ready sent")
 
 # Connected to websocket.disconnect
 def ws_disconnect(message):
