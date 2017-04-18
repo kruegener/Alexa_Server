@@ -22,6 +22,7 @@ def executeBlock(session, num=0):
         execute block {num}
         execute {num}
         {num} execute
+        execute
     """
     print("woop", num)
     SessChain = consumers.getSessChain()
@@ -29,18 +30,27 @@ def executeBlock(session, num=0):
     print("inside BLOCK: ")
     print(SessChain)
 
-    if num < SessChain.getBlockListLength():
-        msg = "Executed block " + str(num);
-        SessChain.getBlock(num).executeBlock(num)
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            try:
+                SessChain.getBlock(num).executeBlock(num)
+                msg = "Executed block " + str(num)
+            except:
+                msg = "Function not available for block " + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+
     else:
-        msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+        msg = "Executed last block"
+        print("\033[94m Amazon provided " + str(type(num)) + " type \033[0m")
+        SessChain.getBlock(-1).executeBlock(SessChain.getBlockListLength()-1)
 
     return ResponseBuilder.create_response(message=msg,
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
 
-
+# open new tab with image intent
 @intent(slots=Num, app="AlexaHandler")
 def showImg(session, num=0):
     """
@@ -49,6 +59,7 @@ def showImg(session, num=0):
         show block {num}
         show {num}
         {num} show
+        show
     """
     print("woop", num)
     SessChain = consumers.getSessChain()
@@ -56,20 +67,30 @@ def showImg(session, num=0):
     print("inside BLOCK: ")
     print(SessChain)
 
-    if num < SessChain.getBlockListLength():
-        msg = "showing block " + str(num);
-        try:
-            SessChain.getBlock(num).showBlock(num)
-        except:
-            msg = "function not available for block " + str(num);
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            msg = "showing block " + str(num)
+            try:
+                SessChain.getBlock(num).showBlock(num)
+            except:
+                msg = "function not available for block " + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
     else:
-        msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+        print("\033[94m Amazon provided " + str(type(num)) + " type \033[0m")
+        try:
+            SessChain.getBlock(-1).showBlock()
+            msg = "showing last block"
+        except:
+            msg = "Function not available for last block"
+
 
     return ResponseBuilder.create_response(message=msg,
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
 
+# read message intent
 @intent(slots=Num, app="AlexaHandler")
 def readMsg(session, num=0):
     """
@@ -78,6 +99,7 @@ def readMsg(session, num=0):
         read block {num}
         read {num}
         {num} read
+        read
     """
     print("woop", num)
     SessChain = consumers.getSessChain()
@@ -85,13 +107,20 @@ def readMsg(session, num=0):
     print("inside BLOCK: ")
     print(SessChain)
 
-    if num < SessChain.getBlockListLength():
-        try:
-            msg = SessChain.getBlock(num).readBlock()
-        except:
-            msg = "function not available for block " + str(num);
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            try:
+                msg = SessChain.getBlock(num).readBlock()
+            except:
+                msg = "function not available for block " + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
     else:
-        msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+        print("\033[94m Amazon provided None type \033[0m")
+        try:
+            msg = SessChain.getBlock(-1).readBlock()
+        except:
+            msg = "function not available for last block"
 
     return ResponseBuilder.create_response(message=msg,
                                            reprompt="",

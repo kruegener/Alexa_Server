@@ -85,7 +85,7 @@ class ImageBlock(BaseBlock):
             "text": json.dumps(data)
         })
 
-    def showBlock(self, num):
+    def showBlock(self, num=""):
         print("showBlock");
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
         data = {"type": "cmd",
