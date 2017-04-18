@@ -177,7 +177,7 @@
             });
         }
 
-        var socket = new ReconnectingWebSocket("ws://talktoyourdata.upc.edu/alexa/");
+        var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
         //alert(socket.readyState);
         socket.debug = true;
         var msg_count = 0;
