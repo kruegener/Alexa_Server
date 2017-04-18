@@ -1,28 +1,37 @@
 class BaseBlock:
 
+
+
     def __init__(self, name="base", type="base", session="", content_type=""):
         self.name = name
         self.type = type
         self.session = session
         self.content_type = content_type
+        self.options = ["execute"]
+
 
     # name (has to be unique or does it get an id from models?)
-    def GetName(self):
+    def getName(self):
         return self.name
-    def SetName(self, name):
+    def setName(self, name):
         self.name = name
 
     # Session
-    def GetSession(self):
+    def getSession(self):
         return self.session
-    def SetSession(self, session):
+    def setSession(self, session):
         self.name = session
 
     # type IO/Processing etc.
-    def GetType(self):
+    def getType(self):
         return self.type
-    def SetType(self, type):
+    def setType(self, type):
         self.type = type
+
+    def getOptions(self):
+        return self.options
+    def addOption(self, s):
+        self.options.append(s)
 
     # can be first
 
@@ -40,7 +49,7 @@ class BaseBlock:
                 "block_type": self.type,
                 "block_id": self.name,
                 "content_type": self.content_type,
-                "text": "",
+                "options": self.options,
                 }
         return json.dumps(data)
 

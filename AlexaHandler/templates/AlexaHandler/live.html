@@ -15,32 +15,47 @@
         }
         .draggable { width: 150px;
             height: 150px;
-            adding: 0.5em;
+            padding: 0.5em;
             position:absolute;
             z-index: 10;
-            overflow : hidden;}
-
-        #plumbing_block {
-            display:block;
-            overflow:hidden;
-            height: 100vh;
-            left: 0;
-            top: 20%;
-            right: 0;
-            bottom: 0;
-            background-color: #f7fff0;
+        //overflow : hidden;
         }
 
         #bar {
+            padding-left: 1em;
             display:block;
             overflow:auto;
-            height: 20%;
-            width: 100%;
-            top: 0%;
-            left: 0%;
+            height: 20vh;
+            width: 80vw;
+            top: 0;
+            left: 0;
             background-color: #f7f3ff;
         }
 
+        #plumbing_block {
+            padding-left: 1em;
+            display:block;
+        //overflow:hidden;
+            height: 80vh;
+            width: 80vw;
+            left: 0;
+            top: 20vh;
+            background-color: #f7fff0;
+        }
+
+        #opt-bar {
+            overflow:auto;
+            position:absolute;
+            height:100vh;
+            width: 20vw;
+            left: 80vw;
+            top: 0;
+            background-color: #ffcad6;
+        }
+
+        h2 {
+            padding-left: 10%;
+        }
         img {
             max-width:100%;
         }
@@ -49,7 +64,42 @@
         .jtk-endpoint { z-index:11; }
         .jtk-overlay { z-index:12; }
 
-        #content { width: 150px; height: 150px; padding: 0.5em; }
+        p.speech {
+            position: absolute;
+            top: 0px;
+            padding-left: 1px;
+            padding-right: 1px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-color: #fff;
+            border: 2px solid #666;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: 2px 2px 4px #888;
+            -moz-box-shadow: 2px 2px 4px #888;
+            box-shadow: 2px 2px 4px #888;
+            font-size:.6vw;
+            overflow: hidden;
+            display:inline-block;
+        }
+
+        .content {
+            overflow:hidden;
+        }
+
+        .opts {
+            left: 140px;
+            overflow:visible;
+            cursor: pointer;
+        }
+
+        p.num {
+            width: 20px;
+            top: 140px;
+            left: -12px;
+        }
     </style>
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -64,6 +114,7 @@
     <script src="{% static "AlexaHandler/jsplumb.min.js" %}"></script>
     <script src="{% static "AlexaHandler/reconnecting-websocket.min.js" %}"></script>
 
+    <!-- check for jquery -->
     <script type="text/javascript">
 
         (function defer() {
@@ -77,6 +128,7 @@
 
     </script>
 
+    <!-- socket and block scripts -->
     <script type="text/javascript">
         console.log("in local script");
         //
@@ -91,9 +143,11 @@
         var plumbing = jsPlumb.getInstance();
         var last_name = "";
         var grid_count = 0;
-        var width = $(window).width();
+        var width = $(window).width()*.8;
         var height = $(window).height();
-        var xGrid = Math.floor( (width-150)/200);
+        var xStep = 220;
+        var yStep = 220;
+        var xGrid = Math.floor( (width)/xStep);
         var init = true;
 
         plumbing.importDefaults({
@@ -137,23 +191,49 @@
             console.log(xGrid, grid_count);
             yOff = height*.2;
             xOff = 20;
-            if (data.block_type == "message") {
-                document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+            var div = document.createElement("div");
+            div.id = name;
+            div.className = "draggable ui-widget-content";
+            div.style = "left: " + (((grid_count % xGrid) * xStep) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * yStep);
+            if (data.block_type == "message"){
+                var p = document.createElement("p");
+                p.className = "content";
+                p.appendChild(document.createTextNode(data.block_type));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode(data.block_id));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode(data.msg));
+                div.appendChild(p);
             }
             else if (data.block_type == "image") {
-                var div = document.createElement("div");
-                div.id = name;
-                div.className = "draggable ui-widget-content";
-                div.style = "left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200);
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 div.appendChild(img);
-                var par = document.getElementById("plumbing_block");
-                $(par).append(div);
             }
             else {
                 console.log(data);
             }
+            // add options
+            var top = 0;
+            for(opt = 0; opt < data.options.length; opt++){
+                console.log(data.options[opt]);
+                var p = document.createElement("p");
+                p.className = "speech opts";
+                p.style = "top: " + top + "px";
+                p.appendChild(document.createTextNode(data.options[opt]));
+                top += 40;
+                div.appendChild(p);
+                $(p).click(function() {
+                    $( this ).effect("highlight", {}, 500);
+                });
+            }
+            // number
+            var p = document.createElement("p");
+            p.className = "speech num";
+            p.appendChild(document.createTextNode(grid_count));
+            div.appendChild(p);
+            var par = document.getElementById("plumbing_block");
+            $(par).append(div);
             // TODO material design grid fail
             //document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='mdl-cell draggable ui-widget-content'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
             //componentHandler.upgradeElement(document.getElementById(name));
@@ -170,6 +250,10 @@
                 }, common);
             }
             last_name = name;
+
+            // refresh clickable
+
+
         }
 
         function reset(){
@@ -184,7 +268,7 @@
         }
 
         function send_populate(){
-            socket.send(JSON.stringify({"type" : "msg", "msg" : "msg"}));
+            socket.send(JSON.stringify({"type" : "msg", "msg" : "message content"}));
         }
 
         function send_image_populate(){
@@ -196,24 +280,43 @@
             $( "#" + name ).effect("highlight", {}, 3000);
         }
 
+        function showBlock(data) {
+            window.open(data.call_path);
+        }
+
         socket.onmessage = function(e) {
             console.log(e.data);
             data = JSON.parse(e.data);
             console.log(data.type);
 
-            if(init){
-                init = false;
-                document.getElementById("plumbing_block").innerHTML = "";
-            }
+            // maybe somewhere else
+
 
             if (data.type == "block") {
+                if(init){
+                    init = false;
+                    document.getElementById("plumbing_block").innerHTML = "";
+                }
                 new_block(data);
             }
             else if (data.type == "cmd") {
-                if(data.cmd == "reset")
+                if(data.cmd == "reset"){
                     reset();
-                else if(data.cmd == "light_up")
+                }
+                else if(data.cmd == "ready") {
+                    if(init)
+                        socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
+                }
+                else if(data.cmd == "init_done") {
+                    init = false;
+                    document.getElementById("plumbing_block").innerHTML = "";
+                }
+                else if(data.cmd == "light_up") {
                     light_up(data);
+                }
+                else if(data.cmd == "show"){
+                    showBlock(data);
+                }
             }
 
             plumbing.draggable($(".draggable") , {
@@ -222,13 +325,8 @@
 
         }
 
-        socket.onopen = function(e)
-        {
-            //alert(socket.readyState);
-            if(init) {
-                // get inital
-                socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
-            }
+        socket.onopen = function(e){
+            console.log("socket is open");
         };
 
 
@@ -236,6 +334,7 @@
 {% endblock %}
 
 {% block body %}
+
 
     <div id = "bar">
         <h1> LIVE ALEXA Test</h1>
@@ -249,15 +348,19 @@
         <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
             <i class="material-icons">add</i>
         </button>
-
     </div>
 
 
-    <div id ="plumbing_block" class="mdl-grid">
+    <div id ="plumbing_block">
         <!-- MDL Progress Bar with Indeterminate Progress -->
 
-            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
 
     </div>
+
+    <div id = "opt-bar">
+        <h2> opt-bar </h2>
+    </div>
+
 
 {% endblock %}

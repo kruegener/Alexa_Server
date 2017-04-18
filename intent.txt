@@ -1,10 +1,27 @@
-('NAMES: ', <QuerySet [<Person: Moritz>, <Person: pol>, <Person: Test>, <Person: sergi>, <Person: Alex>, <Person: David>, <Person: pizza>, <Person: maria>]>)
 
 #### SCHEMAS FOR AlexaHandler ####
 {
     "intents": [
         {
             "intent": "executeBlock", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
+            "intent": "showImg", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
+            "intent": "readMsg", 
             "slots": [
                 {
                     "name": "num", 
@@ -42,7 +59,18 @@ NAMES:
   pizza
   maria
 
-executeBlock read message {num}
+executeBlock execute block {num}
+executeBlock execute {num}
+executeBlock {num} execute
+executeBlock execute
+showImg show block {num}
+showImg show {num}
+showImg {num} show
+showImg show
+readMsg read block {num}
+readMsg read {num}
+readMsg {num} read
+readMsg read
 LaunchRequest launch
 AddFileRequest test
 SetName my name is {name}
