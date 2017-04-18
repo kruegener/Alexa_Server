@@ -7,13 +7,11 @@ from channels import Group
 
 class ImageBlock(BaseBlock):
 
-    # TODO: cant pickle file objects -> only import the files to the cache and dont load them
     def __init__(self, name="image", session="", img_path=""):
         self.name = name
         self.type = "image"
         self.session = session
         self.img_path = img_path
-        #self.img = open(img_path, "wb")
         self.cached = False
         self.makeCached()
         self.options = ["show"]
@@ -35,7 +33,7 @@ class ImageBlock(BaseBlock):
         try:
             copyfile(self.img_path, new_path)
         except:
-            print("ERROR importing file")
+            print("\033[93m ERROR importing file \033[0m")
         self.cached = True
         self.img_path = new_path
 
@@ -49,7 +47,7 @@ class ImageBlock(BaseBlock):
         try:
             copyfile(self.img_path, path + self.name)
         except:
-            print("ERROR exporting file")
+            print("\033[93m ERROR exporting file \033[0m")
         print("exporting", self.name)
 
 
@@ -58,7 +56,7 @@ class ImageBlock(BaseBlock):
             os.remove(self.img_path)
             print("removed from cache")
         except:
-            print("couldnt remove image block cache")
+            print("\033[93m couldnt remove image block cache \033[0m")
 
         del self
 

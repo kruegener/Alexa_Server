@@ -49,7 +49,7 @@ def ws_message(message):
         Group("alexa").send({
             "text": block.GetNode()
         })
-        print("BLOCK", block)
+        print("\033[95m BLOCK \033[0m", block)
 
     elif data['type'] == "command" :
         # print(data['cmd'], file = sys.stderr)
@@ -72,7 +72,8 @@ def ws_message(message):
                         "text": block.GetNode()
                     })
             else:
-                data = {"type": "init_done"}
+                data = {"type": "cmd",
+                        "cmd": "init_done"}
                 message.reply_channel.send({
                     "text": json.dumps(data)
                 })
@@ -88,7 +89,7 @@ def ws_message(message):
             Group("alexa").send({
                 "text": block.GetNode()
             })
-            print("BLOCK", block)
+            print("\033[95m BLOCK \033[0m", block)
 
         elif data['cmd'] == "alexa":
             print("alexa called")
@@ -130,11 +131,11 @@ def ws_add(message):
             if type(SessChain) != BlockChain:
                 SessChain = pickle.load(open(SessModel.pickle, "rb"))
         except NameError:
-            print("reload from Cache")
+            print("\033[92m reload from Cache \033[0m")
             SessChain = pickle.load(open(SessModel.pickle, "rb"))
             print(SessChain)
         else:
-            print("was already in active memory")
+            print("\033[92m was already in active memory \033[0m")
 
         print(SessModel)
         print("got old Session")
@@ -144,7 +145,7 @@ def ws_add(message):
     data = {"type": "cmd",
             "cmd": "ready"}
     message.reply_channel.send({"text": json.dumps(data)})
-    print("ready sent")
+    print("\033[94m ready sent \033[0m")
 
 # Connected to websocket.disconnect
 def ws_disconnect(message):
@@ -161,4 +162,4 @@ def getSessChain():
         SessChain
         return SessChain
     except NameError:
-        print("SessChain currently not defined")
+        print("\033[91m SessChain currently not defined \033[0m")
