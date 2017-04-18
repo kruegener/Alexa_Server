@@ -9,6 +9,7 @@ class MessageBlock (BaseBlock):
         self.type = "message"
         self.session = session
         self.msg = msg
+        self.options = ["execute", "read"]
 
     # Node builder
     def GetNode(self):
@@ -17,6 +18,7 @@ class MessageBlock (BaseBlock):
                 "block_id": self.name,
                 "content_type": "text",
                 "msg": self.msg,
+                "options": self.options,
                 }
         return json.dumps(data)
 
@@ -29,3 +31,7 @@ class MessageBlock (BaseBlock):
         Group("alexa").send({
             "text": json.dumps(data)
         })
+
+    def readBlock(self):
+        print("reading")
+        return self.msg

@@ -18,14 +18,14 @@
             adding: 0.5em;
             position:absolute;
             z-index: 10;
-            overflow : hidden;}
+            //overflow : hidden;}
 
         #plumbing_block {
             display:block;
-            overflow:hidden;
-            height: 100vh;
+            //overflow:hidden;
+            height: 80vh;
             left: 0;
-            top: 20%;
+            top: 20vh;
             right: 0;
             bottom: 0;
             background-color: #f7fff0;
@@ -34,8 +34,8 @@
         #bar {
             display:block;
             overflow:auto;
-            height: 20%;
-            width: 100%;
+            height: 20vh;
+            width: 100vw;
             top: 0%;
             left: 0%;
             background-color: #f7f3ff;
@@ -49,7 +49,61 @@
         .jtk-endpoint { z-index:11; }
         .jtk-overlay { z-index:12; }
 
-        #content { width: 150px; height: 150px; padding: 0.5em; }
+        p.speech {
+            position: absolute;
+            left: 125px;
+            top: 0px;
+            width: 40px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-color: #fff;
+            border: 2px solid #666;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: 2px 2px 4px #888;
+            -moz-box-shadow: 2px 2px 4px #888;
+            box-shadow: 2px 2px 4px #888;
+            font-size:.75vw;
+            overflow: hidden;
+        }
+
+        p.speech:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 6px;
+            top: 20px;
+            border: 4.5px solid;
+            border-color: #666 transparent transparent #666;
+        }
+
+        p.speech:after {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 7px;
+            top: 20px;
+            border: 3px solid;
+            border-color: #fff transparent transparent #fff;
+        }
+
+        .content {
+            overflow:hidden;
+        }
+
+        .opts {
+            overflow:visible;
+        }
+
+        p.num {
+            width: 20px;
+            top: 140px;
+            left: -12px;
+        }
     </style>
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -93,7 +147,9 @@
         var grid_count = 0;
         var width = $(window).width();
         var height = $(window).height();
-        var xGrid = Math.floor( (width-150)/200);
+        var xStep = 220;
+        var yStep = 220;
+        var xGrid = Math.floor( (width)/xStep);
         var init = true;
 
         plumbing.importDefaults({
@@ -137,23 +193,46 @@
             console.log(xGrid, grid_count);
             yOff = height*.2;
             xOff = 20;
-            if (data.block_type == "message") {
-                document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='draggable ui-widget-content' style='left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200) + "'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
+            var div = document.createElement("div");
+            div.id = name;
+            div.className = "draggable ui-widget-content";
+            div.style = "left: " + (((grid_count % xGrid) * xStep) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * yStep);
+            if (data.block_type == "message"){
+                var p = document.createElement("p");
+                p.className = "content";
+                p.appendChild(document.createTextNode(data.block_type));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode(data.block_id));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode(data.msg));
+                div.appendChild(p);
             }
             else if (data.block_type == "image") {
-                var div = document.createElement("div");
-                div.id = name;
-                div.className = "draggable ui-widget-content";
-                div.style = "left: " + (((grid_count % xGrid) * 200) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * 200);
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 div.appendChild(img);
-                var par = document.getElementById("plumbing_block");
-                $(par).append(div);
             }
             else {
                 console.log(data);
             }
+            // add options
+            var top = 0;
+            for(opt = 0; opt < data.options.length; opt++){
+                console.log(data.options[opt]);
+                var p = document.createElement("p");
+                p.className = "speech opts";
+                p.style = "top: " + top + "px";
+                p.appendChild(document.createTextNode(data.options[opt]));
+                top += 40;
+                div.appendChild(p);
+            }
+            // number
+            var p = document.createElement("p");
+            p.className = "speech num";
+            p.appendChild(document.createTextNode(grid_count));
+            div.appendChild(p);
+            var par = document.getElementById("plumbing_block");
+            $(par).append(div);
             // TODO material design grid fail
             //document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='mdl-cell draggable ui-widget-content'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
             //componentHandler.upgradeElement(document.getElementById(name));
@@ -184,7 +263,7 @@
         }
 
         function send_populate(){
-            socket.send(JSON.stringify({"type" : "msg", "msg" : "msg"}));
+            socket.send(JSON.stringify({"type" : "msg", "msg" : "message content"}));
         }
 
         function send_image_populate(){
@@ -194,6 +273,10 @@
         function light_up(data){
             name = "draggable_block" + data.block_id;
             $( "#" + name ).effect("highlight", {}, 3000);
+        }
+
+        function showBlock(data) {
+            window.open(data.call_path);
         }
 
         socket.onmessage = function(e) {
@@ -221,6 +304,9 @@
                 }
                 else if(data.cmd == "light_up") {
                     light_up(data);
+                }
+                else if(data.cmd == "show"){
+                    showBlock(data);
                 }
             }
 
@@ -252,7 +338,6 @@
         <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
             <i class="material-icons">add</i>
         </button>
-
     </div>
 
 

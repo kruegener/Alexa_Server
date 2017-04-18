@@ -16,6 +16,7 @@ class ImageBlock(BaseBlock):
         #self.img = open(img_path, "wb")
         self.cached = False
         self.makeCached()
+        self.options = ["show"]
 
     def setImgPath(self, img_path):
         self.img_path = img_path
@@ -72,6 +73,7 @@ class ImageBlock(BaseBlock):
                 "block_id": self.name,
                 "content_type": "image",
                 "call_path": call_path,
+                "options": self.options,
                 }
         return json.dumps(data)
 
@@ -81,6 +83,19 @@ class ImageBlock(BaseBlock):
                 "cmd": "light_up",
                 }
         print("executing ImageBlock")
+        Group("alexa").send({
+            "text": json.dumps(data)
+        })
+
+    def showBlock(self, num):
+        print("showBlock");
+        call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
+        data = {"type": "cmd",
+                "block_id": num,
+                "cmd": "show",
+                "call_path": call_path,
+                }
+        print("executing showImageBlock")
         Group("alexa").send({
             "text": json.dumps(data)
         })

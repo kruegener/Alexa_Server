@@ -40,7 +40,7 @@ def ws_message(message):
     data = json.loads(message.content['text'])
     # print("JSON: ", data, "DATA: ", message.content['text'])
     if data['type'] == "msg" :
-        block = MessageBlock(name="[user] " + str(message.reply_channel),
+        block = MessageBlock(name="[user] ",
                              session="alexa",
                              msg=data['msg'])
         # add to Chain
