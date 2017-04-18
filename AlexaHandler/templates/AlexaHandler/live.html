@@ -210,6 +210,9 @@
                 img.src = data.call_path;
                 div.appendChild(img);
             }
+            else if (data.block_type == "histogram") {
+
+            }
             else {
                 console.log(data);
             }
@@ -268,7 +271,7 @@
         }
 
         function send_populate(){
-            socket.send(JSON.stringify({"type" : "msg", "msg" : "message content"}));
+            socket.send(JSON.stringify({"type" : "histogram", "msg" : "message content"}));
         }
 
         function send_image_populate(){
