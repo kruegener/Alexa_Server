@@ -2,7 +2,10 @@ from .BaseBlock import BaseBlock
 import json
 from channels import Group
 import csv
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plot
+
 from django.conf import settings
 
 class HistogramBlock (BaseBlock):
@@ -11,7 +14,7 @@ class HistogramBlock (BaseBlock):
         self.name = name
         self.type = "histogram"
         self.session = session
-        self.options = ["plot"]
+        self.options = ["plot", "show"]
         self.cache_path = ""
 
 
@@ -28,7 +31,6 @@ class HistogramBlock (BaseBlock):
                     pass
                 else:
                     a.append(int(e))
-
         plot.hist(a, bins=30)
         plot.xlabel('protein numbers')
         print("saving")
