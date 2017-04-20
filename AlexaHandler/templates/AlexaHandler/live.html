@@ -211,7 +211,9 @@
                 div.appendChild(img);
             }
             else if (data.block_type == "histogram") {
-                // edit here IGNACIO
+                var img = document.createElement("img");
+                img.src = data.call_path;
+                div.appendChild(img);
 
 
 
