@@ -138,10 +138,10 @@ STATICFILES_DIRS = [
 ]
 
 CACHE_DIR = (
-    "/home/alexa_server/Alexa_Server/cache"
+    "/home/ignacio/Alexa_Server/cache"
 )
 CACHE_URL = (
-    "https://talktoyourdata.upc.edu/AlexaHandler/cache"
+    "http://localhost:8000/AlexaHandler/cache"
 )
 
 SECURE_SSL_REDIRECT = False
