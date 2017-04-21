@@ -14,6 +14,7 @@ from channels.auth import channel_session_user, channel_session_user_from_http
 # block Import
 from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
+from .Block.HistogramBlock import HistogramBlock
 from .Block.BlockChain import BlockChain
 import pickle
 
@@ -50,6 +51,14 @@ def ws_message(message):
             "text": block.GetNode()
         })
         print("\033[95m BLOCK \033[0m", block)
+
+    elif data["type"] == "histogram":
+        block = HistogramBlock(name="Histogram", session="alexa")
+        # add to Chain
+        SessChain.addBlock(block)
+        Group("alexa").send({
+            "text": block.GetNode()
+        })
 
     elif data['type'] == "command" :
         # print(data['cmd'], file = sys.stderr)

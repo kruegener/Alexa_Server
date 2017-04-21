@@ -177,7 +177,10 @@
             });
         }
 
-        var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+        // LOCAL VERSION
+        var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
+        // SERVER VERSION
+        //var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
         //alert(socket.readyState);
         socket.debug = true;
         var msg_count = 0;
@@ -209,6 +212,29 @@
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 div.appendChild(img);
+            }
+            else if (data.block_type == "histogram") {
+                var img = document.createElement("img");
+                img.src = data.call_path;
+                div.appendChild(img);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
             else {
                 console.log(data);
@@ -268,7 +294,7 @@
         }
 
         function send_populate(){
-            socket.send(JSON.stringify({"type" : "msg", "msg" : "message content"}));
+            socket.send(JSON.stringify({"type" : "histogram", "msg" : "message content"}));
         }
 
         function send_image_populate(){

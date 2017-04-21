@@ -18,12 +18,11 @@ def index(request):
 	context = {'People': name_list}
 	return render(request, 'AlexaHandler/list.html', context)
 
-@login_required(login_url='/login/')
+
 def live(request):
 	context = {'Title': "Live Alexa"}
 	return render(request, 'AlexaHandler/live.html', context)
 
-@login_required(login_url='/login/')
 def serve_cache(request):
 	print("File_Request: ", request.path.split("cache", 1)[1])
 	file = request.path.split("cache", 1)[1]
