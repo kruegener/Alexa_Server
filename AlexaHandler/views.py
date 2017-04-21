@@ -20,7 +20,8 @@ def index(request):
 
 
 def live(request):
-	context = {'Title': "Live Alexa"}
+	context = {'Title': "Live Alexa",
+				'ENV': settings.ENV}
 	return render(request, 'AlexaHandler/live.html', context)
 
 def serve_cache(request):

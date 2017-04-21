@@ -137,21 +137,27 @@ STATICFILES_DIRS = [
     "/static/AlexaHandler"
 ]
 
-# SERVER VERSION
-# CACHE_DIR = (
-#     "/home/alexa_server/Alexa_Server/cache"
-# )
-# CACHE_URL = (
-#     "http://talktoyourdata.upc.edu/AlexaHandler/cache"
-# )
+# either LOCAL or SERVER
+ENV = "SERVER"
 
-# LOCAL VERSION
-CACHE_DIR = (
-    "/home/ignacio/Alexa_Server/cache"
-)
-CACHE_URL = (
-    "http://localhost:8000/AlexaHandler/cache"
-)
+if ENV is "SERVER":
+    #SERVER VERSION
+    CACHE_DIR = (
+        "/home/alexa_server/Alexa_Server/cache"
+    )
+    CACHE_URL = (
+        "http://talktoyourdata.upc.edu/AlexaHandler/cache"
+    )
+
+else:
+    # LOCAL VERSION
+    CACHE_DIR = (
+        "/home/ignacio/Alexa_Server/cache"
+    )
+    CACHE_URL = (
+        "http://localhost:8000/AlexaHandler/cache"
+    )
+
 
 SECURE_SSL_REDIRECT = False
 

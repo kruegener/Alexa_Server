@@ -176,11 +176,14 @@
                 containment:"plumbing_block"
             });
         }
-
+        var environ = "{{ ENV }}"
+        {% if environ == "LOCAL" %}
         // LOCAL VERSION
         var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
+        {% else %}
         // SERVER VERSION
-        //var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+        var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+        {% endif %}
         //alert(socket.readyState);
         socket.debug = true;
         var msg_count = 0;
@@ -293,8 +296,12 @@
             socket.send(JSON.stringify({"type" : "command", "cmd" : "del_all"}));
         }
 
-        function send_populate(){
+        function send_populate_hist(){
             socket.send(JSON.stringify({"type" : "histogram", "msg" : "message content"}));
+        }
+
+        function send_populate_msg(){
+            socket.send(JSON.stringify({"type" : "msg", "msg" : "message content"}));
         }
 
         function send_image_populate(){
@@ -368,8 +375,11 @@
         <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
             Reset
         </button>
-        <button onclick="send_populate()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Populate
+        <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Hist
+        </button>
+        <button onclick="send_populate_msg()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Msg
         </button>
         <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
             <i class="material-icons">add</i>
