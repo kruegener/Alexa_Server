@@ -176,14 +176,19 @@
                 containment:"plumbing_block"
             });
         }
-        var environ = "{{ ENV }}"
-        {% if environ == "LOCAL" %}
-        // LOCAL VERSION
-        var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
-        {% else %}
-        // SERVER VERSION
-        var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
-        {% endif %}
+        var environ = "{{ ENV }}";
+	console.log(environ);
+	var local = (environ == "LOCAL");
+	console.log(local);
+        
+	if(local){
+		// LOCAL VERSION        
+		var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
+	}
+	else{
+        	// SERVER VERSION
+        	var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+	}
         //alert(socket.readyState);
         socket.debug = true;
         var msg_count = 0;

@@ -138,7 +138,9 @@ STATICFILES_DIRS = [
 ]
 
 # either LOCAL or SERVER
-ENV = "SERVER"
+ENV = "LOCAL"
+
+print("SETTING " + ENV)
 
 if ENV is "SERVER":
     #SERVER VERSION
