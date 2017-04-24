@@ -178,11 +178,11 @@
         }
         var environ = "{{ ENV }}"
         {% if environ == "LOCAL" %}
-        // LOCAL VERSION
-        var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
+            // LOCAL VERSION
+            var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
         {% else %}
-        // SERVER VERSION
-        var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+            // SERVER VERSION
+            var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
         {% endif %}
         //alert(socket.readyState);
         socket.debug = true;
@@ -249,11 +249,22 @@
                 var p = document.createElement("p");
                 p.className = "speech opts";
                 p.style = "top: " + top + "px";
+                jQuery.data( p, "call", {
+                    num: block_count - 1,
+                    opt: data.options[opt]
+                });
+                console.log(jQuery.data( p, "call" ).opt);
                 p.appendChild(document.createTextNode(data.options[opt]));
                 top += 40;
                 div.appendChild(p);
-                $(p).click(function() {
+                $(p).click(function(event) {
                     $( this ).effect("highlight", {}, 500);
+                    socket.send(JSON.stringify({"type" : "command",
+                        "cmd" : "click",
+                        "opt" : "asd",
+                        "num" : jQuery.data( event.target, "call" ).num,
+                        "opt" : jQuery.data( event.target, "call" ).opt
+                    }));
                 });
             }
             // number
