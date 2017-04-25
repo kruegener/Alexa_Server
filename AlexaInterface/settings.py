@@ -146,7 +146,7 @@ if ENV is "SERVER":
         "/home/alexa_server/Alexa_Server/cache"
     )
     CACHE_URL = (
-        "http://talktoyourdata.upc.edu/AlexaHandler/cache"
+        "https://talktoyourdata.upc.edu/AlexaHandler/cache"
     )
 
 else:
