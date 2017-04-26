@@ -15,6 +15,7 @@ class ImageBlock(BaseBlock):
         self.cached = False
         self.makeCached()
         self.options = ["show"]
+        self.vars = [self.name, "fake_var"]
 
     def setImgPath(self, img_path):
         self.img_path = img_path
@@ -72,6 +73,7 @@ class ImageBlock(BaseBlock):
                 "content_type": "image",
                 "call_path": call_path,
                 "options": self.options,
+                "vars": self.vars,
                 }
         return json.dumps(data)
 

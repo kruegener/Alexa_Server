@@ -16,6 +16,7 @@ class HistogramBlock (BaseBlock):
         self.session = session
         self.options = ["plot", "show"]
         self.cache_path = ""
+        self.vars = ["data table"]
 
 
         # load data
@@ -65,6 +66,7 @@ class HistogramBlock (BaseBlock):
                 "content_type": "image",
                 "call_path": call_path,
                 "options": self.options,
+                "vars": self.vars,
                 }
         return json.dumps(data)
 

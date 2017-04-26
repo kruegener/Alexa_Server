@@ -103,7 +103,7 @@
 
         .var-list {
             width: 100%;
-            height: 100%;
+        //height: 100%;
             background-color: #fbfbfc;
         }
 
@@ -213,6 +213,14 @@
             div.id = name;
             div.className = "draggable ui-widget-content";
             div.style = "left: " + (((grid_count % xGrid) * xStep) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * yStep);
+
+            //div.innerHTML += '<button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">more_vert</i></button>';
+
+            // add vars
+            if(data.hasOwnProperty("vars")){
+                new_Var(data.vars, grid_count);
+            }
+
             if (data.block_type == "message"){
                 var p = document.createElement("p");
                 p.className = "content";
@@ -313,6 +321,9 @@
             last_name = "";
             grid_count = 0;
             block_count = 0;
+            var_num = 0;
+            document.getElementById("var_body").innerHTML = "";
+            componentHandler.updateDOM();
         }
 
         function send_reset(){
@@ -340,46 +351,58 @@
             window.open(data.call_path);
         }
 
-        function new_Var() {
+        var var_num = 0;
+
+        function new_Gen_Var() {
             var outer = document.getElementById("Vars");
             var table = document.getElementById("var_body");
             var row = table.insertRow();
 
+            // checkbox cell
+            var check = row.insertCell();
+            var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="row[' + var_num + ']"><input type="checkbox" id="row[' + var_num + ']" class="mdl-checkbox__input" /></label>';
+            check.innerHTML = checkbox;
+            // num cell
+            var cell = row.insertCell();
+            cell.className = "mdl-data-table__cell";
+            cell.textContent = var_num;
+            // content cell
             var cell = row.insertCell();
             cell.className = "mdl-data-table__cell--non-numeric";
-            cell.textContent = "test";
+            cell.textContent = "varname" + var_num;
+            // block cell
+            var cell = row.insertCell();
+            cell.className = "mdl-data-table__cell";
+            cell.textContent = -1;
+            var_num++;
 
-            componentHandler.upgradeElement(row,'MaterialDataTable');
-            componentHandler.upgradeAllRegistered();
-            // checkable list
-{#            var item = document.createElement("li");#}
-{#            item.className = "mdl-list__item item_var";#}
-{##}
-{#            // label creation#}
-{#            var primary = document.createElement("span");#}
-{#            item.appendChild(primary);#}
-{#            primary.className = "mdl-list__item-primariy-content";#}
-{#            var text = document.createTextNode("test");#}
-{#            primary.appendChild(text);#}
-{##}
-{#            // checkbox creation#}
-{#            var secondary = document.createElement("span");#}
-{#            item.appendChild(secondary);#}
-{#            secondary.className = "mdl-list__item-secondary-action";#}
-{#            var label = document.createElement("label");#}
-{#            label.className="list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect";#}
-{#            label.for = "list-option-1";#}
-{#            secondary.append(label);#}
-{#            var input = document.createElement("input");#}
-{#            input.type="radio";#}
-{#            input.id="list-option-1";#}
-{#            input.className="mdl-radio__button";#}
-{#            input.name="options";#}
-{#            input.value="1";#}
-{##}
-{#            label.appendChild(input);#}
-{#            list.appendChild(item);#}
+            componentHandler.upgradeDom();
+        }
 
+        function new_Var(list, block_num) {
+            var outer = document.getElementById("Vars");
+            var table = document.getElementById("var_body");
+            for(i = 0; i < list.length; i++){
+                var row = table.insertRow();
+                // checkbox cell
+                var check = row.insertCell();
+                var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="row[' + var_num + ']"><input type="checkbox" id="row[' + var_num + ']" class="mdl-checkbox__input" /></label>';
+                check.innerHTML = checkbox;
+                // num cell
+                var cell = row.insertCell();
+                cell.className = "mdl-data-table__cell";
+                cell.textContent = var_num;
+                // content cell
+                var cell = row.insertCell();
+                cell.className = "mdl-data-table__cell--non-numeric";
+
+                cell.textContent = list[i];
+                // block cell
+                var cell = row.insertCell();
+                cell.className = "mdl-data-table__cell";
+                cell.textContent = block_num;
+                var_num++;
+            }
             componentHandler.upgradeDom();
         }
 
@@ -413,11 +436,8 @@
                 else if(data.cmd == "light_up") {
                     light_up(data);
                 }
-                else if(data.cmd == "show"){
+                else if(data.cmd == "show") {
                     showBlock(data);
-                }
-                else if(data.cmd == "VarList"){
-                    receiveVarList(data);
                 }
             }
 
@@ -430,6 +450,30 @@
         socket.onopen = function(e){
             console.log("socket is open");
         };
+
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            // var header select
+            var table = document.getElementById("Vars");
+            var headerCheckbox = table.querySelector('thead .mdl-data-table__select input');
+            var headerCheckHandler = function(event) {
+                console.log("main checkbox clicked");
+                var boxes = table.querySelectorAll('tbody .mdl-data-table__select');
+                if (event.target.checked) {
+                    for (var i = 0, length = boxes.length; i < length; i++) {
+                        boxes[i].MaterialCheckbox.check();
+                        //boxes[i].MaterialCheckbox.updateClasses();
+                    }
+                } else {
+                    for (var i = 0, length = boxes.length; i < length; i++) {
+                        boxes[i].MaterialCheckbox.uncheck();
+                        //boxes[i].MaterialCheckbox.updateClasses();
+                    }
+                }
+            };
+            headerCheckbox.addEventListener('change', headerCheckHandler);
+
+        });
 
 
     </script>
@@ -450,7 +494,7 @@
         <button onclick="send_populate_msg()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             Msg
         </button>
-        <button onclick="new_Var()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <button onclick="new_Gen_Var()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             Var
         </button>
         <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
@@ -468,17 +512,22 @@
 
     <div class = "opt-bar">
         <h2> opt-bar </h2>
-        <table id="Vars" class="var-list mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <table id="Vars" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
             <thead>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Variables in Cache</th>
-                </tr>
+            <tr>
+                <th>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="main-check">
+                        <input type="checkbox" id="main-check" class="mdl-checkbox__input" />
+                    </label>
+                </th>
+                <th class="mdl-data-table__cell">#Var</th>
+                <th class="mdl-data-table__cell--non-numeric">Name</th>
+                <th class="mdl-data-table__cell">#Block</th>
+            </tr>
             </thead>
 
             <tbody id="var_body">
-                <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                </tr>
+
             </tbody>
         </table>
     </div>
