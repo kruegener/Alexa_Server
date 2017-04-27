@@ -12,13 +12,7 @@
         }
         body {
             height:100%;
-        }
-        .draggable { width: 150px;
-            height: 150px;
-            padding: 0.5em;
-            position:absolute;
-            z-index: 10;
-        //overflow : hidden;
+            scroll-behaviour: smooth;
         }
 
         #bar {
@@ -47,68 +41,69 @@
             padding-left: 10%;
         }
         img {
+
             max-width:100%;
+
+            z-index:10;
         }
         .window { z-index:20; }
         .jtk-connector { z-index:4; }
         .jtk-endpoint { z-index:11; }
         .jtk-overlay { z-index:12; }
 
-        p.speech {
-            position: absolute;
-            top: 0px;
-            padding-left: 1px;
-            padding-right: 1px;
-            height: 20px;
-            text-align: center;
-            line-height: 20px;
-            background-color: #fff;
-            border: 2px solid #666;
-            -webkit-border-radius: 6px;
-            -moz-border-radius: 6px;
-            border-radius: 6px;
-            -webkit-box-shadow: 2px 2px 4px #888;
-            -moz-box-shadow: 2px 2px 4px #888;
-            box-shadow: 2px 2px 4px #888;
-            font-size:.6vw;
-            overflow: hidden;
-            display:inline-block;
-        }
-
         .content {
             overflow:hidden;
         }
 
-        .opts {
-            left: 140px;
-            overflow:visible;
-            cursor: pointer;
-        }
-
         p.num {
+            position:absolute;
             width: 20px;
-            top: 140px;
+            bottom: -20px;
             left: -12px;
         }
 
         .opt-bar {
             overflow:auto;
-            position:absolute;
-            height:100vh;
-            width: 20vw;
+            position:fixed;
+            padding:20px;
+            overflow-y: auto;
+            right: 0;
             left: 80vw;
+            height:100vh;
             top: 0;
             background-color: #ffcad6;
         }
 
         .var-list {
-            width: 100%;
+        //width: 100%;
         //height: 100%;
             background-color: #fbfbfc;
         }
 
         .item_var {
             background-color: rgba(27, 1, 255, 0.16);
+        }
+
+        .content {
+            background-color: rgba(27, 1, 255, .1);
+            position:relative;
+        }
+
+        #button_group {
+            position:relative;
+            bottom:0;
+        }
+
+        button.number {
+            font-weight:bold;
+            background-color: rgb(255, 235, 209);
+            text-align:center;
+            padding:0;
+            z-index: 99 !important;
+        }
+        button.func {
+            font-weight:bold;
+            background-color: rgb(200,200,200);
         }
 
 
@@ -122,6 +117,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     <!-- local files -->
     <script src="{% static "AlexaHandler/jsplumb.min.js" %}"></script>
     <script src="{% static "AlexaHandler/reconnecting-websocket.min.js" %}"></script>
@@ -201,20 +197,17 @@
         var msg_count = 0;
         var block_count = 0;
 
-        function new_block(data){
-            console.log("update called");
+        function new_grid_block(data){
+            console.log("grid update called");
             console.log("JSON", data);
-            name = "draggable_" + "block" + block_count;
+            name = "grid_" + "block" + block_count;
             block_count += 1;
             console.log(xGrid, grid_count);
             yOff = height*.2;
             xOff = 20;
             var div = document.createElement("div");
             div.id = name;
-            div.className = "draggable ui-widget-content";
-            div.style = "left: " + (((grid_count % xGrid) * xStep) + xOff) + " ; top: " + (yOff + Math.floor(grid_count / xGrid) * yStep);
-
-            //div.innerHTML += '<button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">more_vert</i></button>';
+            div.className = "content mdl-cell mdl-cell--3-col";
 
             // add vars
             if(data.hasOwnProperty("vars")){
@@ -240,90 +233,79 @@
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 div.appendChild(img);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
             else {
                 console.log(data);
             }
+
+            var but_group = document.createElement("div");
+            but_group.id = "button_group";
+            but_group.className = "button_group";
+            // add number
+            var number = document.createElement("button");
+            number.className = "number mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
+            number.disabled = false;
+            number.textContent = grid_count;
+            but_group.appendChild(number);
             // add options
-            var top = 0;
+            var opt = 0;
+
             for(opt = 0; opt < data.options.length; opt++){
-                console.log(data.options[opt]);
-                var p = document.createElement("p");
-                p.className = "speech opts";
-                p.style = "top: " + top + "px";
-                jQuery.data( p, "call", {
+                console.log("OPTION: ", data.options[opt]);
+                var but = document.createElement("button");
+                but.id = name + "_" + opt;
+                but.className = "func mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
+                jQuery.data( but, "call", {
                     num: block_count - 1,
                     opt: data.options[opt]
                 });
-                console.log(jQuery.data( p, "call" ).opt);
-                p.appendChild(document.createTextNode(data.options[opt]));
-                top += 40;
-                div.appendChild(p);
-                $(p).click(function(event) {
-                    $( this ).effect("highlight", {}, 500);
+                but.onclick = function(but){
                     socket.send(JSON.stringify({"type" : "command",
                         "cmd" : "click",
-                        "opt" : "asd",
-                        "num" : jQuery.data( event.target, "call" ).num,
-                        "opt" : jQuery.data( event.target, "call" ).opt
+                        "num" : jQuery.data( this, "call" ).num,
+                        "opt" : jQuery.data( this, "call" ).opt
                     }));
+                };
+                jQuery.data( but, "call", {
+                    num: block_count - 1,
+                    opt: data.options[opt]
                 });
-            }
-            // number
-            var p = document.createElement("p");
-            p.className = "speech num";
-            p.appendChild(document.createTextNode(grid_count));
-            div.appendChild(p);
-            var par = document.getElementById("plumbing_block");
-            $(par).append(div);
-            // TODO material design grid fail
-            //document.getElementById("plumbing_block").innerHTML += "<div id=" + name + " class='mdl-cell draggable ui-widget-content'>" + data.block_type + "<p>" + data.block_id + "<br>" + data.msg + "</p></div>";
-            //componentHandler.upgradeElement(document.getElementById(name));
+                console.log(jQuery.data( but, "call" ).opt);
+                console.log(jQuery.data( but, "call" ).num);
+                but.innerHTML = (data.options[opt]);
+                but_group.appendChild(but);
+                console.log($(but));
 
-            //par.innerHtml = "<p>" +  data.block_type + "<br>" + data.block_id + "<br>" + data.msg + "</p>";
-            console.log("name", name);
-            //document.getElementById(name).innerHtml += "<p>" + data.block_id + "<br>" + data.msg + "</p>";
+            }
             grid_count += 1;
-
-            if(last_name != "") {
-                plumbing.connect({
-                    source: last_name,
-                    target: name,
-                }, common);
-            }
             last_name = name;
 
+            div.appendChild(but_group);
+            var par = document.getElementById("grid");
+            $(par).append(div);
+            try {
+                console.log("ifNeeded works");
+                div.scrollIntoViewIfNeeded(true);
+            }
+            catch(err)
+            {
+                console.log("ifNeeded doesnt work");
+                div.scrollIntoView(true);
+            }
+            componentHandler.upgradeDom();
             // refresh clickable
-
 
         }
 
         function reset(){
-            plumbing.empty("plumbing_block");
+            //plumbing.empty("plumbing_block");
             last_name = "";
             grid_count = 0;
             block_count = 0;
             var_num = 0;
             document.getElementById("var_body").innerHTML = "";
-            componentHandler.updateDOM();
+            document.getElementById("grid").innerHTML = "";
+            componentHandler.upgradeDom();
         }
 
         function send_reset(){
@@ -375,8 +357,8 @@
             cell.className = "mdl-data-table__cell";
             cell.textContent = "###";
             var_num++;
-
             componentHandler.upgradeDom();
+            cell.scrollIntoView();
         }
 
         function new_Var(list, block_num) {
@@ -417,9 +399,10 @@
             if (data.type == "block") {
                 if(init){
                     init = false;
-                    document.getElementById("plumbing_block").innerHTML = "";
+                    document.getElementById("progress").remove();
                 }
-                new_block(data);
+                //new_block(data);
+                new_grid_block(data);
             }
             else if (data.type == "cmd") {
                 if(data.cmd == "reset"){
@@ -431,7 +414,7 @@
                 }
                 else if(data.cmd == "init_done") {
                     init = false;
-                    document.getElementById("plumbing_block").innerHTML = "";
+                    document.getElementById("progress").remove();
                 }
                 else if(data.cmd == "light_up") {
                     light_up(data);
@@ -506,8 +489,10 @@
     <div id ="plumbing_block">
         <!-- MDL Progress Bar with Indeterminate Progress -->
 
-        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
+        <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
+        <div id="grid" class="mdl-grid">
 
+        </div>
     </div>
 
     <div class = "opt-bar">
@@ -531,6 +516,7 @@
             </tbody>
         </table>
     </div>
+
 
 
 {% endblock %}
