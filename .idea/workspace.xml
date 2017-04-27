@@ -115,10 +115,10 @@
       <file leaf-file-name="live.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+            <state relative-caret-position="250">
+              <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
               <folding>
-                <marker date="1493302368000" expanded="true" signature="16510:16578" ph="..." />
+                <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
               </folding>
             </state>
           </provider>
@@ -631,7 +631,7 @@
         <state relative-caret-position="1764">
           <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
           <folding>
-            <marker date="1493302368000" expanded="true" signature="16510:16578" ph="..." />
+            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
           </folding>
         </state>
       </provider>
@@ -697,7 +697,7 @@
         <state relative-caret-position="1764">
           <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
           <folding>
-            <marker date="1493302368000" expanded="true" signature="16510:16578" ph="..." />
+            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
           </folding>
         </state>
       </provider>
@@ -749,7 +749,7 @@
         <state relative-caret-position="294">
           <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
           <folding>
-            <marker date="1493302368000" expanded="true" signature="16510:16578" ph="..." />
+            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
           </folding>
         </state>
       </provider>
@@ -966,10 +966,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        <state relative-caret-position="250">
+          <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding>
-            <marker date="1493302368000" expanded="true" signature="16510:16578" ph="..." />
+            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
           </folding>
         </state>
       </provider>
