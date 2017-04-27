@@ -47,14 +47,17 @@ class BlockChain:
             del self.BlockList[index]
             # check if list is really emptying
             self.ConnectionList = [entry if index not in entry else [] for entry in self.ConnectionList]
+            del self.varList[index]
+            # TODO reindexing UI side
         else:
             print("Couldn't delete! index is not in BlockChain", file=sys.stderr)
 
     def delBlockByElement(self, Block):
         if Block in self.BlockList:
+            id = self.BlockList.index(Block)
             self.BlockList.remove(Block)
             self.ConnectionList = [entry if self.BlockList.index(Block) not in entry else [] for entry in self.ConnectionList]
-
+            del self.varList[id]
         else:
             print("Couldn't delete! Block is not in BlockChain", file=sys.stderr)
 
@@ -68,6 +71,7 @@ class BlockChain:
 
         self.BlockList = []
         self.ConnectionList = []
+        self.varList = []
         print("Blockchain emptied")
         self.Chain_pickle()
 

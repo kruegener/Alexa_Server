@@ -4,8 +4,8 @@
     <list default="true" id="d7c7f7a7-91ea-4aa8-83e5-5264996cfdf8" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/cache/alexa/test.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" afterPath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/alexa/alexa.p" afterPath="$PROJECT_DIR$/cache/alexa/alexa.p" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,8 +75,8 @@
       <file leaf-file-name="consumers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2375">
-              <caret line="112" column="40" lean-forward="false" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
+            <state relative-caret-position="381">
+              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -112,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="live.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="live.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
@@ -124,13 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockChain.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BlockChain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="80" column="23" lean-forward="false" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
-              <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-              <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="831">
+              <caret line="59" column="32" lean-forward="true" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -175,8 +173,8 @@
       <find>func</find>
       <find>upgradeDom</find>
       <find>var</find>
-      <find>reset</find>
       <find>scroll</find>
+      <find>reset</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,8 +205,8 @@
         <option value="$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/MessageBlock.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
       </list>
     </option>
   </component>
@@ -946,24 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="80" column="23" lean-forward="false" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
-          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
-          <caret line="112" column="40" lean-forward="false" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -971,6 +951,22 @@
           <folding>
             <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="831">
+          <caret line="59" column="32" lean-forward="true" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
