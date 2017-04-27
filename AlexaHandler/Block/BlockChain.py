@@ -16,10 +16,10 @@ class BlockChain:
         self.session = session
         # List with Block instances
         self.BlockList = []
-        # List with Block indices from List
+        # TODO: implement List with Block indices from List
         self.ConnectionList = []
-
-
+        # varList as a list of lists
+        self.varList = []
 
         # inital save
         self.Chain_pickle()
@@ -29,6 +29,9 @@ class BlockChain:
 
     def addBlock(self, Block):
         self.BlockList.append(Block)
+        # TODO: check IDs...
+        new_vars = [var for var in Block.vars]
+        self.varList.append(new_vars)
 
     def getBlock(self, index):
         return self.BlockList[index]
@@ -74,6 +77,18 @@ class BlockChain:
     def addConnectionById(self, index1, index2):
         self.ConnectionList.append([index1, index2])
 
+    def addVarToBlock(self, num, var):
+        self.varList[num].append(var)
+
+    def getVarsForBlock(self, num):
+        return self.varList[num]
+
+    def setVarsForBlock(self, num, vars):
+        if type(vars) != list:
+            raise "vars must be list"
+        else:
+            self.varList[num] = vars
+
     def Chain_pickle(self):
         path = settings.CACHE_DIR + "/" + self.session
         # checking if dir already exists
@@ -84,5 +99,5 @@ class BlockChain:
         print("pickling", self)
 
     def __str__(self):
-        msg = "BlockChain: " + self.name + ": Blocklist: " + str(len(self.BlockList)) + " Connections: " + str(len(self.ConnectionList))
+        msg = "BlockChain: " + self.name + ": Blocklist: " + str(len(self.BlockList)) + " Connections: " + str(len(self.ConnectionList)) + " Vars: " + str(sum(len(li) for li in self.varList))
         return msg
