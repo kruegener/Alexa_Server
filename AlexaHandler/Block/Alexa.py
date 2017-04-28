@@ -2,6 +2,7 @@
 from django_alexa.api import fields, intent, ResponseBuilder
 # BlockChain import for SessChain Handling
 from .BlockChain import BlockChain
+from .MessageBlock import MessageBlock
 
 from .. import consumers
 
@@ -126,3 +127,54 @@ def readMsg(session, num=0):
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
+
+
+# send image to export file
+@intent(slots=Num, app="AlexaHandler")
+def exportImg(session, num=0):
+    """
+        send the block with number X to export
+        ---
+        send {num} to export
+        send block {num} to export
+        export block {num}
+        export block number {num}
+        export {num}
+        {num} export
+        export
+    """
+    print("woop", num)
+    SessChain = consumers.getSessChain()
+
+    print("inside BLOCK: ")
+    print(SessChain)
+
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            try:
+                SessChain.getBlock(num).export()
+                msg = "sending block" + str(num) + "to export file"
+                block = MessageBlock(name="exported", session="alexa", msg="plot succesfully exported!")
+                consumers.addBlock(block)
+            except:
+                msg = "function not available for block " + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+    else:
+        print("\033[94m Amazon provided " + str(type(num)) + " type \033[0m")
+        try:
+            SessChain.getBlock(-1).export()
+            block = MessageBlock(name="exported", session="alexa", msg="plot succesfully exported!")
+            consumers.addBlock(block)
+            msg = "sending last block to export file"
+        except:
+            msg = "Function not available for last block"
+
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+

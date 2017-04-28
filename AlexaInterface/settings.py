@@ -156,6 +156,12 @@ else:
     CACHE_DIR = (
         "/home/ignacio/Alexa_Server/cache"
     )
+    EXPORT_DIR = (
+        "/home/ignacio/Alexa_Server/export"
+    )
+    IMPORT_DIR = (
+        "/home/ignacio/Alexa_Server/import"
+    )
     CACHE_URL = (
         "http://localhost:8000/AlexaHandler/cache"
     )

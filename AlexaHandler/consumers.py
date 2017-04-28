@@ -107,6 +107,19 @@ def ws_message(message):
     # "autosave"
     SessChain.Chain_pickle()
 
+def addBlock(block):
+    global SessChain
+    # add to Chain
+    SessChain.addBlock(block)
+    # send to group
+    Group("alexa").send({
+        "text": block.GetNode()
+    })
+    print("\033[95m BLOCK \033[0m", block)
+
+    # "autosave"
+    SessChain.Chain_pickle()
+
 
 def ws_add(message):
     # Accept the incoming connection

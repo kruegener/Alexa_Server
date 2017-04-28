@@ -4,8 +4,8 @@ from channels import Group
 import csv
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plot
-
+import matplotlib.pyplot as plt
+from shutil import copyfile
 from django.conf import settings
 
 class HistogramBlock (BaseBlock):
@@ -14,12 +14,9 @@ class HistogramBlock (BaseBlock):
         self.name = name
         self.type = "histogram"
         self.session = session
-        self.options = ["plot", "show"]
+        self.options = ["plot", "show", "export"]
         self.cache_path = ""
 
-
-        # load data
-        # from /import
 
         #make histogram
         file = open('import/firstdata.csv', 'rb')
@@ -31,14 +28,16 @@ class HistogramBlock (BaseBlock):
                     pass
                 else:
                     a.append(int(e))
-        plot.hist(a, bins=30)
-        plot.xlabel('protein numbers')
+        plt.hist(a, bins=30)
+        plt.xlabel('protein numbers')
         print("saving")
-        plot.savefig("cache/alexa/plot.png")
+        fig1 = plt.gcf()
+        fig1.savefig("cache/alexa/plot.png", bbox_inches='tight', dpi=100)
         self.name = "plot.png"
 
 
         # save /cache path in self.cache_path
+
 
     def showBlock(self, num=""):
         print("showBlock");
@@ -52,6 +51,7 @@ class HistogramBlock (BaseBlock):
         Group("alexa").send({
             "text": json.dumps(data)
         })
+
 
     # Node builder
     def GetNode(self):
@@ -73,7 +73,24 @@ class HistogramBlock (BaseBlock):
                 "block_id": num,
                 "cmd": "light_up",
                 }
-        print("executing MessageBlock")
+        print("executing HistogramBlock")
         Group("alexa").send({
             "text": json.dumps(data)
         })
+
+
+    def export(self):
+        cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.name   #"/home/ignacio/Alexa_Server/cache/alexa/plot.png"
+        export_path = settings.EXPORT_DIR + "/" + self.session + "/" + self.name  #"/home/ignacio/Alexa_Server/export/alexa/plot.png"
+
+        copyfile(cache_path, export_path)
+
+
+
+
+
+
+
+
+
+
