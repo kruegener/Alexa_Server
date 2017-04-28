@@ -132,9 +132,10 @@
             width:auto;
             left:0;
         }
-        {#    .mdl-layout.is-small-screen ~ .mdl-layout__drawer{#}
-        {#            width:0;#}
-        {#        }#}
+
+        .logo {
+            height:40pt;
+        }
     </style>
 
     <!-- check for jquery -->
@@ -308,7 +309,7 @@
                 div.scrollIntoView(true);
             }
             componentHandler.upgradeDom();
-            margin_adjust();
+            checkForSmallScreen();
             // refresh clickable
 
         }
@@ -322,7 +323,7 @@
             document.getElementById("var_body").innerHTML = "";
             document.getElementById("grid").innerHTML = "";
             componentHandler.upgradeDom();
-            margin_adjust();
+            checkForSmallScreen();
         }
 
         function send_reset(){
@@ -354,12 +355,14 @@
 
         function margin_adjust() {
             $(".mdl-layout__header").css("margin-left", $("#opt-bar").outerWidth());
+            $(".mdl-layout__header").css("right", 0);
             $(".mdl-layout__content").css("margin-left", $("#opt-bar").outerWidth());
             $(".mdl-layout__drawer").css("left", 0);
         }
 
         function margin_small_adjust() {
             $(".mdl-layout__header").css("margin-left", 0);
+            $(".mdl-layout__header").css("right", 0);
             $(".mdl-layout__content").css("margin-left", 0);
             if ($('.mdl-layout__drawer').hasClass('is-visible')) {
                 $(".mdl-layout__drawer").css("left", 0);
@@ -377,7 +380,7 @@
             }
             else
                 margin_adjust();
-                setTimeout(checkForSmallScreen, 50);
+                setTimeout(checkForSmallScreen, 200);
         }
 
         function new_Gen_Var() {
@@ -405,7 +408,7 @@
             console.log("new width:", $("#opt-bar").outerWidth());
 
             componentHandler.upgradeDom();
-            margin_adjust();
+            checkForSmallScreen();
             cell.scrollIntoView();
         }
 
@@ -434,7 +437,7 @@
                 var_num++;
             }
             componentHandler.upgradeDom();
-            margin_adjust();
+            checkForSmallScreen();
         }
 
         socket.onmessage = function(e) {
@@ -506,7 +509,6 @@
             };
             headerCheckbox.addEventListener('change', headerCheckHandler);
             console.log("new header width:", $("#opt-bar").outerWidth());
-            margin_adjust();
             console.log("header margin: ", $(".mdl-layout__header").css.marginLeft);
             $(checkForSmallScreen);
         });
@@ -524,6 +526,8 @@
         <header id="header-block" class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Live ALEXA</span>
+                <div class="mdl-layout-spacer"></div>
+                <a href="http://b2slab.upc.edu/"><img class="logo" src={% static "AlexaHandler/logo.png" %}></a>
             </div>
             <div class="mdl-layout__header-row">
                 <!-- Accent-colored raised button with ripple -->
@@ -542,7 +546,7 @@
                 <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
                     <i class="material-icons">add</i>
                 </button>
-
+                <div class="mdl-layout-spacer"></div>
             </div>
         </header>
         <div id = "opt-bar" class="mdl-layout__drawer">
