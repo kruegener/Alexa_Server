@@ -10,6 +10,7 @@ class MessageBlock (BaseBlock):
         self.session = session
         self.msg = msg
         self.options = ["execute", "read"]
+        self.vars = []
 
     # Node builder
     def GetNode(self):
@@ -19,6 +20,7 @@ class MessageBlock (BaseBlock):
                 "content_type": "text",
                 "msg": self.msg,
                 "options": self.options,
+                "vars": self.vars,
                 }
         return json.dumps(data)
 

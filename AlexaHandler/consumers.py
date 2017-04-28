@@ -103,6 +103,18 @@ def ws_message(message):
         elif data['cmd'] == "alexa":
             print("alexa called")
 
+        elif data['cmd'] == "click":
+            print("\033[95m CLICK \033[0m")
+            print(data['num'], data['opt'])
+            if data['opt'] == 'show':
+                SessChain.getBlock(data['num']).showBlock(data['num'])
+            if data['opt'] == 'execute':
+                SessChain.getBlock(data['num']).executeBlock(data['num'])
+            # needs active alexa session
+            # TODO derive better system to add functions here automatically
+            #if data['opt'] == 'read':
+            #    msg = SessChain.getBlock(data['num']).readBlock(data['num'])
+
 
     # "autosave"
     SessChain.Chain_pickle()

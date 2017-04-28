@@ -8,6 +8,7 @@ class BaseBlock:
         self.session = session
         self.content_type = content_type
         self.options = ["execute"]
+        self.vars = []
 
 
     # name (has to be unique or does it get an id from models?)
@@ -50,6 +51,7 @@ class BaseBlock:
                 "block_id": self.name,
                 "content_type": self.content_type,
                 "options": self.options,
+                "vars": self.vars,
                 }
         return json.dumps(data)
 
