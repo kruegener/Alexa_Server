@@ -5,6 +5,21 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- material design -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!-- local files -->
+    <script src="{% static "AlexaHandler/jsplumb.min.js" %}"></script>
+    <script src="{% static "AlexaHandler/reconnecting-websocket.min.js" %}"></script>
+
     <style>
         html{
             min-height:100%;/* make sure it is at least as tall as the viewport */
@@ -15,25 +30,25 @@
             scroll-behaviour: smooth;
         }
 
-        #bar {
-            padding-left: 1em;
-            display:block;
-            overflow:auto;
-            height: 20vh;
-            width: 80vw;
-            top: 0;
-            left: 0;
-            background-color: #f7f3ff;
-        }
+        {#        #bar {#}
+        {#            padding-left: 1em;#}
+        {#            display:block;#}
+        {#            overflow:auto;#}
+        {#            height: 20vh;#}
+        {#            width: 80vw;#}
+        {#            top: 0;#}
+        {#            left: 0;#}
+        {#            background-color: #f7f3ff;#}
+        {#        }#}
 
         #plumbing_block {
             padding-left: 1em;
             display:block;
-        //overflow:hidden;
-            height: 80vh;
-            width: 80vw;
-            left: 0;
-            top: 20vh;
+        {#            overflow:hidden;#}
+        {#            height: 80vh;#}
+        {#            width: 80vw;#}
+        {#            left: 0;#}
+        {#            top: 20vh;#}
             background-color: #f7fff0;
         }
 
@@ -43,7 +58,7 @@
         img {
 
             max-width:100%;
-            //margin-bottom: 10%;
+        //margin-bottom: 10%;
             z-index:10;
         }
         .window { z-index:20; }
@@ -63,17 +78,17 @@
             left: -12px;
         }
 
-        .opt-bar {
-            overflow:auto;
-            position:fixed;
-            padding:20px;
-            overflow-y: auto;
-            right: 0;
-            left: 80vw;
-            height:100vh;
-            top: 0;
-            background-color: #ffcad6;
-        }
+        {#        .opt-bar {#}
+        {#            overflow:auto;#}
+        {#            position:fixed;#}
+        {#            padding:20px;#}
+        {#            overflow-y: auto;#}
+        {#            right: 0;#}
+        {#            left: 80vw;#}
+        {#            height:100vh;#}
+        {#            top: 0;#}
+        {#            background-color: #ffcad6;#}
+        {#        }#}
 
         .var-list {
             background-color: #fbfbfc;
@@ -104,21 +119,22 @@
             background-color: rgba(200,200,200, .5);
         }
 
+        #progress {
+            margin-top: 50%;
+            align-self: center;
+        }
 
+        .mdl-layout__drawer {
+            width:auto;
+        }
+        .mdl-layout__drawer.is-visible {
+            width:auto;
+        }
+        .mdl-layout__header,
+        .mdl-layout__content {
+
+        }
     </style>
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <!-- material design -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-    <!-- local files -->
-    <script src="{% static "AlexaHandler/jsplumb.min.js" %}"></script>
-    <script src="{% static "AlexaHandler/reconnecting-websocket.min.js" %}"></script>
 
     <!-- check for jquery -->
     <script type="text/javascript">
@@ -205,7 +221,7 @@
             xOff = 20;
             var div = document.createElement("div");
             div.id = name;
-            div.className = "content mdl-cell mdl-cell--3-col";
+            div.className = "content mdl-cell mdl-cell--3-col mdl-shadow--6dp";
 
             // add vars
             if(data.hasOwnProperty("vars")){
@@ -303,6 +319,7 @@
             var_num = 0;
             document.getElementById("var_body").innerHTML = "";
             document.getElementById("grid").innerHTML = "";
+            margin_adjust();
             componentHandler.upgradeDom();
         }
 
@@ -333,6 +350,10 @@
 
         var var_num = 0;
 
+        function margin_adjust() {
+            $(".mdl-layout__header").css("margin-left", $("#opt-bar").outerWidth());
+            $(".mdl-layout__content").css("margin-left", $("#opt-bar").outerWidth());
+        }
         function new_Gen_Var() {
             var outer = document.getElementById("Vars");
             var table = document.getElementById("var_body");
@@ -355,6 +376,8 @@
             cell.className = "mdl-data-table__cell";
             cell.textContent = "###";
             var_num++;
+            console.log("new width:", $("#opt-bar").outerWidth());
+            margin_adjust();
             componentHandler.upgradeDom();
             cell.scrollIntoView();
         }
@@ -383,6 +406,7 @@
                 cell.textContent = block_num;
                 var_num++;
             }
+            margin_adjust();
             componentHandler.upgradeDom();
         }
 
@@ -434,6 +458,7 @@
 
         $( document ).ready(function() {
             console.log( "ready!" );
+
             // var header select
             var table = document.getElementById("Vars");
             var headerCheckbox = table.querySelector('thead .mdl-data-table__select input');
@@ -453,7 +478,9 @@
                 }
             };
             headerCheckbox.addEventListener('change', headerCheckHandler);
-
+            console.log("new header width:", $("#opt-bar").outerWidth());
+            margin_adjust();
+            console.log("header margin: ", $(".mdl-layout__header").css.marginLeft);
         });
 
 
@@ -462,59 +489,65 @@
 
 {% block body %}
 
+    <!-- MDL Layout -->
 
-    <div id = "bar">
-        <h1> LIVE ALEXA Test</h1>
-        <!-- Accent-colored raised button with ripple -->
-        <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-            Reset
-        </button>
-        <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Hist
-        </button>
-        <button onclick="send_populate_msg()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Msg
-        </button>
-        <button onclick="new_Gen_Var()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Var
-        </button>
-        <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-            <i class="material-icons">add</i>
-        </button>
-    </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+                mdl-layout--fixed-header">
+        <header id="header-block" class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Live ALEXA</span>
+            </div>
+            <div class="mdl-layout__header-row">
+                <!-- Accent-colored raised button with ripple -->
+                <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    Reset
+                </button>
+                <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Hist
+                </button>
+                <button onclick="send_populate_msg()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Msg
+                </button>
+                <button onclick="new_Gen_Var()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Var
+                </button>
+                <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+                    <i class="material-icons">add</i>
+                </button>
 
+            </div>
+        </header>
+        <div id = "opt-bar" class="mdl-layout__drawer">
+            <span class="mdl-layout-title">opt-bar</span>
+            <table id="Vars" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
+                <thead>
+                <tr>
+                    <th>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="main-check">
+                            <input type="checkbox" id="main-check" class="mdl-checkbox__input" />
+                        </label>
+                    </th>
+                    <th class="mdl-data-table__cell">#Var</th>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th class="mdl-data-table__cell">#Block</th>
+                </tr>
+                </thead>
 
-    <div id ="plumbing_block">
-        <!-- MDL Progress Bar with Indeterminate Progress -->
+                <tbody id="var_body">
 
-        <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
-        <div id="grid" class="mdl-grid">
-
+                </tbody>
+            </table>
         </div>
+        <main class="mdl-layout__content">
+            <div id ="plumbing_block">
+                <!-- MDL Progress Bar with Indeterminate Progress -->
+
+                <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>
+                <div id="grid" class="mdl-grid">
+
+                </div>
+            </div>
+        </main>
     </div>
-
-    <div class = "opt-bar">
-        <h2> opt-bar </h2>
-        <table id="Vars" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
-            <thead>
-            <tr>
-                <th>
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="main-check">
-                        <input type="checkbox" id="main-check" class="mdl-checkbox__input" />
-                    </label>
-                </th>
-                <th class="mdl-data-table__cell">#Var</th>
-                <th class="mdl-data-table__cell--non-numeric">Name</th>
-                <th class="mdl-data-table__cell">#Block</th>
-            </tr>
-            </thead>
-
-            <tbody id="var_body">
-
-            </tbody>
-        </table>
-    </div>
-
-
 
 {% endblock %}

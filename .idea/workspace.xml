@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d7c7f7a7-91ea-4aa8-83e5-5264996cfdf8" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/cache/alexa/test.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" afterPath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/alexa/alexa.p" afterPath="$PROJECT_DIR$/cache/alexa/alexa.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" afterPath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -75,8 +75,8 @@
       <file leaf-file-name="consumers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+            <state relative-caret-position="1200">
+              <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -112,23 +112,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="live.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="live.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
-              <folding>
-                <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
-              </folding>
+            <state relative-caret-position="427">
+              <caret line="223" column="75" lean-forward="false" selection-start-line="223" selection-start-column="75" selection-end-line="223" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockChain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlockChain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="831">
-              <caret line="59" column="32" lean-forward="true" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+            <state relative-caret-position="717">
+              <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -145,14 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>global</find>
-      <find>login</find>
-      <find>json</find>
-      <find>adding</find>
-      <find>print</find>
-      <find>cmd</find>
-      <find>plumbing_block</find>
-      <find>BLOCK</find>
       <find>try</find>
       <find>msg</find>
       <find>button</find>
@@ -163,8 +153,6 @@
       <find>send_populate</find>
       <find>block_count</find>
       <find>containme</find>
-      <find>var_</find>
-      <find>cell</find>
       <find>num</find>
       <find>init</find>
       <find>img</find>
@@ -174,7 +162,17 @@
       <find>upgradeDom</find>
       <find>var</find>
       <find>scroll</find>
+      <find>drawer</find>
+      <find>layout__drawer</find>
+      <find>.mdl-layout__content</find>
+      <find>mdl-layout__content</find>
+      <find>mdl-layout__header</find>
+      <find>var_</find>
+      <find>new_Gen</find>
+      <find>css(</find>
+      <find>$(&quot;.mdl-layout__header&quot;).css(&quot;margin-left&quot;, $(&quot;#opt-bar&quot;).outerWidth());</find>
       <find>reset</find>
+      <find>cell</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,8 +203,8 @@
         <option value="$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/MessageBlock.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
       </list>
     </option>
   </component>
@@ -218,9 +216,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="2902" />
-    <option name="height" value="1579" />
+    <option name="width" value="1966" />
+    <option name="height" value="1568" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -575,20 +572,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2902" height="1579" extended-state="6" />
+    <frame x="-11" y="0" width="1966" height="1568" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21296297" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -628,9 +625,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
           <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-          <folding>
-            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -694,9 +689,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
           <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-          <folding>
-            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -746,9 +739,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding>
-            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -944,28 +935,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
-          <folding>
-            <marker date="1493304691000" expanded="true" signature="16537:16605" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+        <state relative-caret-position="1200">
+          <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="831">
-          <caret line="59" column="32" lean-forward="true" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        <state relative-caret-position="717">
+          <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="223" column="75" lean-forward="false" selection-start-line="223" selection-start-column="75" selection-end-line="223" selection-end-column="75" />
           <folding />
         </state>
       </provider>
