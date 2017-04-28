@@ -124,16 +124,17 @@
             align-self: center;
         }
 
+
         .mdl-layout__drawer {
             width:auto;
         }
         .mdl-layout__drawer.is-visible {
             width:auto;
+            left:0;
         }
-        .mdl-layout__header,
-        .mdl-layout__content {
-
-        }
+        {#    .mdl-layout.is-small-screen ~ .mdl-layout__drawer{#}
+        {#            width:0;#}
+        {#        }#}
     </style>
 
     <!-- check for jquery -->
@@ -307,6 +308,7 @@
                 div.scrollIntoView(true);
             }
             componentHandler.upgradeDom();
+            margin_adjust();
             // refresh clickable
 
         }
@@ -319,8 +321,8 @@
             var_num = 0;
             document.getElementById("var_body").innerHTML = "";
             document.getElementById("grid").innerHTML = "";
-            margin_adjust();
             componentHandler.upgradeDom();
+            margin_adjust();
         }
 
         function send_reset(){
@@ -353,7 +355,31 @@
         function margin_adjust() {
             $(".mdl-layout__header").css("margin-left", $("#opt-bar").outerWidth());
             $(".mdl-layout__content").css("margin-left", $("#opt-bar").outerWidth());
+            $(".mdl-layout__drawer").css("left", 0);
         }
+
+        function margin_small_adjust() {
+            $(".mdl-layout__header").css("margin-left", 0);
+            $(".mdl-layout__content").css("margin-left", 0);
+            if ($('.mdl-layout__drawer').hasClass('is-visible')) {
+                $(".mdl-layout__drawer").css("left", 0);
+            }
+            else{
+                $(".mdl-layout__drawer").css("left", -$("#opt-bar").outerWidth());
+            }
+        }
+
+        function checkForSmallScreen()
+        {
+            if ($('.mdl-layout').hasClass('is-small-screen')){
+                 margin_small_adjust();
+                 //alert("small!!!");
+            }
+            else
+                margin_adjust();
+                setTimeout(checkForSmallScreen, 50);
+        }
+
         function new_Gen_Var() {
             var outer = document.getElementById("Vars");
             var table = document.getElementById("var_body");
@@ -377,8 +403,9 @@
             cell.textContent = "###";
             var_num++;
             console.log("new width:", $("#opt-bar").outerWidth());
-            margin_adjust();
+
             componentHandler.upgradeDom();
+            margin_adjust();
             cell.scrollIntoView();
         }
 
@@ -406,8 +433,8 @@
                 cell.textContent = block_num;
                 var_num++;
             }
-            margin_adjust();
             componentHandler.upgradeDom();
+            margin_adjust();
         }
 
         socket.onmessage = function(e) {
@@ -481,6 +508,7 @@
             console.log("new header width:", $("#opt-bar").outerWidth());
             margin_adjust();
             console.log("header margin: ", $(".mdl-layout__header").css.marginLeft);
+            $(checkForSmallScreen);
         });
 
 
