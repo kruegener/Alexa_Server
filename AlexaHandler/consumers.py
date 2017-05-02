@@ -7,6 +7,13 @@ import json
 import time
 from django.db.models.fields.related import ManyToManyField
 
+from django.conf import settings
+
+# import watchdog
+from os import listdir
+import logging
+from watchdog.observers import Observer
+from watchdog.events import LoggingEventHandler
 
 # TODO enforced ordering
 from channels.sessions import channel_session, enforce_ordering
@@ -19,6 +26,29 @@ from .Block.BlockChain import BlockChain
 import pickle
 
 SessChain = "init"
+# initial fileList
+fileList = listdir(settings.IMPORT_DIR)
+# monitoring import folder
+
+class Event(LoggingEventHandler):
+    def on_any_event(self, event):
+        global fileList
+        fileList = listdir(settings.IMPORT_DIR)
+        data = {"type": "cmd",
+                "cmd": "file_list_update",
+                "files": fileList}
+        Group("alexa").send({
+            "text": json.dumps(data)
+        })
+
+logging.basicConfig(level=logging.INFO,
+                        format='\033[1;33m %(asctime)s - %(message)s \033[0m',
+                        datefmt='%Y-%m-%d %H:%M:%S')
+event_handler = Event()
+observer = Observer()
+observer.schedule(event_handler, settings.IMPORT_DIR, recursive=True)
+observer.start()
+
 
 # TODO not really using this anymore
 def to_dict(instance):
@@ -38,6 +68,7 @@ def to_dict(instance):
 def ws_message(message):
     # TODO if more than one Session not feasible
     global SessChain
+    global fileList
     data = json.loads(message.content['text'])
     # print("JSON: ", data, "DATA: ", message.content['text'])
     if data['type'] == "msg" :
@@ -61,7 +92,6 @@ def ws_message(message):
         })
 
     elif data['type'] == "command" :
-        # print(data['cmd'], file = sys.stderr)
         if data['cmd'] == "del_all":
             SessChain.delBlocksAll()
             data = {"type": "cmd",
@@ -73,7 +103,7 @@ def ws_message(message):
         elif data['cmd'] == "init":
             print("init config ordered")
             # artificial sleep to show off loading
-            time.sleep(1)
+            # time.sleep(1)
             # serve BlockChain Contents to client
             if SessChain.getBlockListLength() != 0:
                 for block in SessChain.getBlockList():
@@ -86,6 +116,14 @@ def ws_message(message):
                 message.reply_channel.send({
                     "text": json.dumps(data)
                 })
+
+            # send import list
+            data = {"type": "cmd",
+                    "cmd": "file_list",
+                    "files": fileList}
+            message.reply_channel.send({
+                "text": json.dumps(data)
+            })
 
         elif data['cmd'] == "img":
             print("img ordered")
@@ -197,3 +235,12 @@ def getSessChain():
         return SessChain
     except NameError:
         print("\033[91m SessChain currently not defined \033[0m")
+
+# alexa / session wrapper
+def getFileList():
+    global fileList
+    try:
+        return fileList
+    except NameError:
+        print("\033[91m FileList currently not defined \033[0m")
+

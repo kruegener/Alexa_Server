@@ -30,25 +30,10 @@
             scroll-behaviour: smooth;
         }
 
-        {#        #bar {#}
-        {#            padding-left: 1em;#}
-        {#            display:block;#}
-        {#            overflow:auto;#}
-        {#            height: 20vh;#}
-        {#            width: 80vw;#}
-        {#            top: 0;#}
-        {#            left: 0;#}
-        {#            background-color: #f7f3ff;#}
-        {#        }#}
 
         #plumbing_block {
             padding-left: 1em;
             display:block;
-        {#            overflow:hidden;#}
-        {#            height: 80vh;#}
-        {#            width: 80vw;#}
-        {#            left: 0;#}
-        {#            top: 20vh;#}
             background-color: #f7fff0;
         }
 
@@ -71,6 +56,13 @@
             background-color: rgba(27, 1, 255, .1);
         }
 
+        p.IO {
+            overflow:hidden;
+            padding: 5pt;
+            background-color: #1b3249;
+            color: white;
+        }
+
         p.num {
             position:absolute;
             width: 20px;
@@ -78,24 +70,9 @@
             left: -12px;
         }
 
-        {#        .opt-bar {#}
-        {#            overflow:auto;#}
-        {#            position:fixed;#}
-        {#            padding:20px;#}
-        {#            overflow-y: auto;#}
-        {#            right: 0;#}
-        {#            left: 80vw;#}
-        {#            height:100vh;#}
-        {#            top: 0;#}
-        {#            background-color: #ffcad6;#}
-        {#        }#}
 
         .var-list {
             background-color: #fbfbfc;
-        }
-
-        .item_var {
-            background-color: rgba(27, 1, 255, 0.16);
         }
 
         div.content {
@@ -104,7 +81,7 @@
         }
 
         #button_group {
-            position:absolute;
+            position:relative;
             bottom:0;
         }
 
@@ -120,8 +97,10 @@
         }
 
         #progress {
-            margin-top: 50%;
+            position:absolute;
             align-self: center;
+            top: 50%;
+            left:50%;
         }
 
 
@@ -135,7 +114,24 @@
 
         .logo {
             height:40pt;
+            position: absolute;
+            right: 10pt;
+            top: 5pt;
         }
+
+        #Sidebar {
+            max-width: 30%;
+
+        }
+        #Sidebar.is-visible {
+            max-width: 80%;
+
+        }
+        table {
+            table-layout: fixed;
+            max-width:100%;
+        }
+
     </style>
 
     <!-- check for jquery -->
@@ -169,10 +165,12 @@
         var grid_count = 0;
         var width = $(window).width()*.8;
         var height = $(window).height();
-        var xStep = 220;
-        var yStep = 220;
         var xGrid = Math.floor( (width)/xStep);
+        var xStep = 220;
         var init = true;
+        var var_num = 0;
+        var var_gen_num = 0;
+        var file_num = 0;
 
         plumbing.importDefaults({
             ConnectionsDetachable:false,
@@ -248,7 +246,6 @@
                     window.open(data.call_path);
                 }
                 div.appendChild(img);
-                //img.onclick = window.open(data.call_path);
             }
             else if (data.block_type == "histogram") {
                 var img = document.createElement("img");
@@ -257,7 +254,30 @@
                     window.open(data.call_path);
                 };
                 div.appendChild(img);
+            }
+            else if (data.block_type == "plot") {
+                var img = document.createElement("img");
+                console.log("PLOT:", data.call_path);
+                img.src = data.call_path;
+                var p = document.createElement("p");
+                p.className = "IO mdl-shadow--6dp";
+                p.appendChild(document.createTextNode(data.content_type));
+                div.appendChild(img);
+                div.appendChild(p);
+            }
+            else if (data.block_type == "IO") {
+                var p = document.createElement("p");
+                p.className = "IO mdl-shadow--6dp";
+                p.appendChild(document.createTextNode("Type: " + data.block_type));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode("File Name: " + data.file_name));
+                p.appendChild(document.createElement("br"));
+                for(var item = 0; item < data.IO_data.length; item+=2){
+                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item+1]));
+                    p.appendChild(document.createElement("br"));
+                }
 
+                div.appendChild(p);
             }
             else {
                 console.log(data);
@@ -295,11 +315,10 @@
                     num: block_count - 1,
                     opt: data.options[opt]
                 });
-                console.log(jQuery.data( but, "call" ).opt);
-                console.log(jQuery.data( but, "call" ).num);
+
                 but.innerHTML = (data.options[opt]);
                 but_group.appendChild(but);
-                console.log($(but));
+
 
             }
             grid_count += 1;
@@ -329,6 +348,8 @@
             grid_count = 0;
             block_count = 0;
             var_num = 0;
+            var_gen_num = 0;
+            file_num = 0;
             document.getElementById("var_body").innerHTML = "";
             document.getElementById("grid").innerHTML = "";
             componentHandler.upgradeDom();
@@ -361,12 +382,11 @@
         }
 
 
-        var var_num = 0;
 
         function margin_adjust() {
-            $(".mdl-layout__header").css("margin-left", $("#opt-bar").outerWidth());
+            $(".mdl-layout__header").css("margin-left", $("#Sidebar").outerWidth());
             $(".mdl-layout__header").css("right", 0);
-            $(".mdl-layout__content").css("margin-left", $("#opt-bar").outerWidth());
+            $(".mdl-layout__content").css("margin-left", $("#Sidebar").outerWidth());
             $(".mdl-layout__drawer").css("left", 0);
         }
 
@@ -378,7 +398,7 @@
                 $(".mdl-layout__drawer").css("left", 0);
             }
             else{
-                $(".mdl-layout__drawer").css("left", -$("#opt-bar").outerWidth());
+                $(".mdl-layout__drawer").css("left", -$("#Sidebar").outerWidth());
             }
         }
 
@@ -400,27 +420,37 @@
 
             // checkbox cell
             var check = row.insertCell();
-            var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="row[' + var_num + ']"><input type="checkbox" id="row[' + var_num + ']" class="mdl-checkbox__input" /></label>';
+            var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="var_row_fake[' + var_gen_num + ']"><input type="checkbox" id="var_row_fake[' + var_gen_num + ']" class="mdl-checkbox__input" /></label>';
             check.innerHTML = checkbox;
             // num cell
             var cell = row.insertCell();
             cell.className = "mdl-data-table__cell";
-            cell.textContent = var_num;
+            cell.textContent = "local" + var_gen_num;
             // content cell
             var cell = row.insertCell();
             cell.className = "mdl-data-table__cell--non-numeric";
-            cell.textContent = "varname" + var_num;
+            cell.textContent = "local varname" + var_gen_num;
             // block cell
             var cell = row.insertCell();
             cell.className = "mdl-data-table__cell";
             cell.textContent = "###";
-            var_num++;
-            console.log("new width:", $("#opt-bar").outerWidth());
+            var_gen_num++;
+            console.log("new width:", $("#Sidebar").outerWidth());
 
             componentHandler.upgradeDom();
             checkForSmallScreen();
             cell.scrollIntoView();
         }
+
+        function truncString(word) {
+
+            var length = 20;
+            var trimmedString = word.length > length ?
+                    word.substring(0, length - 3) + "..." :
+                    word;
+            return trimmedString;
+            }
+
 
         function new_Var(list, block_num) {
             var outer = document.getElementById("Vars");
@@ -429,7 +459,7 @@
                 var row = table.insertRow();
                 // checkbox cell
                 var check = row.insertCell();
-                var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="row[' + var_num + ']"><input type="checkbox" id="row[' + var_num + ']" class="mdl-checkbox__input" /></label>';
+                var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="file_row[' + var_num + ']"><input type="checkbox" id="file_row[' + var_num + ']" class="mdl-checkbox__input" /></label>';
                 check.innerHTML = checkbox;
                 // num cell
                 var cell = row.insertCell();
@@ -439,13 +469,48 @@
                 var cell = row.insertCell();
                 cell.className = "mdl-data-table__cell--non-numeric";
 
-                cell.textContent = list[i];
+                cell.textContent = truncString(list[i]);
+                cell.title = list[i];
                 // block cell
                 var cell = row.insertCell();
                 cell.className = "mdl-data-table__cell";
                 cell.textContent = block_num;
                 var_num++;
             }
+            componentHandler.upgradeDom();
+            checkForSmallScreen();
+        }
+
+        function file_list(data, update = false) {
+            var outer = document.getElementById("Files");
+            var table = document.getElementById("files_body");
+            var list = data.files;
+            file_num = 0;
+            if(update) {
+                table.innerHTML = "";
+            }
+            for(i = 0; i < list.length; i++){
+                var row = table.insertRow();
+                // checkbox cell
+                var check = row.insertCell();
+                var checkbox = '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="row[' + file_num + ']"><input type="checkbox" id="row[' + file_num + ']" class="mdl-checkbox__input" /></label>';
+                check.innerHTML = checkbox;
+                // num cell
+                var cell = row.insertCell();
+                cell.className = "mdl-data-table__cell";
+                cell.textContent = file_num;
+                // content cell
+                var cell = row.insertCell();
+                cell.className = "mdl-data-table__cell--non-numeric";
+
+                cell.textContent = truncString(list[i]);
+                cell.title = list[i];
+                // block cell
+                var cell = row.insertCell();
+                cell.className = "mdl-data-table__cell";
+                file_num++;
+            }
+
             componentHandler.upgradeDom();
             checkForSmallScreen();
         }
@@ -484,8 +549,11 @@
                 else if(data.cmd == "show") {
                     showBlock(data);
                 }
-                else if (data.cmd == "onclick") {
-                    displayImage(data)
+                else if(data.cmd == "file_list") {
+                    file_list(data);
+                }
+                else if(data.cmd == "file_list_update") {
+                    file_list(data, update=true);
                 }
             }
 
@@ -503,11 +571,11 @@
             console.log( "ready!" );
 
             // var header select
-            var table = document.getElementById("Vars");
-            var headerCheckbox = table.querySelector('thead .mdl-data-table__select input');
-            var headerCheckHandler = function(event) {
+            var table_vars = document.getElementById("Vars");
+            var headerCheckbox_vars = table_vars.querySelector('thead .mdl-data-table__select input');
+            var headerCheckHandler_vars = function(event) {
                 console.log("main checkbox clicked");
-                var boxes = table.querySelectorAll('tbody .mdl-data-table__select');
+                var boxes = table_vars.querySelectorAll('tbody .mdl-data-table__select');
                 if (event.target.checked) {
                     for (var i = 0, length = boxes.length; i < length; i++) {
                         boxes[i].MaterialCheckbox.check();
@@ -520,8 +588,29 @@
                     }
                 }
             };
-            headerCheckbox.addEventListener('change', headerCheckHandler);
-            console.log("new header width:", $("#opt-bar").outerWidth());
+            headerCheckbox_vars.addEventListener('change', headerCheckHandler_vars);
+
+            // file header select
+            var table_files = document.getElementById("Files");
+            var headerCheckbox_files = table_files.querySelector('thead .mdl-data-table__select input');
+            var headerCheckHandler_files = function(event) {
+                console.log("main checkbox clicked");
+                var boxes = table_files.querySelectorAll('tbody .mdl-data-table__select');
+                if (event.target.checked) {
+                    for (var i = 0, length = boxes.length; i < length; i++) {
+                        boxes[i].MaterialCheckbox.check();
+                        //boxes[i].MaterialCheckbox.updateClasses();
+                    }
+                } else {
+                    for (var i = 0, length = boxes.length; i < length; i++) {
+                        boxes[i].MaterialCheckbox.uncheck();
+                        //boxes[i].MaterialCheckbox.updateClasses();
+                    }
+                }
+            };
+            headerCheckbox_files.addEventListener('change', headerCheckHandler_files);
+
+            console.log("new header width:", $("#Sidebar").outerWidth());
             console.log("header margin: ", $(".mdl-layout__header").css.marginLeft);
             $(checkForSmallScreen);
         });
@@ -562,8 +651,8 @@
                 <div class="mdl-layout-spacer"></div>
             </div>
         </header>
-        <div id = "opt-bar" class="mdl-layout__drawer">
-            <span class="mdl-layout-title">opt-bar</span>
+        <div id ="Sidebar" class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Variables</span>
             <table id="Vars" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
                 <thead>
                 <tr>
@@ -582,7 +671,29 @@
 
                 </tbody>
             </table>
+
+            <span class="mdl-layout-title">Available Files</span>
+            <table id="Files" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
+                <thead>
+                <tr>
+                    <th>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="main-check-files">
+                            <input type="checkbox" id="main-check-files" class="mdl-checkbox__input" />
+                        </label>
+                    </th>
+                    <th class="mdl-data-table__cell">#File</th>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                </tr>
+                </thead>
+
+                <tbody id="files_body">
+
+                </tbody>
+            </table>
         </div>
+
+
+
         <main class="mdl-layout__content">
             <div id ="plumbing_block">
                 <!-- MDL Progress Bar with Indeterminate Progress -->
