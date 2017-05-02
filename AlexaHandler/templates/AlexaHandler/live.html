@@ -30,25 +30,10 @@
             scroll-behaviour: smooth;
         }
 
-        {#        #bar {#}
-        {#            padding-left: 1em;#}
-        {#            display:block;#}
-        {#            overflow:auto;#}
-        {#            height: 20vh;#}
-        {#            width: 80vw;#}
-        {#            top: 0;#}
-        {#            left: 0;#}
-        {#            background-color: #f7f3ff;#}
-        {#        }#}
 
         #plumbing_block {
             padding-left: 1em;
             display:block;
-        {#            overflow:hidden;#}
-        {#            height: 80vh;#}
-        {#            width: 80vw;#}
-        {#            left: 0;#}
-        {#            top: 20vh;#}
             background-color: #f7fff0;
         }
 
@@ -71,6 +56,13 @@
             background-color: rgba(27, 1, 255, .1);
         }
 
+        p.IO {
+            overflow:hidden;
+            padding: 5pt;
+            background-color: #1b3249;
+            color: white;
+        }
+
         p.num {
             position:absolute;
             width: 20px;
@@ -89,7 +81,7 @@
         }
 
         #button_group {
-            position:absolute;
+            position:relative;
             bottom:0;
         }
 
@@ -105,8 +97,10 @@
         }
 
         #progress {
-            margin-top: 50%;
+            position:absolute;
             align-self: center;
+            top: 50%;
+            left:50%;
         }
 
 
@@ -253,6 +247,30 @@
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 div.appendChild(img);
+            }
+            else if (data.block_type == "plot") {
+                var img = document.createElement("img");
+                console.log("PLOT:", data.call_path);
+                img.src = data.call_path;
+                var p = document.createElement("p");
+                p.className = "IO mdl-shadow--6dp";
+                p.appendChild(document.createTextNode(data.content_type));
+                div.appendChild(img);
+                div.appendChild(p);
+            }
+            else if (data.block_type == "IO") {
+                var p = document.createElement("p");
+                p.className = "IO mdl-shadow--6dp";
+                p.appendChild(document.createTextNode("Type: " + data.block_type));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode("File Name: " + data.file_name));
+                p.appendChild(document.createElement("br"));
+                for(var item = 0; item < data.IO_data.length; item+=2){
+                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item+1]));
+                    p.appendChild(document.createElement("br"));
+                }
+
+                div.appendChild(p);
             }
             else {
                 console.log(data);
@@ -456,10 +474,14 @@
             checkForSmallScreen();
         }
 
-        function init_files(data) {
+        function file_list(data, update = false) {
             var outer = document.getElementById("Files");
             var table = document.getElementById("files_body");
             var list = data.files;
+            file_num = 0;
+            if(update) {
+                table.innerHTML = "";
+            }
             for(i = 0; i < list.length; i++){
                 var row = table.insertRow();
                 // checkbox cell
@@ -521,7 +543,10 @@
                     showBlock(data);
                 }
                 else if(data.cmd == "file_list") {
-                    init_files(data);
+                    file_list(data);
+                }
+                else if(data.cmd == "file_list_update") {
+                    file_list(data, update=true);
                 }
             }
 
@@ -620,7 +645,7 @@
             </div>
         </header>
         <div id ="Sidebar" class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Var-List</span>
+            <span class="mdl-layout-title">Variables</span>
             <table id="Vars" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
                 <thead>
                 <tr>
@@ -640,7 +665,7 @@
                 </tbody>
             </table>
 
-            <span class="mdl-layout-title">File-List</span>
+            <span class="mdl-layout-title">Available Files</span>
             <table id="Files" class="var-list mdl-data-table mdl-shadow--2dp mdl-js-data-table">
                 <thead>
                 <tr>

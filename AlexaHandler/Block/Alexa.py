@@ -2,9 +2,11 @@
 from django_alexa.api import fields, intent, ResponseBuilder
 # BlockChain import for SessChain Handling
 from .BlockChain import BlockChain
-
+from .IO_Block import IO_Block
+from .PCA_Block import PCA_Block
+from channels import Group
 from .. import consumers
-
+import sys
 
 # ALEXA PART
 
@@ -121,6 +123,100 @@ def readMsg(session, num=0):
             msg = SessChain.getBlock(-1).readBlock()
         except:
             msg = "function not available for last block"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+# read message intent
+@intent(slots=Num, app="AlexaHandler")
+def loadFile(session, num=0):
+    """
+        loading file with number {num}
+        ---
+        read file {num}
+        read {num}
+        {num} read
+        load file {num}
+        load {num}
+        {num} load
+        file {num}
+        {num} file  
+    """
+    print("loading", num)
+    FileList = consumers.getFileList()
+    print(FileList)
+
+    if type(num) is int:
+        if num < len(FileList):
+            try:
+                SessChain = consumers.getSessChain()
+                print("got Chain")
+                IO = IO_Block(file_name=FileList[num], session="alexa")
+                print("NEW IO BLOCK")
+                SessChain.addBlock(IO)
+                print("added to Chain:")
+                SessChain.Chain_pickle()
+                print(SessChain)
+                Group("alexa").send({
+                    "text": IO.GetNode()
+                })
+                msg = "successfully loaded"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error loading file  " + str(num)
+        else:
+            msg = "File with number " + str(num) + " does not exist. Maximum File number is " + str(len(FileList))
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+# read message intent
+@intent(slots=Num, app="AlexaHandler")
+def doPCA(session, num=0):
+    """
+        P.C.A. with data from block {num}
+        ---
+        block {num} P.C.A.
+        {num} P.C.A.
+        P.C.A. {num}
+        perform a P.C.A. on block {num}
+        do a P.C.A. on block {num}
+        perform a P.C.A. on {num}
+        do a P.C.A. on {num}
+        P.C.A. on {num}
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            try:
+                print("got Chain")
+                PCA = PCA_Block(var_name=block.data_name, data=block.getData(), session="alexa")
+                print("NEW PCA BLOCK")
+                SessChain.addBlock(PCA)
+                print("added to Chain:")
+                SessChain.Chain_pickle()
+                print(SessChain)
+                Group("alexa").send({
+                    "text": PCA.GetNode()
+                })
+                msg = "successfully processed"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error processing block" + str(num)
+        else:
+            msg = "File with number " + str(num) + " does not exist. Maximum File number is " + str(len(FileList))
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
 
     return ResponseBuilder.create_response(message=msg,
                                            reprompt="",

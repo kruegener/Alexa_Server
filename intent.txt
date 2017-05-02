@@ -30,6 +30,24 @@
             ]
         }, 
         {
+            "intent": "loadFile", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
+            "intent": "doPCA", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
             "intent": "LaunchRequest", 
             "slots": []
         }, 
@@ -71,6 +89,22 @@ readMsg read block {num}
 readMsg read {num}
 readMsg {num} read
 readMsg read
+loadFile read file {num}
+loadFile read {num}
+loadFile {num} read
+loadFile load file {num}
+loadFile load {num}
+loadFile {num} load
+loadFile file {num}
+loadFile {num} file
+doPCA block {num} p.c.a.
+doPCA {num} p.c.a.
+doPCA p.c.a. {num}
+doPCA perform a p.c.a. on block {num}
+doPCA do a p.c.a. on block {num}
+doPCA perform a p.c.a. on {num}
+doPCA do a p.c.a. on {num}
+doPCA p.c.a. on {num}
 LaunchRequest launch
 AddFileRequest test
 SetName my name is {name}
