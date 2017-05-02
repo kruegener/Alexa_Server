@@ -206,7 +206,8 @@
             var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
         {% else %}
             // SERVER VERSION
-            var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+            //var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
+            var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
         {% endif %}
         //alert(socket.readyState);
         socket.debug = true;
@@ -243,12 +244,20 @@
             else if (data.block_type == "image") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
+                img.onclick = function() {
+                    window.open(data.call_path);
+                }
                 div.appendChild(img);
+                //img.onclick = window.open(data.call_path);
             }
             else if (data.block_type == "histogram") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
+                img.onclick = function() {
+                    window.open(data.call_path);
+                };
                 div.appendChild(img);
+
             }
             else {
                 console.log(data);
@@ -350,6 +359,7 @@
         function showBlock(data) {
             window.open(data.call_path);
         }
+
 
         var var_num = 0;
 
@@ -473,6 +483,9 @@
                 }
                 else if(data.cmd == "show") {
                     showBlock(data);
+                }
+                else if (data.cmd == "onclick") {
+                    displayImage(data)
                 }
             }
 

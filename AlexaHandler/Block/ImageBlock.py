@@ -31,6 +31,7 @@ class ImageBlock(BaseBlock):
         print("copying to cache")
         # TODO check if filename alreay exists
         print("PATHS: ", self.img_path, new_path)
+        copyfile(self.img_path, new_path)
         try:
             copyfile(self.img_path, new_path)
         except:

@@ -91,7 +91,7 @@ def ws_message(message):
             print("img ordered")
             block = ImageBlock(name="test.jpg",
                                  session="alexa",
-                                 img_path="/home/alexa_server/Alexa_Server/import/test.jpg")
+                                 img_path="/home/ignacio/Alexa_Server/import/test.jpg")
             # add to Chain
             SessChain.addBlock(block)
             # send to group
