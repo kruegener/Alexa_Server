@@ -6,7 +6,8 @@ from .models import *
 import json
 import time
 from django.db.models.fields.related import ManyToManyField
-
+from os import listdir
+from django.conf import settings
 
 # TODO enforced ordering
 from channels.sessions import channel_session, enforce_ordering
@@ -86,6 +87,15 @@ def ws_message(message):
                 message.reply_channel.send({
                     "text": json.dumps(data)
                 })
+
+            # send import list
+            file_list = listdir(settings.IMPORT_DIR)
+            data = {"type": "cmd",
+                    "cmd": "file_list",
+                    "files": file_list}
+            message.reply_channel.send({
+                "text": json.dumps(data)
+            })
 
         elif data['cmd'] == "img":
             print("img ordered")

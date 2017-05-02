@@ -148,6 +148,9 @@ if ENV is "SERVER":
     CACHE_URL = (
         "https://talktoyourdata.upc.edu/AlexaHandler/cache"
     )
+    IMPORT_DIR = (
+        "/home/alexa_server/Alexa_Server/import"
+    )
 
 else:
     # LOCAL VERSION
