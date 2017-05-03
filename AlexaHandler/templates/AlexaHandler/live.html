@@ -31,7 +31,7 @@
 
 
         #plumbing_block {
-            position:absolute;
+            position:relative;
             top:0;
             bottom:0;
             right:0;
@@ -166,9 +166,10 @@
             height: 100%;
             object-fit: contain;
         }
-        #plumbing_block.is-overlayed .overlay {
-            bottom: 0;
+        #area.is-overlayed .overlay {
+            position:absolute;
             height: 100%;
+            bottom: 0;
             background-color: rgba(0, 0, 0, 0.5);
         }
 
@@ -495,6 +496,32 @@
             $( "#" + name ).effect("highlight", {}, 3000);
         }
 
+        $( window ).resize(function() {
+            if($("#area").hasClass("is-overlayed")){
+                var avHeight = $("#area").innerHeight();
+                var avWidth = $("#area").innerWidth();
+                var avLeft = $("#area").offset().left;
+                var avTop = $("#header-block").outerHeight();
+                console.log(avHeight, avWidth, avLeft, avTop);
+                $("#area.is-overlayed .overlay").css({
+                    "position": "fixed",
+                    "height": avHeight,
+                    "width": avWidth,
+                    "left": avLeft,
+                    "top": avTop,
+                })
+            }
+            else{
+                $(".overlay").css({
+                    "position": "fixed",
+                    "height": "0",
+                    "width": "100%",
+                    "left": "0",
+                    "top": "0",
+                })
+            }
+        });
+
         function showBlock(data) {
             var canvas = document.getElementById("offScreen");
             canvas.innerHTML="";
@@ -502,11 +529,30 @@
             img.className = "overlayImage";
             img.src = data.call_path;
             canvas.appendChild(img);
-            $("#plumbing_block").addClass("is-overlayed");
+            $("#area").addClass("is-overlayed");
+            var avHeight = $("#area").innerHeight();
+            var avWidth = $("#area").innerWidth();
+            var avLeft = $("#area").offset().left;
+            var avTop = $("#header-block").outerHeight();
+            console.log(avHeight, avWidth, avLeft, avTop);
+            $("#area.is-overlayed .overlay").css({
+                "position": "fixed",
+                "height": avHeight,
+                "width": avWidth,
+                "left": avLeft,
+                "top": avTop,
+            })
         }
 
         function minimize(){
-            $("#plumbing_block").removeClass("is-overlayed");
+            $("#area").removeClass("is-overlayed");
+            $(".overlay").css({
+                "position": "fixed",
+                "height": "0",
+                "width": "100%",
+                "left": "0",
+                "top": "0",
+            })
         }
 
         function margin_adjust() {
@@ -837,12 +883,11 @@
 
 
 
-        <main class="mdl-layout__content">
+        <main id ="area" class="mdl-layout__content">
+            <div id="offScreen" class="overlay" onclick=minimize()>
+                YOU SHOULDN'T SEE THIS!!!
+            </div>
             <div id ="plumbing_block">
-
-                <div id="offScreen" class="overlay" onclick=minimize()>
-                    hey
-                </div>
 
                 <!-- MDL Progress Bar with Indeterminate Progress -->
 
