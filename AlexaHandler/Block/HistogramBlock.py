@@ -3,6 +3,7 @@ import json
 from channels import Group
 import csv
 import matplotlib
+import os
 matplotlib.use("Agg")
 import matplotlib.pyplot as plot
 
@@ -32,12 +33,16 @@ class HistogramBlock (BaseBlock):
                     pass
                 else:
                     a.append(int(e))
+
+        plot.cla()
+        plot.clf()
+        fig = plot.figure()
         plot.hist(a, bins=30)
         plot.xlabel('protein numbers')
         print("saving")
         plot.savefig("cache/alexa/plot.png")
         self.name = "plot.png"
-
+        plot.close()
 
         # save /cache path in self.cache_path
 
@@ -79,3 +84,12 @@ class HistogramBlock (BaseBlock):
         Group("alexa").send({
             "text": json.dumps(data)
         })
+
+    def delBlock(self):
+        try:
+            os.remove(self.cache_path)
+            print("removed from cache")
+        except:
+            print("\033[93m couldnt remove image block cache \033[0m")
+
+        del self

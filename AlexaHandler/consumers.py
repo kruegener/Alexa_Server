@@ -144,10 +144,19 @@ def ws_message(message):
         elif data['cmd'] == "click":
             print("\033[95m CLICK \033[0m")
             print(data['num'], data['opt'])
-            if data['opt'] == 'show':
+            if "show" in str(data['opt']):
                 SessChain.getBlock(data['num']).showBlock(data['num'])
-            if data['opt'] == 'execute':
+            elif data['opt'] == 'execute':
                 SessChain.getBlock(data['num']).executeBlock(data['num'])
+            elif "del" in str(data['opt']):
+                print("deleting:", data['num'])
+                SessChain.delBlockByIndex(data['num'])
+                data = {"type": "cmd",
+                        "cmd": "del_block",
+                        "block_num": data['num']}
+                Group("alexa").send({
+                    "text": json.dumps(data)
+                })
             # needs active alexa session
             # TODO derive better system to add functions here automatically
             #if data['opt'] == 'read':

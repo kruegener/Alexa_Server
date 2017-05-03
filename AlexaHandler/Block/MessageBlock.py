@@ -9,7 +9,7 @@ class MessageBlock (BaseBlock):
         self.type = "message"
         self.session = session
         self.msg = msg
-        self.options = ["execute", "read"]
+        self.options = ["read"]
         self.vars = []
 
     # Node builder

@@ -25,7 +25,8 @@ class IO_Block (BaseBlock):
 
 
     def getData(self):
-        return self.data
+        data = {"name": self.data_name, "type": "matrix", "data": self.data}
+        return data
 
     # Node builder
     def GetNode(self):
