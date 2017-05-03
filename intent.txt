@@ -57,34 +57,20 @@
             ]
         }, 
         {
-            "intent": "LaunchRequest", 
-            "slots": []
-        }, 
-        {
-            "intent": "AddFileRequest", 
-            "slots": []
-        }, 
-        {
-            "intent": "SetName", 
+            "intent": "delBlock", 
             "slots": [
                 {
-                    "name": "name", 
-                    "type": "NAMES"
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
                 }
             ]
+        }, 
+        {
+            "intent": "LaunchRequest", 
+            "slots": []
         }
     ]
 }
-
-NAMES:
-  Moritz
-  pol
-  Test
-  sergi
-  Alex
-  David
-  pizza
-  maria
 
 executeBlock execute block {num}
 executeBlock execute {num}
@@ -131,9 +117,10 @@ saveResult export {num}
 saveResult {num} export
 saveResult export block {num}
 saveResult {num} export block
+delBlock delete {num}
+delBlock {num} delete
+delBlock delete block {num}
+delBlock {num} delete block
 LaunchRequest launch
-AddFileRequest test
-SetName my name is {name}
-SetName {name}
 
 #####################################

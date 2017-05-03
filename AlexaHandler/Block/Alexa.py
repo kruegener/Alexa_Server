@@ -7,6 +7,7 @@ from .PCA_Block import PCA_Block
 from channels import Group
 from .. import consumers
 import sys
+import json
 
 # ALEXA PART
 
@@ -258,6 +259,45 @@ def saveResult(session, num=0):
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
                 msg = "error saving block" + str(num)
+        else:
+            msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+# read message intent
+@intent(slots=Num, app="AlexaHandler")
+def delBlock(session, num=0):
+    """
+        deletes the block with number {num}
+        ---
+        delete {num}
+        {num} delete
+        delete block {num}
+        {num} delete block
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            try:
+                print("deleting:", num)
+                SessChain.delBlockByIndex(num)
+                data = {"type": "cmd",
+                        "cmd": "del_block",
+                        "block_num": num,
+                        }
+                Group("alexa").send({
+                    "text": json.dumps(data)
+                })
+                msg = "block deleted"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error deleting block" + str(num)
         else:
             msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
     else:
