@@ -588,7 +588,7 @@
                 check.innerHTML = checkbox;
                 // num cell
                 var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell var_num";
+                cell.className = "var_num mdl-data-table__cell";
                 cell.textContent = var_num;
                 // content cell
                 var cell = row.insertCell();
@@ -598,7 +598,7 @@
                 cell.title = list[i];
                 // block cell
                 var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell block_num";
+                cell.className = "block_num mdl-data-table__cell ¡";
                 cell.textContent = block_num;
                 var_num++;
             }
@@ -626,13 +626,10 @@
                 cell.textContent = file_num;
                 // content cell
                 var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell--non-numeric";
-
+                cell.className = "file_name mdl-data-table__cell--non-numeric";
                 cell.textContent = truncString(list[i]);
                 cell.title = list[i];
-                // block cell
-                var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell";
+
                 file_num++;
             }
 
@@ -746,7 +743,19 @@
             $(checkForSmallScreen);
         });
 
+        function load(){
+            var checked_rows = $("#Files").find(".is-checked").closest("tr");
+            console.log(checked_rows);
+            for(i = 0; i < checked_rows.length; i++){
+                var row = checked_rows[i];
+                var cell = $(row).children("td.file_name")[0];
 
+                socket.send(JSON.stringify({"type": "command",
+                    "cmd": "load",
+                    "file": $(cell).attr("title"),}));
+            }
+            checked_rows.find(".is-checked").removeClass("is-checked");
+        }
     </script>
 {% endblock %}
 
@@ -775,6 +784,9 @@
                 </button>
                 <button onclick="new_Gen_Var()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     Var
+                </button>
+                <button onclick="load()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    load
                 </button>
                 <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
                     <i class="material-icons">add</i>
@@ -809,7 +821,7 @@
                 <tr>
                     <th>
                         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="main-check-files">
-                            <input type="checkbox" id="main-check-files" class="mdl-checkbox__input" />
+                            <input type="checkbox" id="main-check-files" class="File_CHECK mdl-checkbox__input" />
                         </label>
                     </th>
                     <th class="mdl-data-table__cell">#File</th>

@@ -22,6 +22,7 @@ from channels.auth import channel_session_user, channel_session_user_from_http
 from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
+from .Block.IO_Block import IO_Block
 from .Block.BlockChain import BlockChain
 import pickle
 
@@ -157,10 +158,20 @@ def ws_message(message):
                 Group("alexa").send({
                     "text": json.dumps(data)
                 })
-            # needs active alexa session
-            # TODO derive better system to add functions here automatically
-            #if data['opt'] == 'read':
-            #    msg = SessChain.getBlock(data['num']).readBlock(data['num'])
+
+        elif data['cmd'] == "load":
+            IO = IO_Block(file_name=data['file'], session="alexa")
+            print("NEW IO BLOCK")
+            SessChain.addBlock(IO)
+            print("IO added")
+            Group("alexa").send({
+                "text": IO.GetNode()
+            })
+
+        # needs active alexa session
+        # TODO derive better system to add functions here automatically
+        #if data['opt'] == 'read':
+        #    msg = SessChain.getBlock(data['num']).readBlock(data['num'])
 
 
     # "autosave"
