@@ -555,6 +555,10 @@
             })
         }
 
+        function send_minimize(){
+            socket.send(JSON.stringify({"type": "command", "cmd": "minimize"}));
+        }
+
         function margin_adjust() {
             $(".mdl-layout__header").css("margin-left", $("#Sidebar").outerWidth());
             $(".mdl-layout__header").css("right", 0);
@@ -884,7 +888,7 @@
 
 
         <main id ="area" class="mdl-layout__content">
-            <div id="offScreen" class="overlay" onclick=minimize()>
+            <div id="offScreen" class="overlay" onclick=send_minimize()>
                 YOU SHOULDN'T SEE THIS!!!
             </div>
             <div id ="plumbing_block">

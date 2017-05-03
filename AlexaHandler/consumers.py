@@ -168,6 +168,14 @@ def ws_message(message):
                 "text": IO.GetNode()
             })
 
+        elif data['cmd'] == "minimize":
+            data = {"type": "cmd",
+                    "cmd": "minimize",
+                    }
+            Group("alexa").send({
+                "text": json.dumps(data)
+            })
+
         # needs active alexa session
         # TODO derive better system to add functions here automatically
         #if data['opt'] == 'read':
