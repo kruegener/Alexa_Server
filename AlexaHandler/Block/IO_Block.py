@@ -11,7 +11,7 @@ class IO_Block (BaseBlock):
         self.type = "IO"
         self.session = session
         self.file_name = file_name
-        self.options = ["plot", "PCA"]
+        self.options = ["plot", "PCA", "statistics"]
         self.vars = [".".join(self.file_name.split(".")[:-1])]
         self.data_name = ".".join(self.file_name.split(".")[:-1])
 
@@ -25,7 +25,8 @@ class IO_Block (BaseBlock):
 
 
     def getData(self):
-        return self.data
+        data = {"name": self.data_name, "type": "matrix", "data": self.data}
+        return data
 
     # Node builder
     def GetNode(self):

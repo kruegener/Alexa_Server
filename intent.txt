@@ -48,34 +48,33 @@
             ]
         }, 
         {
-            "intent": "LaunchRequest", 
-            "slots": []
-        }, 
-        {
-            "intent": "AddFileRequest", 
-            "slots": []
-        }, 
-        {
-            "intent": "SetName", 
+            "intent": "saveResult", 
             "slots": [
                 {
-                    "name": "name", 
-                    "type": "NAMES"
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
                 }
             ]
+        }, 
+        {
+            "intent": "delBlock", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
+            "intent": "minimize", 
+            "slots": []
+        }, 
+        {
+            "intent": "LaunchRequest", 
+            "slots": []
         }
     ]
 }
-
-NAMES:
-  Moritz
-  pol
-  Test
-  sergi
-  Alex
-  David
-  pizza
-  maria
 
 executeBlock execute block {num}
 executeBlock execute {num}
@@ -85,6 +84,15 @@ showImg show block {num}
 showImg show {num}
 showImg {num} show
 showImg show
+showImg show larger block {num}
+showImg show larger {num}
+showImg {num} show larger
+showImg show larger
+showImg larger
+showImg enlarge
+showImg enlarge block {num}
+showImg enlarge {num}
+showImg {num} enlarge
 readMsg read block {num}
 readMsg read {num}
 readMsg {num} read
@@ -105,9 +113,22 @@ doPCA do a p.c.a. on block {num}
 doPCA perform a p.c.a. on {num}
 doPCA do a p.c.a. on {num}
 doPCA p.c.a. on {num}
+saveResult save {num}
+saveResult {num} save
+saveResult save block {num}
+saveResult {num} save block
+saveResult export {num}
+saveResult {num} export
+saveResult export block {num}
+saveResult {num} export block
+delBlock delete {num}
+delBlock {num} delete
+delBlock delete block {num}
+delBlock {num} delete block
+minimize minimize
+minimize make small
+minimize hide
+minimize back
 LaunchRequest launch
-AddFileRequest test
-SetName my name is {name}
-SetName {name}
 
 #####################################

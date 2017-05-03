@@ -7,6 +7,7 @@ from .PCA_Block import PCA_Block
 from channels import Group
 from .. import consumers
 import sys
+import json
 
 # ALEXA PART
 
@@ -40,7 +41,7 @@ def executeBlock(session, num=0):
             except:
                 msg = "Function not available for block " + str(num)
         else:
-            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
 
     else:
         msg = "Executed last block"
@@ -62,6 +63,15 @@ def showImg(session, num=0):
         show {num}
         {num} show
         show
+        show larger block {num}
+        show larger {num}
+        {num} show larger
+        show larger
+        larger
+        enlarge
+        enlarge block {num}
+        enlarge {num}
+        {num} enlarge
     """
     print("woop", num)
     SessChain = consumers.getSessChain()
@@ -77,7 +87,7 @@ def showImg(session, num=0):
             except:
                 msg = "function not available for block " + str(num)
         else:
-            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
     else:
         print("\033[94m Amazon provided " + str(type(num)) + " type \033[0m")
         try:
@@ -116,7 +126,7 @@ def readMsg(session, num=0):
             except:
                 msg = "function not available for block " + str(num)
         else:
-            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength())
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
     else:
         print("\033[94m Amazon provided None type \033[0m")
         try:
@@ -130,7 +140,7 @@ def readMsg(session, num=0):
                                            launched=True)
 
 
-# read message intent
+# load File intent
 @intent(slots=Num, app="AlexaHandler")
 def loadFile(session, num=0):
     """
@@ -163,12 +173,12 @@ def loadFile(session, num=0):
                 Group("alexa").send({
                     "text": IO.GetNode()
                 })
-                msg = "successfully loaded"
+                msg = FileList[num] + "successfully loaded"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
                 msg = "error loading file  " + str(num)
         else:
-            msg = "File with number " + str(num) + " does not exist. Maximum File number is " + str(len(FileList))
+            msg = "File with number " + str(num) + " does not exist. Maximum File number is " + str(len(FileList) - 1)
     else:
         print("\033[94m Amazon provided None type \033[0m")
         msg = "Please provide a number"
@@ -178,7 +188,7 @@ def loadFile(session, num=0):
                                            end_session=False,
                                            launched=True)
 
-# read message intent
+# do a PCA intent
 @intent(slots=Num, app="AlexaHandler")
 def doPCA(session, num=0):
     """
@@ -208,12 +218,12 @@ def doPCA(session, num=0):
                 Group("alexa").send({
                     "text": PCA.GetNode()
                 })
-                msg = "successfully processed"
+                msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
                 msg = "error processing block" + str(num)
         else:
-            msg = "File with number " + str(num) + " does not exist. Maximum File number is " + str(len(FileList))
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
     else:
         print("\033[94m Amazon provided None type \033[0m")
         msg = "Please provide a number"
@@ -223,4 +233,100 @@ def doPCA(session, num=0):
                                            end_session=False,
                                            launched=True)
 
+# save Results intent
+@intent(slots=Num, app="AlexaHandler")
+def saveResult(session, num=0):
+    """
+        saves whatever result the block has to save
+        ---
+        save {num}
+        {num} save
+        save block {num}
+        {num} save block
+        export {num}
+        {num} export
+        export block {num}
+        {num} export block
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            try:
+                print("got Chain")
+                block.save()
+                msg = "saved"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error saving block" + str(num)
+        else:
+            msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
 
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+# delete Block intent
+@intent(slots=Num, app="AlexaHandler")
+def delBlock(session, num=0):
+    """
+        deletes the block with number {num}
+        ---
+        delete {num}
+        {num} delete
+        delete block {num}
+        {num} delete block
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            try:
+                print("deleting:", num)
+                SessChain.delBlockByIndex(num)
+                data = {"type": "cmd",
+                        "cmd": "del_block",
+                        "block_num": num,
+                        }
+                Group("alexa").send({
+                    "text": json.dumps(data)
+                })
+                msg = "block deleted"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error deleting block" + str(num)
+        else:
+            msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+# minimize intent
+@intent(slots=None, app="AlexaHandler")
+def minimize(session):
+    """
+    minimizes after show Block
+    ---
+    minimize
+    make small
+    hide
+    back
+    """
+    data = {"type": "cmd",
+            "cmd": "minimize",
+            }
+    Group("alexa").send({
+        "text": json.dumps(data)
+    })
+    return ResponseBuilder.create_response(message="",
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)

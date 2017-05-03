@@ -1,6 +1,5 @@
 {% extends "AlexaHandler/base.html" %}
 {% load static %}
-
 {% block head %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,9 +31,14 @@
 
 
         #plumbing_block {
-            padding-left: 1em;
+            position:relative;
+            top:0;
+            bottom:0;
+            right:0;
+            left:0;
             display:block;
-            background-color: #f7fff0;
+        {#            background-color: #f7fff0;#}
+            background-color: #ebebeb;
         }
 
         h2 {
@@ -44,19 +48,19 @@
 
             max-width:100%;
         //margin-bottom: 10%;
-            z-index:10;
+        {#            z-index:10;#}
         }
-        .window { z-index:20; }
-        .jtk-connector { z-index:4; }
-        .jtk-endpoint { z-index:11; }
-        .jtk-overlay { z-index:12; }
+        {#        .window { z-index:20; }#}
+        {#        .jtk-connector { z-index:4; }#}
+        {#        .jtk-endpoint { z-index:11; }#}
+        {#        .jtk-overlay { z-index:12; }#}
 
         p.content {
             overflow:hidden;
             background-color: rgba(27, 1, 255, .1);
         }
 
-        p.IO {
+        p.Info {
             overflow:hidden;
             padding: 5pt;
             background-color: #1b3249;
@@ -89,7 +93,7 @@
             margin-top:auto;
             font-weight:bold;
             background-color: rgba(255, 235, 209, .5);
-            z-index: 99 !important;
+        {#            z-index: 99 !important;#}
         }
         button.func {
             font-weight:bold;
@@ -132,6 +136,44 @@
             max-width:100%;
         }
 
+        button.del {
+            background-color: rgba(255,0,4,0.37);
+        }
+
+        div.content {
+            -webkit-transition: all 1s ease; /* Safari and Chrome */
+            -moz-transition: all 1s ease; /* Firefox */
+            -o-transition: all 1s ease; /* IE 9 */
+            -ms-transition: all 1s ease; /* Opera */
+            transition: all 1s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 100%;
+            left: 0 ;
+            right: 0 ;
+            background-color: rgba(0, 0, 0, 0);
+            overflow: hidden;
+            width: 100%;
+            height:0;
+            transition: .75s ease;
+            z-index: 200000;
+        }
+
+        .overlayImage {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #area.is-overlayed .overlay {
+            position:absolute;
+            height: 100%;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+
     </style>
 
     <!-- check for jquery -->
@@ -159,6 +201,7 @@
                 alert('jQuery is not loaded');
             }
         }
+
 
         var plumbing = jsPlumb.getInstance();
         var last_name = "";
@@ -209,24 +252,85 @@
         {% endif %}
         //alert(socket.readyState);
         socket.debug = true;
-        var msg_count = 0;
-        var block_count = 0;
+
+        function del_Block(data){
+            var block_num = data.block_num;
+            var name = "grid_" + "block" + data.block_num;
+            console.log("deleting block", name);
+            var blocks = $("div.content");
+            for (var i=0; i < blocks.length; i++){
+                var block = blocks[i];
+
+                if(i > block_num){
+                    // renaming block id
+                    console.log("old ID:", block.id);
+                    console.log("i", i);
+                    block.id = "grid_" + "block" + (i-1);
+                    console.log("new ID:", block.id);
+                    // number buttons
+                    $(block).find(".number")[0].textContent = ($(block).find(".number")[0].textContent) - 1;
+                    // renumbering func buttons and resetting data
+                    var but_funcs = $(block).find(".func")
+                    for (j = 0; j < but_funcs.length; j++){
+                        var cur_but = but_funcs[j];
+                        jQuery.data( cur_but, "call").num = jQuery.data( cur_but, "call" ).num -1;
+                    }
+                }
+            }
+
+            // deleting the rows associated with the block
+            var table = document.getElementById("var_body");
+            var tableRow_del = $("td.block_num").filter(function() {
+                return $(this).text() == data.block_num;
+            }).closest("tr");
+            var num_del_vars = tableRow_del.length;
+            console.log("deleting num vars:", num_del_vars);
+            for (i = 0; i < num_del_vars; i++){
+                table.removeChild(tableRow_del[i]);
+            }
+            // renumbering rest variables
+            var tableRow = $("td.block_num").filter(function() {
+                return $(this).text() > data.block_num;
+            }).closest("tr");
+            for (i = 0; i < tableRow.length; i++){
+                var cur_row = tableRow[i];
+                console.log(cur_row);
+                $(cur_row).children("td.block_num")[0].innerHTML = $(tableRow[i]).children("td.block_num")[0].innerHTML -1;
+                $(cur_row).children("td.var_num")[0].innerHTML = $(tableRow[i]).children("td.var_num")[0].innerHTML -num_del_vars;
+            }
+
+            // subtract number of removed vars
+            var_num -= num_del_vars;
+
+            // deleting cell
+            var grid = document.getElementById("grid");
+            grid.removeChild(document.getElementById(name));
+
+            grid_count--;
+
+        }
 
         function new_grid_block(data){
             console.log("grid update called");
             console.log("JSON", data);
-            name = "grid_" + "block" + block_count;
-            block_count += 1;
+            name = "grid_" + "block" + grid_count;
             console.log(xGrid, grid_count);
             yOff = height*.2;
             xOff = 20;
+
+            var parent = document.getElementById("grid");
+
             var div = document.createElement("div");
             div.id = name;
-            div.className = "content mdl-cell mdl-cell--3-col mdl-shadow--6dp";
+            div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
 
             // add vars
             if(data.hasOwnProperty("vars")){
                 new_Var(data.vars, grid_count);
+                // save vars in div
+                jQuery.data( div, "vars", {
+                    vars: data.vars
+                });
             }
 
             if (data.block_type == "message"){
@@ -238,36 +342,35 @@
                 p.appendChild(document.createElement("br"));
                 p.appendChild(document.createTextNode(data.msg));
                 div.appendChild(p);
+                div.className += " " + "mdl-cell--2-col"
             }
             else if (data.block_type == "image") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
-                img.onclick = function() {
-                    window.open(data.call_path);
-                }
+                {#                img.onclick = function() {fillDiv($(div), true)};#}
                 div.appendChild(img);
+                div.className += " " + "mdl-cell--3-col"
             }
             else if (data.block_type == "histogram") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
-                img.onclick = function() {
-                    window.open(data.call_path);
-                };
                 div.appendChild(img);
+                div.className += " " + "mdl-cell--3-col"
             }
-            else if (data.block_type == "plot") {
+            else if (data.block_type == "PCA") {
                 var img = document.createElement("img");
-                console.log("PLOT:", data.call_path);
+                console.log("PCA:", data.call_path);
                 img.src = data.call_path;
                 var p = document.createElement("p");
-                p.className = "IO mdl-shadow--6dp";
-                p.appendChild(document.createTextNode(data.content_type));
+                p.className = "Info mdl-shadow--6dp";
+                p.appendChild(document.createTextNode("Principal Component Analysis: " + data.add_data));
                 div.appendChild(img);
                 div.appendChild(p);
+                div.className += " " + "mdl-cell--5-col"
             }
             else if (data.block_type == "IO") {
                 var p = document.createElement("p");
-                p.className = "IO mdl-shadow--6dp";
+                p.className = "Info mdl-shadow--6dp";
                 p.appendChild(document.createTextNode("Type: " + data.block_type));
                 p.appendChild(document.createElement("br"));
                 p.appendChild(document.createTextNode("File Name: " + data.file_name));
@@ -278,6 +381,7 @@
                 }
 
                 div.appendChild(p);
+                div.className += " " + "mdl-cell--2-col"
             }
             else {
                 console.log(data);
@@ -301,7 +405,7 @@
                 but.id = name + "_" + opt;
                 but.className = "func mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
                 jQuery.data( but, "call", {
-                    num: block_count - 1,
+                    num: grid_count,
                     opt: data.options[opt]
                 });
                 but.onclick = function(but){
@@ -311,22 +415,38 @@
                         "opt" : jQuery.data( this, "call" ).opt
                     }));
                 };
-                jQuery.data( but, "call", {
-                    num: block_count - 1,
-                    opt: data.options[opt]
-                });
 
                 but.innerHTML = (data.options[opt]);
                 but_group.appendChild(but);
 
 
             }
+
+            var but = document.createElement("button");
+            but.id = name + "_del";
+            but.className = "func del mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
+            jQuery.data( but, "call", {
+                num: grid_count,
+                opt: "del"
+            });
+            but.onclick = function(but){
+                socket.send(JSON.stringify({"type" : "command",
+                    "cmd" : "click",
+                    "num" : jQuery.data( this, "call" ).num,
+                    "opt" : jQuery.data( this, "call" ).opt
+                }));
+            };
+
+            but.innerHTML = ("del");
+            {#            but_group.innerHTML += "<div class='mdl-layout-spacer'></div>";#}
+            but_group.appendChild(but);
+
             grid_count += 1;
             last_name = name;
 
             div.appendChild(but_group);
-            var par = document.getElementById("grid");
-            $(par).append(div);
+
+            $(parent).append(div);
             try {
                 console.log("ifNeeded works");
                 div.scrollIntoViewIfNeeded(true);
@@ -346,12 +466,12 @@
             //plumbing.empty("plumbing_block");
             last_name = "";
             grid_count = 0;
-            block_count = 0;
             var_num = 0;
             var_gen_num = 0;
             file_num = 0;
             document.getElementById("var_body").innerHTML = "";
             document.getElementById("grid").innerHTML = "";
+            document.getElementById("offScreen").innerHTML = "";
             componentHandler.upgradeDom();
             checkForSmallScreen();
         }
@@ -377,11 +497,64 @@
             $( "#" + name ).effect("highlight", {}, 3000);
         }
 
+        $( window ).resize(function() {
+            if($("#area").hasClass("is-overlayed")){
+                var avHeight = $("#area").innerHeight();
+                var avWidth = $("#area").innerWidth();
+                var avLeft = $("#area").offset().left;
+                var avTop = $("#header-block").outerHeight();
+                console.log(avHeight, avWidth, avLeft, avTop);
+                $("#area.is-overlayed .overlay").css({
+                    "position": "fixed",
+                    "height": avHeight,
+                    "width": avWidth,
+                    "left": avLeft,
+                    "top": avTop,
+                })
+            }
+            else{
+                $(".overlay").css({
+                    "position": "fixed",
+                    "height": "0",
+                    "width": "100%",
+                    "left": "0",
+                    "top": "0",
+                })
+            }
+        });
+
         function showBlock(data) {
-            window.open(data.call_path);
+            var canvas = document.getElementById("offScreen");
+            canvas.innerHTML="";
+            var img = document.createElement("img");
+            img.className = "overlayImage";
+            img.src = data.call_path;
+            canvas.appendChild(img);
+            $("#area").addClass("is-overlayed");
+            var avHeight = $("#area").innerHeight();
+            var avWidth = $("#area").innerWidth();
+            var avLeft = $("#area").offset().left;
+            var avTop = $("#header-block").outerHeight();
+            console.log(avHeight, avWidth, avLeft, avTop);
+            $("#area.is-overlayed .overlay").css({
+                "position": "fixed",
+                "height": avHeight,
+                "width": avWidth,
+                "left": avLeft,
+                "top": avTop,
+            })
         }
 
-
+        function minimize(){
+            $("#area").removeClass("is-overlayed");
+            $(".overlay").css({
+                "position": "fixed",
+                "height": "0",
+                "width": "100%",
+                "left": "0",
+                "top": "0",
+            })
+        }
 
         function margin_adjust() {
             $(".mdl-layout__header").css("margin-left", $("#Sidebar").outerWidth());
@@ -405,12 +578,12 @@
         function checkForSmallScreen()
         {
             if ($('.mdl-layout').hasClass('is-small-screen')){
-                 margin_small_adjust();
-                 //alert("small!!!");
+                margin_small_adjust();
+                //alert("small!!!");
             }
             else
                 margin_adjust();
-                setTimeout(checkForSmallScreen, 200);
+            setTimeout(checkForSmallScreen, 200);
         }
 
         function new_Gen_Var() {
@@ -443,13 +616,12 @@
         }
 
         function truncString(word) {
-
             var length = 20;
             var trimmedString = word.length > length ?
-                    word.substring(0, length - 3) + "..." :
-                    word;
+                word.substring(0, length - 3) + "..." :
+                word;
             return trimmedString;
-            }
+        }
 
 
         function new_Var(list, block_num) {
@@ -463,7 +635,7 @@
                 check.innerHTML = checkbox;
                 // num cell
                 var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell";
+                cell.className = "var_num mdl-data-table__cell";
                 cell.textContent = var_num;
                 // content cell
                 var cell = row.insertCell();
@@ -473,7 +645,7 @@
                 cell.title = list[i];
                 // block cell
                 var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell";
+                cell.className = "block_num mdl-data-table__cell ¡";
                 cell.textContent = block_num;
                 var_num++;
             }
@@ -501,13 +673,10 @@
                 cell.textContent = file_num;
                 // content cell
                 var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell--non-numeric";
-
+                cell.className = "file_name mdl-data-table__cell--non-numeric";
                 cell.textContent = truncString(list[i]);
                 cell.title = list[i];
-                // block cell
-                var cell = row.insertCell();
-                cell.className = "mdl-data-table__cell";
+
                 file_num++;
             }
 
@@ -554,6 +723,12 @@
                 }
                 else if(data.cmd == "file_list_update") {
                     file_list(data, update=true);
+                }
+                else if(data.cmd == "del_block") {
+                    del_Block(data);
+                }
+                else if(data.cmd == "minimize") {
+                    minimize();
                 }
             }
 
@@ -615,7 +790,19 @@
             $(checkForSmallScreen);
         });
 
+        function load(){
+            var checked_rows = $("#Files").find(".is-checked").closest("tr");
+            console.log(checked_rows);
+            for(i = 0; i < checked_rows.length; i++){
+                var row = checked_rows[i];
+                var cell = $(row).children("td.file_name")[0];
 
+                socket.send(JSON.stringify({"type": "command",
+                    "cmd": "load",
+                    "file": $(cell).attr("title"),}));
+            }
+            checked_rows.find(".is-checked").removeClass("is-checked");
+        }
     </script>
 {% endblock %}
 
@@ -644,6 +831,9 @@
                 </button>
                 <button onclick="new_Gen_Var()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     Var
+                </button>
+                <button onclick="load()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    load
                 </button>
                 <button onclick="send_image_populate()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
                     <i class="material-icons">add</i>
@@ -678,7 +868,7 @@
                 <tr>
                     <th>
                         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="main-check-files">
-                            <input type="checkbox" id="main-check-files" class="mdl-checkbox__input" />
+                            <input type="checkbox" id="main-check-files" class="File_CHECK mdl-checkbox__input" />
                         </label>
                     </th>
                     <th class="mdl-data-table__cell">#File</th>
@@ -694,8 +884,12 @@
 
 
 
-        <main class="mdl-layout__content">
+        <main id ="area" class="mdl-layout__content">
+            <div id="offScreen" class="overlay" onclick=minimize()>
+                YOU SHOULDN'T SEE THIS!!!
+            </div>
             <div id ="plumbing_block">
+
                 <!-- MDL Progress Bar with Indeterminate Progress -->
 
                 <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>

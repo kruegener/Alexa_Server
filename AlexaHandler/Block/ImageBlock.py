@@ -15,7 +15,7 @@ class ImageBlock(BaseBlock):
         self.cached = False
         self.makeCached()
         self.options = ["show"]
-        self.vars = [self.name, "fake_var"]
+        self.vars = [self.name, "fakevar1", "fakevar2"]
 
     def setImgPath(self, img_path):
         self.img_path = img_path

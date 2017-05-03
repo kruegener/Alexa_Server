@@ -22,6 +22,7 @@ from channels.auth import channel_session_user, channel_session_user_from_http
 from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
+from .Block.IO_Block import IO_Block
 from .Block.BlockChain import BlockChain
 import pickle
 
@@ -144,14 +145,39 @@ def ws_message(message):
         elif data['cmd'] == "click":
             print("\033[95m CLICK \033[0m")
             print(data['num'], data['opt'])
-            if data['opt'] == 'show':
+            if "show" in str(data['opt']):
                 SessChain.getBlock(data['num']).showBlock(data['num'])
-            if data['opt'] == 'execute':
+            elif data['opt'] == 'execute':
                 SessChain.getBlock(data['num']).executeBlock(data['num'])
-            # needs active alexa session
-            # TODO derive better system to add functions here automatically
-            #if data['opt'] == 'read':
-            #    msg = SessChain.getBlock(data['num']).readBlock(data['num'])
+            elif "del" in str(data['opt']):
+                print("deleting:", data['num'])
+                SessChain.delBlockByIndex(data['num'])
+                data = {"type": "cmd",
+                        "cmd": "del_block",
+                        "block_num": data['num']}
+                Group("alexa").send({
+                    "text": json.dumps(data)
+                })
+            elif "statistics" in str(data["opt"]):
+                # get the clicked block
+                # get the data of the clicked block
+                # make a new statistics block and give it the data
+                # send the new block to everyone
+                print("statistics")
+
+        elif data['cmd'] == "load":
+            IO = IO_Block(file_name=data['file'], session="alexa")
+            print("NEW IO BLOCK")
+            SessChain.addBlock(IO)
+            print("IO added")
+            Group("alexa").send({
+                "text": IO.GetNode()
+            })
+
+        # needs active alexa session
+        # TODO derive better system to add functions here automatically
+        #if data['opt'] == 'read':
+        #    msg = SessChain.getBlock(data['num']).readBlock(data['num'])
 
 
     # "autosave"
