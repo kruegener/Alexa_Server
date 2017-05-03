@@ -66,6 +66,10 @@
             ]
         }, 
         {
+            "intent": "minimize", 
+            "slots": []
+        }, 
+        {
             "intent": "LaunchRequest", 
             "slots": []
         }
@@ -121,6 +125,10 @@ delBlock delete {num}
 delBlock {num} delete
 delBlock delete block {num}
 delBlock {num} delete block
+minimize minimize
+minimize make small
+minimize hide
+minimize back
 LaunchRequest launch
 
 #####################################

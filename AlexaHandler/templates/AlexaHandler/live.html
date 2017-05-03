@@ -31,7 +31,11 @@
 
 
         #plumbing_block {
-            padding-left: 1em;
+            position:absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            left:0;
             display:block;
         {#            background-color: #f7fff0;#}
             background-color: #ebebeb;
@@ -44,12 +48,12 @@
 
             max-width:100%;
         //margin-bottom: 10%;
-            z-index:10;
+        {#            z-index:10;#}
         }
-        .window { z-index:20; }
-        .jtk-connector { z-index:4; }
-        .jtk-endpoint { z-index:11; }
-        .jtk-overlay { z-index:12; }
+        {#        .window { z-index:20; }#}
+        {#        .jtk-connector { z-index:4; }#}
+        {#        .jtk-endpoint { z-index:11; }#}
+        {#        .jtk-overlay { z-index:12; }#}
 
         p.content {
             overflow:hidden;
@@ -89,7 +93,7 @@
             margin-top:auto;
             font-weight:bold;
             background-color: rgba(255, 235, 209, .5);
-            z-index: 99 !important;
+        {#            z-index: 99 !important;#}
         }
         button.func {
             font-weight:bold;
@@ -136,6 +140,39 @@
             background-color: rgba(255,0,4,0.37);
         }
 
+        div.content {
+            -webkit-transition: all 1s ease; /* Safari and Chrome */
+            -moz-transition: all 1s ease; /* Firefox */
+            -o-transition: all 1s ease; /* IE 9 */
+            -ms-transition: all 1s ease; /* Opera */
+            transition: all 1s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 100%;
+            left: 0 ;
+            right: 0 ;
+            background-color: rgba(0, 0, 0, 0);
+            overflow: hidden;
+            width: 100%;
+            height:0;
+            transition: .75s ease;
+            z-index: 200000;
+        }
+
+        .overlayImage {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #plumbing_block.is-overlayed .overlay {
+            bottom: 0;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+
     </style>
 
     <!-- check for jquery -->
@@ -163,6 +200,7 @@
                 alert('jQuery is not loaded');
             }
         }
+
 
         var plumbing = jsPlumb.getInstance();
         var last_name = "";
@@ -238,7 +276,7 @@
                 }
             }
 
-            // deleting the rows associated with the block#}
+            // deleting the rows associated with the block
             var table = document.getElementById("var_body");
             var tableRow_del = $("td.block_num").filter(function() {
                 return $(this).text() == data.block_num;
@@ -259,41 +297,14 @@
                 $(cur_row).children("td.var_num")[0].innerHTML = $(tableRow[i]).children("td.var_num")[0].innerHTML -num_del_vars;
             }
 
+            // subtract number of removed vars
             var_num -= num_del_vars;
-
-
 
             // deleting cell
             var grid = document.getElementById("grid");
             grid.removeChild(document.getElementById(name));
 
             grid_count--;
-            {#            // renumbering num buttons#}
-            {#            grid_count = 0;#}
-            {#            var but_nums = $("button.number")#}
-            {#            for (i = 0; i < but_nums.length; i++){#}
-            {#                but_nums[i].textContent = grid_count;#}
-            {#                grid_count++;#}
-            {#            }#}
-            {##}
-            {#            // renumbering func buttons#}
-            {#            var but_funcs = $("button.func")#}
-            {#            for (i = 0; i < but_funcs.length; i++){#}
-            {#                var cur_but = but_funcs[i];#}
-            {#                jQuery.data( cur_but, "call").num = jQuery.data( cur_but, "call" ).num -1;#}
-            {#            }#}
-            {##}
-            {#            // renumbering ids and rebuilding varList#}
-            {#            var blocks = $("content");#}
-            {##}
-            {#            // deleting the rows associated with the block#}
-            {#            var table = document.getElementById("var_body");#}
-            {#            var tableRow = $("td.block_num").filter(function() {#}
-            {#                return $(this).text() == data.block_num;#}
-            {#            }).closest("tr");#}
-            {#            for (i = 0; i < tableRow.length; i++){#}
-            {#                table.removeChild(tableRow[i]);#}
-            {#            }#}
 
         }
 
@@ -304,6 +315,9 @@
             console.log(xGrid, grid_count);
             yOff = height*.2;
             xOff = 20;
+
+            var parent = document.getElementById("grid");
+
             var div = document.createElement("div");
             div.id = name;
             div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
@@ -331,6 +345,7 @@
             else if (data.block_type == "image") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
+                {#                img.onclick = function() {fillDiv($(div), true)};#}
                 div.appendChild(img);
                 div.className += " " + "mdl-cell--3-col"
             }
@@ -428,8 +443,8 @@
             last_name = name;
 
             div.appendChild(but_group);
-            var par = document.getElementById("grid");
-            $(par).append(div);
+
+            $(parent).append(div);
             try {
                 console.log("ifNeeded works");
                 div.scrollIntoViewIfNeeded(true);
@@ -454,6 +469,7 @@
             file_num = 0;
             document.getElementById("var_body").innerHTML = "";
             document.getElementById("grid").innerHTML = "";
+            document.getElementById("offScreen").innerHTML = "";
             componentHandler.upgradeDom();
             checkForSmallScreen();
         }
@@ -480,10 +496,18 @@
         }
 
         function showBlock(data) {
-            window.open(data.call_path);
+            var canvas = document.getElementById("offScreen");
+            canvas.innerHTML="";
+            var img = document.createElement("img");
+            img.className = "overlayImage";
+            img.src = data.call_path;
+            canvas.appendChild(img);
+            $("#plumbing_block").addClass("is-overlayed");
         }
 
-
+        function minimize(){
+            $("#plumbing_block").removeClass("is-overlayed");
+        }
 
         function margin_adjust() {
             $(".mdl-layout__header").css("margin-left", $("#Sidebar").outerWidth());
@@ -659,6 +683,9 @@
                 else if(data.cmd == "del_block") {
                     del_Block(data);
                 }
+                else if(data.cmd == "minimize") {
+                    minimize();
+                }
             }
 
             plumbing.draggable($(".draggable") , {
@@ -800,6 +827,11 @@
 
         <main class="mdl-layout__content">
             <div id ="plumbing_block">
+
+                <div id="offScreen" class="overlay" onclick=minimize()>
+                    hey
+                </div>
+
                 <!-- MDL Progress Bar with Indeterminate Progress -->
 
                 <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="top:30%; left: 20%"></div>

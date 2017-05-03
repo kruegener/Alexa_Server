@@ -140,7 +140,7 @@ def readMsg(session, num=0):
                                            launched=True)
 
 
-# read message intent
+# load File intent
 @intent(slots=Num, app="AlexaHandler")
 def loadFile(session, num=0):
     """
@@ -188,7 +188,7 @@ def loadFile(session, num=0):
                                            end_session=False,
                                            launched=True)
 
-# read message intent
+# do a PCA intent
 @intent(slots=Num, app="AlexaHandler")
 def doPCA(session, num=0):
     """
@@ -233,7 +233,7 @@ def doPCA(session, num=0):
                                            end_session=False,
                                            launched=True)
 
-# read message intent
+# save Results intent
 @intent(slots=Num, app="AlexaHandler")
 def saveResult(session, num=0):
     """
@@ -270,7 +270,7 @@ def saveResult(session, num=0):
                                            end_session=False,
                                            launched=True)
 
-# read message intent
+# delete Block intent
 @intent(slots=Num, app="AlexaHandler")
 def delBlock(session, num=0):
     """
@@ -305,6 +305,28 @@ def delBlock(session, num=0):
         msg = "Please provide a number"
 
     return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+# minimize intent
+@intent(slots=None, app="AlexaHandler")
+def minimize(session):
+    """
+    minimizes after show Block
+    ---
+    minimize
+    make small
+    hide
+    back
+    """
+    data = {"type": "cmd",
+            "cmd": "minimize",
+            }
+    Group("alexa").send({
+        "text": json.dumps(data)
+    })
+    return ResponseBuilder.create_response(message="",
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
