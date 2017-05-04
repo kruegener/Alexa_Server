@@ -11,6 +11,33 @@ import json
 
 # ALEXA PART
 
+
+@intent(slots=None, app="AlexaHandler")
+def LaunchRequest(session):
+    """
+    B 2 S Lab is a go
+    ---
+    Launch
+    """
+    consumers.AlexaActive()
+    return ResponseBuilder.create_response(message="open",
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+@intent(app="AlexaHandler")
+def SessionEndedRequest(**kwargs):
+    """
+    Default End Session Intent
+    ---
+    quit
+    end
+    """
+    print("End called")
+    consumers.AlexaEnded()
+    return ResponseBuilder.create_response()
+
 # define slots
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()

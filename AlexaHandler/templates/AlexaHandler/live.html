@@ -38,7 +38,7 @@
             left:0;
             display:block;
         }
-        
+
         #area {
             background: #ebebeb;
         }
@@ -108,7 +108,6 @@
             top: 50%;
             left:50%;
         }
-
 
         .mdl-layout__drawer {
             width:auto;
@@ -253,6 +252,25 @@
         {% endif %}
         //alert(socket.readyState);
         socket.debug = true;
+
+        var startCol = $("#header-block").css("background-color");
+        function pulseEff() {
+            var oldCol = $("#header-block").css("background-color");
+            $('#header-block').animate({
+                'background-color': '#00b06e'
+            }, 500).animate({
+                'background-color': oldCol,
+            }, 400);
+{#            var oldCol = $("#page-title").css("color");#}
+{#            $('#page-title').animate({#}
+{#                'color': '#00b06e'#}
+{#            }, 500).animate({#}
+{#                'color': oldCol,#}
+{#            }, 500);#}
+            $('#header-block').removeAttr("style");
+        };
+        var Interval;
+
 
         function del_Block(data){
             var block_num = data.block_num;
@@ -735,6 +753,15 @@
                 else if(data.cmd == "minimize") {
                     minimize();
                 }
+                else if(data.cmd == "listening") {
+                    console.log("started listening")
+                    Interval = setInterval(pulseEff, 1000);
+                }
+                else if(data.cmd == "stopped_listening") {
+                    console.log("stopped listening")
+                    clearInterval(Interval);
+                    $('#header-block').removeAttr("style");
+                }
             }
 
             plumbing.draggable($(".draggable") , {
@@ -793,6 +820,16 @@
             console.log("new header width:", $("#Sidebar").outerWidth());
             console.log("header margin: ", $(".mdl-layout__header").css.marginLeft);
             $(checkForSmallScreen);
+
+            $('#start').click(function () {
+                Interval = setInterval(pulseEff, 1000);
+                console.log("started");
+            });
+            $('#stop').click(function () {
+                clearInterval(Interval);
+                $('#header-block').css("background-color", "");
+                console.log("stopped");
+            });
         });
 
         function load(){
@@ -819,7 +856,7 @@
                 mdl-layout--fixed-header">
         <header id="header-block" class="mdl-layout__header">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">Live ALEXA</span>
+                <span id="page-title" class="mdl-layout-title">Live ALEXA</span>
                 <div class="mdl-layout-spacer"></div>
                 <a href="http://b2slab.upc.edu/"><img class="logo" src={% static "AlexaHandler/logo.png" %}></a>
             </div>
@@ -893,6 +930,11 @@
             <div id="offScreen" class="overlay" onclick=send_minimize()>
                 YOU SHOULDN'T SEE THIS!!!
             </div>
+
+{#            optional buttons for pulse#}
+            <button id="start">Pulsate</button>
+            <button id="stop">Stop</button>
+
             <div id ="plumbing_block">
 
                 <!-- MDL Progress Bar with Indeterminate Progress -->

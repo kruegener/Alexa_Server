@@ -259,3 +259,19 @@ def getFileList():
     except NameError:
         print("\033[91m FileList currently not defined \033[0m")
 
+def AlexaActive():
+    print("\033[91m New Session \033[0m")
+    data = {"type": "cmd",
+            "cmd": "listening"}
+    Group("alexa").send({
+        "text": json.dumps(data)
+    })
+
+def AlexaEnded():
+    print("\033[91m Session Ended \033[0m")
+    data = {"type": "cmd",
+            "cmd": "stopped_listening",
+            }
+    Group("alexa").send({
+        "text": json.dumps(data)
+    })

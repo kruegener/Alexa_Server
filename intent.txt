@@ -3,6 +3,14 @@
 {
     "intents": [
         {
+            "intent": "LaunchRequest", 
+            "slots": []
+        }, 
+        {
+            "intent": "SessionEndedRequest", 
+            "slots": []
+        }, 
+        {
             "intent": "executeBlock", 
             "slots": [
                 {
@@ -68,14 +76,12 @@
         {
             "intent": "minimize", 
             "slots": []
-        }, 
-        {
-            "intent": "LaunchRequest", 
-            "slots": []
         }
     ]
 }
 
+LaunchRequest launch
+SessionEndedRequest quit
 executeBlock execute block {num}
 executeBlock execute {num}
 executeBlock {num} execute
@@ -129,6 +135,5 @@ minimize minimize
 minimize make small
 minimize hide
 minimize back
-LaunchRequest launch
 
 #####################################

@@ -10,18 +10,18 @@ import json
 # Importing Alexa Functionality from Block Module
 from .Block import Alexa
 
-@intent(slots=None, app="AlexaHandler")
-def LaunchRequest(session):
-    """
-    B 2 S Lab is a go
-    ---
-    Launch
-    """
-
-    return ResponseBuilder.create_response(message="open",
-                                           reprompt="",
-                                           end_session=False,
-                                           launched=True)
+# @intent(slots=None, app="AlexaHandler")
+# def LaunchRequest(session):
+#     """
+#     B 2 S Lab is a go
+#     ---
+#     Launch
+#     """
+#
+#     return ResponseBuilder.create_response(message="open",
+#                                            reprompt="",
+#                                            end_session=False,
+#                                            launched=True)
 
 # @intent(slots=None, app="AlexaHandler")
 # def AddFileRequest(session):
