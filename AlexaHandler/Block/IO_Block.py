@@ -10,6 +10,11 @@ from shutil import copyfile
 import sys
 import os
 
+# make new block right here
+from channels import Group
+#from .. import consumers
+#from .HistogramBlock import HistogramBlock
+
 class IO_Block (BaseBlock):
     def __init__(self, file_name, name="IO", session="", abs_path=""):
         self.name = name
@@ -58,6 +63,19 @@ class IO_Block (BaseBlock):
 
         print("read")
         print(self.display_type)
+
+    # def getOption(self, para):
+    #     SessChain = consumers.getSessChain()
+    #     if para in "histogram":
+    #         histo = HistogramBlock()
+    #         SessChain.addBlock(histo)
+    #         SessChain.Chain_pickle()
+    #         Group("alexa").send({
+    #             "text": histo.GetNode()
+    #         })
+    #     else:
+    #         raise NameError("wrong option")
+
 
 
 

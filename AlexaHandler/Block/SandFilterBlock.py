@@ -34,10 +34,10 @@ class SandFilterBlock (BaseBlock):
         self.glass = filtdat > 114
         phases = self.void.astype(np.int) + 2 * self.glass.astype(np.int) + 3 * self.sand.astype(np.int)
         plt.imsave(self.cache_path, phases)
-        self.filterParameter("sand")
+        #self.filterParameter("sand")
 
 
-    def filterParameter(self, para):
+    def getOption(self, para):
         SessChain = consumers.getSessChain()
         if para == "sand":
             set = self.sand

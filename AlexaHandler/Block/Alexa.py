@@ -43,6 +43,10 @@ def SessionEndedRequest(**kwargs):
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()
 
+class OPT(fields.AmazonSlots):
+    literal = fields.AmazonLiteral()
+    number = fields.AmazonNumber()
+
 # define intents
 # execution Intent
 @intent(slots=Num, app="AlexaHandler")
@@ -285,6 +289,54 @@ def doSandFilter(session, num=0):
                 Group("alexa").send({
                     "text": Filter.GetNode()
                 })
+                msg = "processed"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error processing block" + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+
+# pass Option
+@intent(slots=OPT, app="AlexaHandler")
+def passOption(session, number=-1, literal=""):
+    """
+         {lit}
+        ---
+        pass option {sand|literal} to block {number}
+        pass option {glass|literal} to block {number}
+        pass option {void|literal} to block {number}
+        pass option {else|literal} to block {number}
+        pass option {p.c.a.|literal} to block {number}
+        option {sand|literal} block {number}
+        option {glass|literal} block {number}
+        option {void|literal} block {number}
+        option {else|literal} block {number}
+        option {p.c.a.|literal} block {number}
+        block {number} option {sand|literal}
+        block {number} option {glass|literal}
+        block {number} option {void|literal}
+        block {number} option {else|literal}
+        block {number} option {p.c.a.|literal}
+    """
+
+    print("\033[93m", number, literal, "\033[0m")
+    num = number
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            try:
+                block.getOption(literal)
                 msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
