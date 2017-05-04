@@ -375,14 +375,33 @@
                 p.appendChild(document.createElement("br"));
                 p.appendChild(document.createTextNode("File Name: " + data.file_name));
                 p.appendChild(document.createElement("br"));
-                for(var item = 0; item < data.IO_data.length; item+=2){
-                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item+1]));
+                for (var item = 0; item < data.IO_data.length; item += 2) {
+                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item + 1]));
                     p.appendChild(document.createElement("br"));
                 }
 
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--2-col"
             }
+
+
+            else if (data.block_type == "stat") {
+                var p = document.createElement("p");
+                p.className = "Info mdl-shadow--6dp";
+                p.appendChild(document.createTextNode("Type: " + data.block_type));
+                p.appendChild(document.createElement("br"));
+                for (var item = 0; item < data.Stats_data.length; item+=2){
+                    p.appendChild(document.createTextNode(data.Stats_data[item] + " " + data.Stats_data[item+1]));
+                    p.appendChild(document.createElement("br"));
+                }
+
+                div.appendChild(p);
+                div.className += " " + "mdl-cell--3-col"
+
+
+            }
+
+
             else {
                 console.log(data);
             }

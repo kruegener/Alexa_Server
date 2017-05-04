@@ -22,6 +22,7 @@ from channels.auth import channel_session_user, channel_session_user_from_http
 from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
+from .Block.StatisticsBlock import StatisticsBlock
 from .Block.IO_Block import IO_Block
 from .Block.BlockChain import BlockChain
 import pickle
@@ -160,9 +161,17 @@ def ws_message(message):
                 })
             elif "statistics" in str(data["opt"]):
                 # get the clicked block
+                a = SessChain.getBlock(data['num'])
                 # get the data of the clicked block
+                data = a.getData()
                 # make a new statistics block and give it the data
+                Stat = StatisticsBlock(data = data['data'], session="alexa")
+                SessChain.addBlock(Stat)
                 # send the new block to everyone
+                Group("alexa").send({
+                    "text": Stat.GetNode()
+                })
+
                 print("statistics")
 
         elif data['cmd'] == "load":
