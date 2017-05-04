@@ -1,6 +1,7 @@
 import os
 from shutil import copyfile
 
+
 class BaseBlock:
 
     def __init__(self, name="base", type="base", session="", content_type=""):

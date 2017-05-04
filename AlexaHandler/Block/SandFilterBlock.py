@@ -8,6 +8,9 @@ from matplotlib import gridspec
 import numpy as np
 from scipy import ndimage
 import os
+from channels import Group
+from .. import consumers
+from .IO_Block import IO_Block
 
 class SandFilterBlock (BaseBlock):
     def __init__(self, var_name, data, name="SandFilter", session=""):
@@ -15,7 +18,7 @@ class SandFilterBlock (BaseBlock):
         self.file_name = var_name + ".Filter.png"
         self.type = "rich_image"
         self.session = session
-        self.options = ["show", "save", "sand"]
+        self.options = ["sand", "glass", "void"]
         self.vars = []
         self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
         print("Inside SandFilter")
@@ -26,16 +29,54 @@ class SandFilterBlock (BaseBlock):
         dat = self.data
         dat = dat[:-60]
         filtdat = ndimage.median_filter(dat, size=(7, 7))
-        void = filtdat <= 50
-        sand = np.logical_and(filtdat > 50, filtdat <= 114)
-        glass = filtdat > 114
-        phases = void.astype(np.int) + 2 * glass.astype(np.int) + 3 * sand.astype(np.int)
+        self.void = filtdat <= 50
+        self.sand = np.logical_and(filtdat > 50, filtdat <= 114)
+        self.glass = filtdat > 114
+        phases = self.void.astype(np.int) + 2 * self.glass.astype(np.int) + 3 * self.sand.astype(np.int)
         plt.imsave(self.cache_path, phases)
+        self.filterParameter("sand")
 
 
+    def filterParameter(self, para):
+        SessChain = consumers.getSessChain()
+        if para == "sand":
+            set = self.sand
+        elif para == "glass":
+            set = self.glass
+        else:
+            set = self.void
+
+        set_op = ndimage.binary_opening(set, iterations=2)
+        set_labels, set_nb = ndimage.label(set_op)
+        set_areas = np.array(ndimage.sum(set_op, set_labels, np.arange(set_labels.max() + 1)))
+        mask = set_areas > 100
+        subset = mask[set_labels.ravel()].reshape(set_labels.shape)
 
 
+        sub_file_name = ".subset." + para + ".jpg"
+        further_cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name + sub_file_name
+        plt.imsave(further_cache_path, subset)
 
+        IO = IO_Block(sub_file_name, session=self.session, abs_path=further_cache_path)
+        SessChain.addBlock(IO)
+        SessChain.Chain_pickle()
+        Group("alexa").send({
+            "text": IO.GetNode()
+        })
+
+
+    def showBlock(self, num=""):
+        print("showBlock");
+        call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
+        data = {"type": "cmd",
+                "block_id": num,
+                "cmd": "show",
+                "call_path": call_path,
+                }
+        print("executing showPCAblock")
+        Group("alexa").send({
+            "text": json.dumps(data)
+        })
 
     # Node builder
     def GetNode(self):

@@ -11,7 +11,7 @@ import sys
 import os
 
 class IO_Block (BaseBlock):
-    def __init__(self, file_name, name="IO", session=""):
+    def __init__(self, file_name, name="IO", session="", abs_path=""):
         self.name = name
         self.type = "IO"
         self.session = session
@@ -24,7 +24,11 @@ class IO_Block (BaseBlock):
         self.display_type = ""
         self.call_path = ""
 
-        self.path = settings.IMPORT_DIR + "/" + self.file_name
+        if abs_path == "":
+            self.path = settings.IMPORT_DIR + "/" + self.file_name
+        else:
+            self.path = abs_path
+
         print("Inside IO")
 
         if self.file_type in ["csv", "txt", "dat"]:
