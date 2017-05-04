@@ -43,8 +43,10 @@ class SandFilterBlock (BaseBlock):
             set = self.sand
         elif para == "glass":
             set = self.glass
-        else:
+        elif para == "void":
             set = self.void
+        else:
+            raise NameError("not a valid option")
 
         set_op = ndimage.binary_opening(set, iterations=2)
         set_labels, set_nb = ndimage.label(set_op)

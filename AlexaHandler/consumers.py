@@ -22,7 +22,7 @@ from channels.auth import channel_session_user, channel_session_user_from_http
 from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
-from .Block.IO_Block import IO_Block
+
 
 from .Block.BlockChain import BlockChain
 import pickle
@@ -71,6 +71,9 @@ def ws_message(message):
     # TODO if more than one Session not feasible
     global SessChain
     global fileList
+
+    from .Block.IO_Block import IO_Block
+
     data = json.loads(message.content['text'])
     # print("JSON: ", data, "DATA: ", message.content['text'])
     if data['type'] == "msg" :

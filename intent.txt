@@ -68,8 +68,8 @@
             "intent": "passOption", 
             "slots": [
                 {
-                    "name": "literal", 
-                    "type": "AMAZON.LITERAL"
+                    "name": "alexa_option", 
+                    "type": "OPTIONS"
                 }, 
                 {
                     "name": "number", 
@@ -101,6 +101,12 @@
         }
     ]
 }
+
+OPTIONS:
+  sand
+  glass
+  void
+  histogram
 
 LaunchRequest launch
 SessionEndedRequest quit
@@ -150,21 +156,9 @@ doSandFilter filter {num}
 doSandFilter {num} filter
 doSandFilter sand {num}
 doSandFilter {num} sand
-passOption pass option {sand|literal} to block {number}
-passOption pass option {glass|literal} to block {number}
-passOption pass option {void|literal} to block {number}
-passOption pass option {else|literal} to block {number}
-passOption pass option {p.c.a.|literal} to block {number}
-passOption option {sand|literal} block {number}
-passOption option {glass|literal} block {number}
-passOption option {void|literal} block {number}
-passOption option {else|literal} block {number}
-passOption option {p.c.a.|literal} block {number}
-passOption block {number} option {sand|literal}
-passOption block {number} option {glass|literal}
-passOption block {number} option {void|literal}
-passOption block {number} option {else|literal}
-passOption block {number} option {p.c.a.|literal}
+passOption pass option {alexa_option} to block {number}
+passOption option {alexa_option} block {number}
+passOption block {number} option {alexa_option}
 saveResult save {num}
 saveResult {num} save
 saveResult save block {num}

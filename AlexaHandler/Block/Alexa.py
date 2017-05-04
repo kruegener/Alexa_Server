@@ -43,8 +43,10 @@ def SessionEndedRequest(**kwargs):
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()
 
+OPTIONS = ["sand", "glass", "void", "histogram"]
+
 class OPT(fields.AmazonSlots):
-    literal = fields.AmazonLiteral()
+    alexa_option = fields.AmazonCustom(label="OPTIONS", choices=OPTIONS)
     number = fields.AmazonNumber()
 
 # define intents
@@ -308,35 +310,23 @@ def doSandFilter(session, num=0):
 
 # pass Option
 @intent(slots=OPT, app="AlexaHandler")
-def passOption(session, number=-1, literal=""):
+def passOption(session, number=-1, alexa_option=""):
     """
-         {lit}
+         option passing
         ---
-        pass option {sand|literal} to block {number}
-        pass option {glass|literal} to block {number}
-        pass option {void|literal} to block {number}
-        pass option {else|literal} to block {number}
-        pass option {p.c.a.|literal} to block {number}
-        option {sand|literal} block {number}
-        option {glass|literal} block {number}
-        option {void|literal} block {number}
-        option {else|literal} block {number}
-        option {p.c.a.|literal} block {number}
-        block {number} option {sand|literal}
-        block {number} option {glass|literal}
-        block {number} option {void|literal}
-        block {number} option {else|literal}
-        block {number} option {p.c.a.|literal}
+        pass option {alexa_option} to block {number}
+        option {alexa_option} block {number}
+        block {number} option {alexa_option}
     """
 
-    print("\033[93m", number, literal, "\033[0m")
+    print("\033[93m", number, alexa_option, "\033[0m")
     num = number
     SessChain = consumers.getSessChain()
     if type(num) is int:
         if num < SessChain.getBlockListLength():
             block = SessChain.getBlock(num)
             try:
-                block.getOption(literal)
+                block.getOption(alexa_option)
                 msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
