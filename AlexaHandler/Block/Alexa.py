@@ -4,6 +4,7 @@ from django_alexa.api import fields, intent, ResponseBuilder
 from .BlockChain import BlockChain
 from .IO_Block import IO_Block
 from .PCA_Block import PCA_Block
+from .SandFilterBlock import SandFilterBlock
 from channels import Group
 from .. import consumers
 import sys
@@ -11,9 +12,42 @@ import json
 
 # ALEXA PART
 
+
+@intent(slots=None, app="AlexaHandler")
+def LaunchRequest(session):
+    """
+    B 2 S Lab is a go
+    ---
+    Launch
+    """
+    consumers.AlexaActive()
+    return ResponseBuilder.create_response(message="open",
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+@intent(app="AlexaHandler")
+def SessionEndedRequest(**kwargs):
+    """
+    Default End Session Intent
+    ---
+    quit
+    end
+    """
+    print("End called")
+    consumers.AlexaEnded()
+    return ResponseBuilder.create_response()
+
 # define slots
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()
+
+OPTIONS = ["sand", "glass", "void", "histogram"]
+
+class OPT(fields.AmazonSlots):
+    alexa_option = fields.AmazonCustom(label="OPTIONS", choices=OPTIONS)
+    number = fields.AmazonNumber()
 
 # define intents
 # execution Intent
@@ -208,16 +242,91 @@ def doPCA(session, num=0):
         if num < SessChain.getBlockListLength():
             block = SessChain.getBlock(num)
             try:
-                print("got Chain")
                 PCA = PCA_Block(var_name=block.data_name, data=block.getData(), session="alexa")
                 print("NEW PCA BLOCK")
                 SessChain.addBlock(PCA)
-                print("added to Chain:")
                 SessChain.Chain_pickle()
-                print(SessChain)
                 Group("alexa").send({
                     "text": PCA.GetNode()
                 })
+                msg = "processed"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error processing block" + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+# (Sand) Image Filter intent
+@intent(slots=Num, app="AlexaHandler")
+def doSandFilter(session, num=0):
+    """
+        sand Filter on image {num}
+        ---
+        segment {num}
+        {num} segment
+        process {num}
+        {num} process
+        filter {num}
+        {num} filter
+        sand {num}
+        {num} sand
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            try:
+                Filter = SandFilterBlock(var_name=block.data_name, data=block.getData(), session="alexa")
+                print("NEW Sand BLOCK")
+                SessChain.addBlock(Filter)
+                SessChain.Chain_pickle()
+                Group("alexa").send({
+                    "text": Filter.GetNode()
+                })
+                msg = "processed"
+            except:
+                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                msg = "error processing block" + str(num)
+        else:
+            msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        print("\033[94m Amazon provided None type \033[0m")
+        msg = "Please provide a number"
+
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+
+# pass Option
+@intent(slots=OPT, app="AlexaHandler")
+def passOption(session, number=-1, alexa_option=""):
+    """
+         option passing
+        ---
+        pass option {alexa_option} to block {number}
+        option {alexa_option} block {number}
+        block {number} option {alexa_option}
+    """
+
+    print("\033[93m", number, alexa_option, "\033[0m")
+    num = number
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            try:
+                block.getOption(alexa_option)
                 msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")

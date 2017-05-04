@@ -31,8 +31,8 @@ class HistogramBlock (BaseBlock):
                 else:
                     a.append(int(e))
 
-        plot.cla()
-        plot.clf()
+        #plot.cla()
+        #plot.clf()
         fig = plot.figure()
         plot.hist(a, bins=30)
         plot.xlabel('protein numbers')

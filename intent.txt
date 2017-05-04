@@ -3,6 +3,14 @@
 {
     "intents": [
         {
+            "intent": "LaunchRequest", 
+            "slots": []
+        }, 
+        {
+            "intent": "SessionEndedRequest", 
+            "slots": []
+        }, 
+        {
             "intent": "executeBlock", 
             "slots": [
                 {
@@ -48,6 +56,28 @@
             ]
         }, 
         {
+            "intent": "doSandFilter", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
+            "intent": "passOption", 
+            "slots": [
+                {
+                    "name": "alexa_option", 
+                    "type": "OPTIONS"
+                }, 
+                {
+                    "name": "number", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
             "intent": "saveResult", 
             "slots": [
                 {
@@ -68,14 +98,19 @@
         {
             "intent": "minimize", 
             "slots": []
-        }, 
-        {
-            "intent": "LaunchRequest", 
-            "slots": []
         }
     ]
 }
 
+OPTIONS:
+  sand
+  glass
+  void
+  histogram
+
+LaunchRequest launch
+SessionEndedRequest quit
+SessionEndedRequest end
 executeBlock execute block {num}
 executeBlock execute {num}
 executeBlock {num} execute
@@ -113,6 +148,17 @@ doPCA do a p.c.a. on block {num}
 doPCA perform a p.c.a. on {num}
 doPCA do a p.c.a. on {num}
 doPCA p.c.a. on {num}
+doSandFilter segment {num}
+doSandFilter {num} segment
+doSandFilter process {num}
+doSandFilter {num} process
+doSandFilter filter {num}
+doSandFilter {num} filter
+doSandFilter sand {num}
+doSandFilter {num} sand
+passOption pass option {alexa_option} to block {number}
+passOption option {alexa_option} block {number}
+passOption block {number} option {alexa_option}
 saveResult save {num}
 saveResult {num} save
 saveResult save block {num}
@@ -129,6 +175,5 @@ minimize minimize
 minimize make small
 minimize hide
 minimize back
-LaunchRequest launch
 
 #####################################

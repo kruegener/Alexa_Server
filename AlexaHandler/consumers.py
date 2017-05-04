@@ -23,7 +23,7 @@ from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
 from .Block.StatisticsBlock import StatisticsBlock
-from .Block.IO_Block import IO_Block
+
 from .Block.BlockChain import BlockChain
 import pickle
 
@@ -71,6 +71,9 @@ def ws_message(message):
     # TODO if more than one Session not feasible
     global SessChain
     global fileList
+
+    from .Block.IO_Block import IO_Block
+
     data = json.loads(message.content['text'])
     # print("JSON: ", data, "DATA: ", message.content['text'])
     if data['type'] == "msg" :
@@ -183,24 +186,19 @@ def ws_message(message):
                 "text": IO.GetNode()
             })
 
+        elif data['cmd'] == "minimize":
+            data = {"type": "cmd",
+                    "cmd": "minimize",
+                    }
+            Group("alexa").send({
+                "text": json.dumps(data)
+            })
+
         # needs active alexa session
         # TODO derive better system to add functions here automatically
         #if data['opt'] == 'read':
         #    msg = SessChain.getBlock(data['num']).readBlock(data['num'])
 
-
-    # "autosave"
-    SessChain.Chain_pickle()
-
-def addBlock(block):
-    global SessChain
-    # add to Chain
-    SessChain.addBlock(block)
-    # send to group
-    Group("alexa").send({
-        "text": block.GetNode()
-    })
-    print("\033[95m BLOCK \033[0m", block)
 
     # "autosave"
     SessChain.Chain_pickle()
@@ -279,3 +277,19 @@ def getFileList():
     except NameError:
         print("\033[91m FileList currently not defined \033[0m")
 
+def AlexaActive():
+    print("\033[91m New Session \033[0m")
+    data = {"type": "cmd",
+            "cmd": "listening"}
+    Group("alexa").send({
+        "text": json.dumps(data)
+    })
+
+def AlexaEnded():
+    print("\033[91m Session Ended \033[0m")
+    data = {"type": "cmd",
+            "cmd": "stopped_listening",
+            }
+    Group("alexa").send({
+        "text": json.dumps(data)
+    })
