@@ -27,8 +27,8 @@
       <file leaf-file-name="Alexa.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+            <state relative-caret-position="564">
+              <caret line="273" column="18" lean-forward="true" selection-start-line="273" selection-start-column="18" selection-end-line="273" selection-end-column="18" />
               <folding>
                 <element signature="e#23#83#0" expanded="true" />
               </folding>
@@ -36,32 +36,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alexa.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AlexaHandler/alexa.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PCA_Block.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/PCA_Block.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="450">
+              <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,8 +51,8 @@
       <file leaf-file-name="HistogramBlock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="40" column="38" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+            <state relative-caret-position="150">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="21" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -81,8 +63,8 @@
       <file leaf-file-name="ImageBlock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+            <state relative-caret-position="389">
+              <caret line="61" column="16" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="61" selection-end-column="16" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -93,8 +75,8 @@
       <file leaf-file-name="consumers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="964">
-              <caret line="267" column="6" lean-forward="true" selection-start-line="267" selection-start-column="6" selection-end-line="267" selection-end-column="6" />
+            <state relative-caret-position="431">
+              <caret line="152" column="28" lean-forward="false" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="28" />
               <folding>
                 <element signature="e#29#66#0" expanded="true" />
               </folding>
@@ -105,9 +87,12 @@
       <file leaf-file-name="BlockChain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="377">
+              <caret line="47" column="12" lean-forward="false" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+              <folding>
+                <marker date="1493908942000" expanded="true" signature="1133:1541" ph="..." />
+                <marker date="1493908942000" expanded="true" signature="1231:1303" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,8 +100,8 @@
       <file leaf-file-name="live.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="262" column="18" lean-forward="false" selection-start-line="262" selection-start-column="18" selection-end-line="262" selection-end-column="18" />
+            <state relative-caret-position="306">
+              <caret line="378" column="59" lean-forward="false" selection-start-line="378" selection-start-column="59" selection-end-line="378" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -125,9 +110,35 @@
       <file leaf-file-name="IO_Block.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="1000">
+              <caret line="61" column="19" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="61" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SandFilterBlock.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseBlock.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,21 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>append</find>
-      <find>reset</find>
-      <find>overla</find>
-      <find>files</find>
-      <find>file</find>
-      <find>socket.send</find>
-      <find>main</find>
-      <find>show</find>
-      <find>minim</find>
-      <find>minimize</find>
-      <find>send_mini</find>
-      <find>send</find>
-      <find>histo</find>
-      <find>area</find>
-      <find>plumbin</find>
       <find>cmd</find>
       <find>ready</find>
       <find>pulseEf</find>
@@ -173,6 +169,21 @@
       <find>#page-title').cs</find>
       <find>stop</find>
       <find>500</find>
+      <find>block</find>
+      <find>new_grid</find>
+      <find>Group</find>
+      <find>show</find>
+      <find>pulse</find>
+      <find>100</find>
+      <find>l</find>
+      <find>load</find>
+      <find>new_grid_block</find>
+      <find>caa</find>
+      <find>ec</find>
+      <find>except</find>
+      <find>IO</find>
+      <find>delete</find>
+      <find>de</find>
     </findStrings>
     <replaceStrings>
       <replace>Sidebar</replace>
@@ -198,18 +209,19 @@
         <option value="$PROJECT_DIR$/AlexaInterface/urls.py" />
         <option value="$PROJECT_DIR$/histogram.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/views.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
         <option value="$PROJECT_DIR$/AlexaInterface/settings.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/PCA_Block.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/MessageBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/base.html" />
         <option value="$PROJECT_DIR$/AlexaHandler/alexa.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/consumers.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/PCA_Block.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/Alexa.py" />
       </list>
     </option>
@@ -619,18 +631,11 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/MessageBlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="31" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -863,49 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="34" column="30" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="34" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/PCA_Block.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="40" column="38" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/MessageBlock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-143">
@@ -922,29 +884,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py">
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="964">
-          <caret line="267" column="6" lean-forward="true" selection-start-line="267" selection-start-column="6" selection-end-line="267" selection-end-column="6" />
+        <state relative-caret-position="150">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="21" />
           <folding>
-            <element signature="e#29#66#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="262" column="18" lean-forward="false" selection-start-line="262" selection-start-column="18" selection-end-line="262" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -956,10 +902,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="61" column="16" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="61" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="61" column="19" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="61" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/PCA_Block.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="378" column="59" lean-forward="false" selection-start-line="378" selection-start-column="59" selection-end-line="378" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="152" column="28" lean-forward="false" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="28" />
+          <folding>
+            <element signature="e#29#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="47" column="12" lean-forward="false" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+          <folding>
+            <marker date="1493908942000" expanded="true" signature="1133:1541" ph="..." />
+            <marker date="1493908942000" expanded="true" signature="1231:1303" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        <state relative-caret-position="564">
+          <caret line="273" column="18" lean-forward="true" selection-start-line="273" selection-start-column="18" selection-end-line="273" selection-end-column="18" />
           <folding>
             <element signature="e#23#83#0" expanded="true" />
           </folding>

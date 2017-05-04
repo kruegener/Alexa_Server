@@ -56,6 +56,15 @@
             ]
         }, 
         {
+            "intent": "doSandFilter", 
+            "slots": [
+                {
+                    "name": "num", 
+                    "type": "AMAZON.NUMBER"
+                }
+            ]
+        }, 
+        {
             "intent": "saveResult", 
             "slots": [
                 {
@@ -82,6 +91,7 @@
 
 LaunchRequest launch
 SessionEndedRequest quit
+SessionEndedRequest end
 executeBlock execute block {num}
 executeBlock execute {num}
 executeBlock {num} execute
@@ -119,6 +129,14 @@ doPCA do a p.c.a. on block {num}
 doPCA perform a p.c.a. on {num}
 doPCA do a p.c.a. on {num}
 doPCA p.c.a. on {num}
+doSandFilter segment {num}
+doSandFilter {num} segment
+doSandFilter process {num}
+doSandFilter {num} process
+doSandFilter filter {num}
+doSandFilter {num} filter
+doSandFilter sand {num}
+doSandFilter {num} sand
 saveResult save {num}
 saveResult {num} save
 saveResult save block {num}

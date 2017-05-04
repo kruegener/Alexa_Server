@@ -257,17 +257,17 @@
         function pulseEff() {
             var oldCol = $("#header-block").css("background-color");
             $('#header-block').animate({
-                'background-color': '#00b06e'
-            }, 500).animate({
+                'background-color': '#0088b0'
+            }, 750).animate({
                 'background-color': oldCol,
-            }, 400);
+            }, 650);
 {#            var oldCol = $("#page-title").css("color");#}
 {#            $('#page-title').animate({#}
 {#                'color': '#00b06e'#}
 {#            }, 500).animate({#}
 {#                'color': oldCol,#}
 {#            }, 500);#}
-            $('#header-block').removeAttr("style");
+{#            $('#header-block').removeAttr("style");#}
         };
         var Interval;
 
@@ -363,31 +363,25 @@
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--2-col"
             }
-            else if (data.block_type == "image") {
+            else if (data.block_type == "image" || data.block_type == "histogram") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 {#                img.onclick = function() {fillDiv($(div), true)};#}
                 div.appendChild(img);
                 div.className += " " + "mdl-cell--3-col"
             }
-            else if (data.block_type == "histogram") {
-                var img = document.createElement("img");
-                img.src = data.call_path;
-                div.appendChild(img);
-                div.className += " " + "mdl-cell--3-col"
-            }
-            else if (data.block_type == "PCA") {
+            else if (data.block_type == "rich_image") {
                 var img = document.createElement("img");
                 console.log("PCA:", data.call_path);
                 img.src = data.call_path;
                 var p = document.createElement("p");
                 p.className = "Info mdl-shadow--6dp";
-                p.appendChild(document.createTextNode("Principal Component Analysis: " + data.add_data));
+                p.appendChild(document.createTextNode("Info: " + data.add_data));
                 div.appendChild(img);
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--5-col"
             }
-            else if (data.block_type == "IO") {
+            else if (data.block_type == "matrix") {
                 var p = document.createElement("p");
                 p.className = "Info mdl-shadow--6dp";
                 p.appendChild(document.createTextNode("Type: " + data.block_type));
@@ -755,7 +749,7 @@
                 }
                 else if(data.cmd == "listening") {
                     console.log("started listening")
-                    Interval = setInterval(pulseEff, 1000);
+                    Interval = setInterval(pulseEff, 1500);
                 }
                 else if(data.cmd == "stopped_listening") {
                     console.log("stopped listening")
@@ -822,7 +816,7 @@
             $(checkForSmallScreen);
 
             $('#start').click(function () {
-                Interval = setInterval(pulseEff, 1000);
+                Interval = setInterval(pulseEff, 1500);
                 console.log("started");
             });
             $('#stop').click(function () {

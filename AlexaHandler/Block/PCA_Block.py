@@ -16,7 +16,7 @@ class PCA_Block (BaseBlock):
     def __init__(self, var_name, data, name="PCA", session=""):
         self.name = var_name + ".PCA"
         self.file_name = var_name + ".PCA.png"
-        self.type = "PCA"
+        self.type = "rich_image"
         self.session = session
         self.options = ["show larger", "save"]
         self.vars = []
@@ -34,7 +34,7 @@ class PCA_Block (BaseBlock):
         gs = gridspec.GridSpec(1, 2, width_ratios=[1, 1])
         plt.subplot(gs[0])
         plt.scatter(X_reduced[:, 0], X_reduced[:, 1],
-                   cmap=plt.cm.Paired)
+                    cmap=plt.cm.Paired)
         plt.xlabel("PC1", fontweight='bold', fontsize=20)
         plt.ylabel("PC2", fontweight='bold', fontsize=20)
         plt.title("First 2 Principal Components", fontweight='bold', fontsize=20)
@@ -55,18 +55,8 @@ class PCA_Block (BaseBlock):
         print("PCA done")
 
     def getData(self):
-        return self.data
-
-    def save(self):
-        path = "/home/alexa_server/Alexa_Server/export/" + self.session + "/"
-        # checking if dir already exists
-        if not os.path.exists(path):
-            os.makedirs(path)
-        try:
-            copyfile(self.cache_path, path + self.file_name)
-        except:
-            print("\033[93m ERROR exporting file \033[0m")
-        print("exporting", self.name)
+        data = {"name": self.data_name, "type": self.file_type, "data": self.data}
+        return data
 
     def showBlock(self, num=""):
         print("showBlock");

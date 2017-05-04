@@ -1,6 +1,7 @@
+import os
+from shutil import copyfile
+
 class BaseBlock:
-
-
 
     def __init__(self, name="base", type="base", session="", content_type=""):
         self.name = name
@@ -34,13 +35,6 @@ class BaseBlock:
     def addOption(self, s):
         self.options.append(s)
 
-    # can be first
-
-    # Alexa Interface
-
-    # Execute Options
-
-    # Content_type
 
 
     # Node builder
@@ -61,6 +55,20 @@ class BaseBlock:
     def executeBlock(self, *args):
         # MUST OVERRIDE
         print("execute not defined")
+
+    def getData(self):
+        pass
+
+    def save(self):
+        path = "/home/alexa_server/Alexa_Server/export/" + self.session + "/"
+        # checking if dir already exists
+        if not os.path.exists(path):
+            os.makedirs(path)
+        try:
+            copyfile(self.cache_path, path + self.file_name)
+        except:
+            print("\033[93m ERROR exporting file \033[0m")
+        print("exporting", self.name)
 
     # str
     def __str__(self):
