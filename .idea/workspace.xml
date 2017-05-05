@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="806">
-              <caret line="267" column="0" lean-forward="true" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+              <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
               <folding>
                 <element signature="e#23#83#0" expanded="true" />
               </folding>
@@ -121,7 +121,7 @@
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="206">
-              <caret line="466" column="12" lean-forward="false" selection-start-line="466" selection-start-column="12" selection-end-line="466" selection-end-column="12" />
+              <caret line="466" column="0" lean-forward="false" selection-start-line="466" selection-start-column="0" selection-end-line="466" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -970,7 +970,7 @@
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="806">
-          <caret line="267" column="0" lean-forward="true" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+          <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding>
             <element signature="e#23#83#0" expanded="true" />
           </folding>
@@ -980,7 +980,7 @@
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
-          <caret line="466" column="12" lean-forward="false" selection-start-line="466" selection-start-column="12" selection-end-line="466" selection-end-column="12" />
+          <caret line="466" column="0" lean-forward="false" selection-start-line="466" selection-start-column="0" selection-end-line="466" selection-end-column="0" />
           <folding />
         </state>
       </provider>
