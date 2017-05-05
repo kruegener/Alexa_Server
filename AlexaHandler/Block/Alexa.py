@@ -202,11 +202,12 @@ def loadFile(session, num=0):
                 print("NEW IO BLOCK")
                 SessChain.addBlock(IO)
                 print("added to Chain:")
-                SessChain.Chain_pickle()
+
                 print(SessChain)
                 Group("alexa").send({
                     "text": IO.GetNode()
                 })
+                #SessChain.Chain_pickle()
                 msg = FileList[num] + "successfully loaded"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
@@ -245,10 +246,11 @@ def doPCA(session, num=0):
                 PCA = PCA_Block(var_name=block.data_name, data=block.getData(), session="alexa")
                 print("NEW PCA BLOCK")
                 SessChain.addBlock(PCA)
-                SessChain.Chain_pickle()
+
                 Group("alexa").send({
                     "text": PCA.GetNode()
                 })
+                SessChain.Chain_pickle()
                 msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
@@ -287,10 +289,11 @@ def doSandFilter(session, num=0):
                 Filter = SandFilterBlock(var_name=block.data_name, data=block.getData(), session="alexa")
                 print("NEW Sand BLOCK")
                 SessChain.addBlock(Filter)
-                SessChain.Chain_pickle()
+
                 Group("alexa").send({
                     "text": Filter.GetNode()
                 })
+                SessChain.Chain_pickle()
                 msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")

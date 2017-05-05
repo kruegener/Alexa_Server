@@ -261,13 +261,13 @@
             }, 750).animate({
                 'background-color': oldCol,
             }, 650);
-{#            var oldCol = $("#page-title").css("color");#}
-{#            $('#page-title').animate({#}
-{#                'color': '#00b06e'#}
-{#            }, 500).animate({#}
-{#                'color': oldCol,#}
-{#            }, 500);#}
-{#            $('#header-block').removeAttr("style");#}
+            {#            var oldCol = $("#page-title").css("color");#}
+            {#            $('#page-title').animate({#}
+            {#                'color': '#00b06e'#}
+            {#            }, 500).animate({#}
+            {#                'color': oldCol,#}
+            {#            }, 500);#}
+            {#            $('#header-block').removeAttr("style");#}
         };
         var Interval;
 
@@ -460,18 +460,23 @@
             div.appendChild(but_group);
 
             $(parent).append(div);
-            try {
-                console.log("ifNeeded works");
-                div.scrollIntoViewIfNeeded(true);
-            }
-            catch(err)
-            {
-                console.log("ifNeeded doesnt work");
-                div.scrollIntoView(true);
-            }
+
+
             componentHandler.upgradeDom();
             checkForSmallScreen();
-            // refresh clickable
+            
+            // wait for image load
+            $(img).load( function() {
+                try {
+                    console.log("ifNeeded works");
+                    div.scrollIntoViewIfNeeded(true);
+                }
+                catch(err)
+                {
+                    console.log("ifNeeded doesnt work");
+                    div.scrollIntoView(true);
+                }
+            });
 
         }
 
@@ -925,7 +930,7 @@
                 YOU SHOULDN'T SEE THIS!!!
             </div>
 
-{#            optional buttons for pulse#}
+            {#            optional buttons for pulse#}
             <button id="start">Pulsate</button>
             <button id="stop">Stop</button>
 
