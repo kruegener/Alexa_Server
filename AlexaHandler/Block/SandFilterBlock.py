@@ -61,11 +61,12 @@ class SandFilterBlock (BaseBlock):
 
         IO = IO_Block(sub_file_name, session=self.session, abs_path=further_cache_path)
         SessChain.addBlock(IO)
-        SessChain.Chain_pickle()
+
         Group("alexa").send({
             "text": IO.GetNode()
         })
 
+        SessChain.Chain_pickle()
 
     def showBlock(self, num=""):
         print("showBlock");
