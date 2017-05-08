@@ -77,7 +77,21 @@ class IO_Block (BaseBlock):
             raise NameError("wrong option")
 
 
-
+    def showBlock(self, num=""):
+        print("showBlock");
+        if self.type == "image":
+            call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
+            data = {"type": "cmd",
+                    "block_id": num,
+                    "cmd": "show",
+                    "call_path": call_path,
+                    }
+            print("executing showPCAblock")
+            Group("alexa").send({
+                "text": json.dumps(data)
+            })
+        else:
+            raise NameError("Function not available for non-Image IO")
 
     def getData(self):
         data = {"name": self.data_name, "type": self.file_type, "data": self.data}

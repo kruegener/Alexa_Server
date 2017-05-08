@@ -57,9 +57,10 @@ class BlockChain:
     def delBlockByElement(self, Block):
         if Block in self.BlockList:
             id = self.BlockList.index(Block)
-            self.BlockList.remove(Block)
             self.ConnectionList = [entry if self.BlockList.index(Block) not in entry else [] for entry in self.ConnectionList]
             del self.varList[id]
+            self.BlockList.remove(Block)
+            Block.delBlock()
         else:
             print("Couldn't delete! Block is not in BlockChain", file=sys.stderr)
 
