@@ -864,8 +864,13 @@
                 <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                     Reset
                 </button>
-                <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                    Hist
+{#                <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">#}
+{#                    Hist#}
+                 <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    PLS
+                </button>
+                 <button id="stop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    end
                 </button>
                 <button onclick="send_populate_msg()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     Msg
@@ -931,8 +936,8 @@
             </div>
 
             {#            optional buttons for pulse#}
-            <button id="start">Pulsate</button>
-            <button id="stop">Stop</button>
+{#            <button id="start">Pulsate</button>#}
+{#            <button id="stop">Stop</button>#}
 
             <div id ="plumbing_block">
 

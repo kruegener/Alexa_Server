@@ -208,7 +208,7 @@ def loadFile(session, num=0):
                     "text": IO.GetNode()
                 })
                 #SessChain.Chain_pickle()
-                msg = FileList[num] + "successfully loaded"
+                msg = "File " + str(num) + " successfully loaded"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
                 msg = "error loading file  " + str(num)
