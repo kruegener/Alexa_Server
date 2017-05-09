@@ -97,7 +97,7 @@ def ws_message(message):
         })
 
     elif data['type'] == "cmd" :
-        if data['cmd'] == "del_all":
+        if data['cmd'] == "reset":
             SessChain.delBlocksAll()
             data = {"type": "cmd",
                     "cmd": "reset"}
