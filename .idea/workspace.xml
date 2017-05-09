@@ -23,7 +23,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.28507295">
+    <splitter split-orientation="vertical" split-proportion="0.9">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
           <file leaf-file-name="HistogramBlock.py" pinned="false" current-in-tab="false">
@@ -98,8 +98,8 @@
           <file leaf-file-name="SandFilterBlock.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+                <state relative-caret-position="1905">
+                  <caret line="116" column="23" lean-forward="false" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -236,8 +236,8 @@
         <option value="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/consumers.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/Alexa.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py" />
       </list>
     </option>
   </component>
@@ -980,21 +980,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1647">
           <caret line="538" column="41" lean-forward="false" selection-start-line="538" selection-start-column="41" selection-end-line="538" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1905">
+          <caret line="116" column="23" lean-forward="false" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

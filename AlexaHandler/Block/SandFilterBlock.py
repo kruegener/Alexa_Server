@@ -63,14 +63,13 @@ class SandFilterBlock (BaseBlock):
         # override old block
         self.cache_path = further_cache_path
         self.file_name = self.file_name + sub_file_name
-        self.name = number
+        self.name = self.file_name
         self.options = ["show"]
         self.vars = [self.file_name]
 
         # update data to be an update block
         self.update = "true"
         self.block_id = number
-
         # send
         Group("alexa").send({
             "text": self.GetNode()
@@ -108,7 +107,7 @@ class SandFilterBlock (BaseBlock):
         add_data = [self.name]
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_id": self.block_id,
                 "file_name": self.file_name,
                 "content_type": "PCA",
                 "call_path": settings.CACHE_URL + "/" + self.session + "/" + self.file_name,
