@@ -338,30 +338,55 @@
 
             var parent = document.getElementById("grid");
             var div = "";
-            if(data.hasOwnProperty("update")) {
-                if (data.update == "false") {
-                    name = "grid_block" + grid_count;
-                    div = document.createElement("div");
-                    div.id = name;
-                    div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
-                }
-                else {
-                    name = "grid_block" + data.block_id;
-                    console.log(name);
-                    div = document.getElementById(name);
-                    div.innerHTML = "";
-                }
-            }
-            else {
+
+            if (data.update != "true") {
                 name = "grid_block" + grid_count;
                 div = document.createElement("div");
                 div.id = name;
                 div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
             }
+            else {
+                console.log("update block", data.block_id);
+                name = "grid_block" + data.block_id;
+                console.log(name);
+                div = document.getElementById(name);
+                div.innerHTML = "";
+                $(div).removeData();
+
+                // deleting the vars associated with the old status
+                var table = document.getElementById("var_body");
+                var tableRow_del = $("td.block_num").filter(function() {
+                    return $(this).text() == data.block_id;
+                }).closest("tr");
+                var num_del_vars = tableRow_del.length;
+                console.log("deleting num vars:", num_del_vars);
+                for (i = 0; i < num_del_vars; i++){
+                    table.removeChild(tableRow_del[i]);
+                }
+                // renumbering rest variables
+                var tableRow = $("td.block_num").filter(function() {
+                    return $(this).text() > data.block_id;
+                }).closest("tr");
+                for (i = 0; i < tableRow.length; i++){
+                    var cur_row = tableRow[i];
+                    console.log(cur_row);
+                    $(cur_row).children("td.block_num")[0].innerHTML = $(tableRow[i]).children("td.block_num")[0].innerHTML -1;
+                    $(cur_row).children("td.var_num")[0].innerHTML = $(tableRow[i]).children("td.var_num")[0].innerHTML -num_del_vars;
+                }
+
+                var_num -= num_del_vars;
+            }
+
+
 
             // add vars
             if(data.hasOwnProperty("vars")){
-                new_Var(data.vars, grid_count);
+                if(data.update != "true") {
+                    new_Var(data.vars, grid_count);
+                }
+                else{
+                    new_Var(data.vars, data.block_id);
+                }
                 // save vars in div
                 jQuery.data( div, "vars", {
                     vars: data.vars
@@ -441,10 +466,20 @@
                 var but = document.createElement("button");
                 but.id = name + "_" + opt;
                 but.className = "func mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
-                jQuery.data( but, "call", {
-                    num: grid_count,
-                    opt: data.options[opt]
-                });
+                if(data.update == "true"){
+                    console.log("update")
+                    jQuery.data( but, "call", {
+                        num: data.block_id,
+                        opt: data.options[opt]
+                    });
+                }
+                else {
+                    jQuery.data( but, "call", {
+                        num: grid_count,
+                        opt: data.options[opt]
+                    });
+                }
+
 
                 // tag click function
                 but.onclick = function(but){
@@ -467,14 +502,14 @@
             but.className = "func del mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
             if (data.update == "true"){
                 jQuery.data( but, "call", {
-                num: data.block_id,
-                opt: "del"
+                    num: data.block_id,
+                    opt: "del"
                 });
             }
             else {
                 jQuery.data( but, "call", {
-                num: grid_count,
-                opt: "del"
+                    num: grid_count,
+                    opt: "del"
                 });
             }
             // tag click function
@@ -490,11 +525,22 @@
             {#            but_group.innerHTML += "<div class='mdl-layout-spacer'></div>";#}
             but_group.appendChild(but);
 
-            if (data.update != "true") {
+            if (data.hasOwnProperty("update")) {
+                if(data.update != "true") {
+                    console.log("new block");
+                    grid_count += 1;
+                    last_name = name;
+                }
+                else{
+                    console.log("update block, no new grid_count");
+                }
+            }
+            else {
+                console.log("new block");
                 grid_count += 1;
                 last_name = name;
             }
-            
+            console.log("new GRID COUNT", grid_count);
             div.appendChild(but_group);
 
             $(parent).append(div);
@@ -919,12 +965,12 @@
                 <button onclick="send_reset()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                     Reset
                 </button>
-{#                <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">#}
-{#                    Hist#}
-                 <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                {#                <button onclick="send_populate_hist()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">#}
+                {#                    Hist#}
+                <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     PLS
                 </button>
-                 <button id="stop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <button id="stop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     end
                 </button>
                 <button onclick="send_populate_msg()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -992,8 +1038,8 @@
             </div>
 
             {#            optional buttons for pulse#}
-{#            <button id="start">Pulsate</button>#}
-{#            <button id="stop">Stop</button>#}
+            {#            <button id="start">Pulsate</button>#}
+            {#            <button id="stop">Stop</button>#}
 
             <div id ="plumbing_block">
 

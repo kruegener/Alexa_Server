@@ -19,7 +19,7 @@ class SandFilterBlock (BaseBlock):
         self.type = "rich_image"
         self.session = session
         self.options = ["sand", "glass", "void"]
-        self.vars = []
+        self.vars = [self.file_name]
         self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
         self.update = "false"
         print("Inside SandFilter")
@@ -65,6 +65,7 @@ class SandFilterBlock (BaseBlock):
         self.file_name = self.file_name + sub_file_name
         self.name = number
         self.options = ["show"]
+        self.vars = [self.file_name]
 
         # update data to be an update block
         self.update = "true"
