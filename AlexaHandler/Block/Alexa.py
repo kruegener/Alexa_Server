@@ -329,7 +329,7 @@ def passOption(session, number=-1, alexa_option=""):
         if num < SessChain.getBlockListLength():
             block = SessChain.getBlock(num)
             try:
-                block.getOption(alexa_option)
+                block.getOption(alexa_option, num)
                 msg = "processed"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")

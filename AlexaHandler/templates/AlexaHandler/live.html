@@ -335,16 +335,29 @@
         function new_grid_block(data){
             console.log("grid update called");
             console.log("JSON", data);
-            name = "grid_" + "block" + grid_count;
-            console.log(xGrid, grid_count);
-            yOff = height*.2;
-            xOff = 20;
 
             var parent = document.getElementById("grid");
-
-            var div = document.createElement("div");
-            div.id = name;
-            div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
+            var div = "";
+            if(data.hasOwnProperty("update")) {
+                if (data.update == "false") {
+                    name = "grid_block" + grid_count;
+                    div = document.createElement("div");
+                    div.id = name;
+                    div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
+                }
+                else {
+                    name = "grid_block" + data.block_id;
+                    console.log(name);
+                    div = document.getElementById(name);
+                    div.innerHTML = "";
+                }
+            }
+            else {
+                name = "grid_block" + grid_count;
+                div = document.createElement("div");
+                div.id = name;
+                div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
+            }
 
             // add vars
             if(data.hasOwnProperty("vars")){
@@ -410,7 +423,15 @@
             var number = document.createElement("button");
             number.className = "number mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
             number.disabled = false;
-            number.textContent = grid_count;
+            if(data.hasOwnProperty("update")){
+                if(data.update == "false")
+                    number.textContent = grid_count;
+                else
+                    number.textContent = data.block_id;
+            }
+            else{
+                number.textContent = grid_count;
+            }
             but_group.appendChild(number);
             // add options
             var opt = 0;
@@ -444,10 +465,18 @@
             var but = document.createElement("button");
             but.id = name + "_del";
             but.className = "func del mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
-            jQuery.data( but, "call", {
+            if (data.update == "true"){
+                jQuery.data( but, "call", {
+                num: data.block_id,
+                opt: "del"
+                });
+            }
+            else {
+                jQuery.data( but, "call", {
                 num: grid_count,
                 opt: "del"
-            });
+                });
+            }
             // tag click function
             but.onclick = function(but){
                 socket.send(JSON.stringify({"type" : "cmd",
@@ -461,9 +490,11 @@
             {#            but_group.innerHTML += "<div class='mdl-layout-spacer'></div>";#}
             but_group.appendChild(but);
 
-            grid_count += 1;
-            last_name = name;
-
+            if (data.update != "true") {
+                grid_count += 1;
+                last_name = name;
+            }
+            
             div.appendChild(but_group);
 
             $(parent).append(div);
