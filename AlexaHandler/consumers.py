@@ -96,7 +96,7 @@ def ws_message(message):
             "text": block.GetNode()
         })
 
-    elif data['type'] == "command" :
+    elif data['type'] == "cmd" :
         if data['cmd'] == "del_all":
             SessChain.delBlocksAll()
             data = {"type": "cmd",

@@ -422,7 +422,7 @@
                     opt: data.options[opt]
                 });
                 but.onclick = function(but){
-                    socket.send(JSON.stringify({"type" : "command",
+                    socket.send(JSON.stringify({"type" : "cmd",
                         "cmd" : "click",
                         "num" : jQuery.data( this, "call" ).num,
                         "opt" : jQuery.data( this, "call" ).opt
@@ -443,7 +443,7 @@
                 opt: "del"
             });
             but.onclick = function(but){
-                socket.send(JSON.stringify({"type" : "command",
+                socket.send(JSON.stringify({"type" : "cmd",
                     "cmd" : "click",
                     "num" : jQuery.data( this, "call" ).num,
                     "opt" : jQuery.data( this, "call" ).opt
@@ -495,7 +495,7 @@
         }
 
         function send_reset(){
-            socket.send(JSON.stringify({"type" : "command", "cmd" : "del_all"}));
+            socket.send(JSON.stringify({"type" : "cmd", "cmd" : "del_all"}));
         }
 
         function send_populate_hist(){
@@ -507,7 +507,7 @@
         }
 
         function send_image_populate(){
-            socket.send(JSON.stringify({"type" : "command", "cmd" : "img"}));
+            socket.send(JSON.stringify({"type" : "cmd", "cmd" : "img"}));
         }
 
         function light_up(data){
@@ -575,7 +575,7 @@
         }
 
         function send_minimize(){
-            socket.send(JSON.stringify({"type": "command", "cmd": "minimize"}));
+            socket.send(JSON.stringify({"type": "cmd", "cmd": "minimize"}));
         }
 
         function margin_adjust() {
@@ -728,7 +728,7 @@
                 }
                 else if(data.cmd == "ready") {
                     if(init)
-                        socket.send(JSON.stringify({"type": "command", "cmd": "init"}));
+                        socket.send(JSON.stringify({"type": "cmd", "cmd": "init"}));
                 }
                 else if(data.cmd == "init_done") {
                     init = false;
@@ -838,7 +838,7 @@
                 var row = checked_rows[i];
                 var cell = $(row).children("td.file_name")[0];
 
-                socket.send(JSON.stringify({"type": "command",
+                socket.send(JSON.stringify({"type": "cmd",
                     "cmd": "load",
                     "file": $(cell).attr("title"),}));
             }
