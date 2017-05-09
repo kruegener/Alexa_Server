@@ -23,6 +23,7 @@ from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
 from .Block.StatisticsBlock import StatisticsBlock
+from .Block.LinearRegressionBlock import LinearRegressionBlock
 
 from .Block.BlockChain import BlockChain
 import pickle
@@ -176,6 +177,27 @@ def ws_message(message):
                 })
 
                 print("statistics")
+
+            elif "SCATTER" in str(data["opt"]):
+                a = SessChain.getBlock(data['num'])
+                data = a.getData()
+                LR = LinearRegressionBlock(data=data['data'], session="alexa")
+                SessChain.addBlock(LR)
+                Group("alexa").send({
+                    "text": LR.GetNode()
+                })
+                print ('Linear Regression')
+
+            elif "regression line" in str(data["opt"]):
+                a = SessChain.getBlock(data["num"])
+                data = a.getData()
+                Line = LinearRegressionBlock.RegressionLine(data=data ['data'], session="alexa")
+                SessChain.addBlock(Line)
+                Group("alexa").send({
+                    "text": Line.GetNode()
+                })
+
+
 
         elif data['cmd'] == "load":
             IO = IO_Block(file_name=data['file'], session="alexa")

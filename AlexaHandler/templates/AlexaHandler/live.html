@@ -364,7 +364,7 @@
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--2-col"
             }
-            else if (data.block_type == "image" || data.block_type == "histogram") {
+            else if (data.block_type == "image" || data.block_type == "histogram" || data.block_type == "LR") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 {#                img.onclick = function() {fillDiv($(div), true)};#}

@@ -4,6 +4,8 @@ from channels import Group
 
 class MessageBlock (BaseBlock):
 
+
+
     def __init__(self, name="message", session="", msg=""):
         self.name = name
         self.type = "message"

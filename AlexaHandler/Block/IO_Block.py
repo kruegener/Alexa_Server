@@ -14,6 +14,7 @@ import os
 from channels import Group
 from .. import consumers
 from .HistogramBlock import HistogramBlock
+from .LinearRegressionBlock import LinearRegressionBlock
 
 class IO_Block (BaseBlock):
     def __init__(self, file_name, name="IO", session="", abs_path=""):
@@ -42,6 +43,8 @@ class IO_Block (BaseBlock):
             self.type = "matrix"
             self.options.append("PCA")
             self.options.append("PLOT")
+            self.options.append("SCATTER")
+
 
         elif self.file_type in ["png", "jpg", "jpeg"]:
             self.data = pl.imread(self.path)
