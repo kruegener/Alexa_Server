@@ -522,12 +522,14 @@
             but.innerHTML = ("del");
             {#            but_group.innerHTML += "<div class='mdl-layout-spacer'></div>";#}
             but_group.appendChild(but);
+            div.appendChild(but_group);
 
             if (data.hasOwnProperty("update")) {
                 if(data.update != "true") {
                     console.log("new block");
                     grid_count += 1;
                     last_name = name;
+                    $(parent).append(div);
                 }
                 else{
                     console.log("update block, no new grid_count");
@@ -537,13 +539,10 @@
                 console.log("new block");
                 grid_count += 1;
                 last_name = name;
+                $(parent).append(div);
             }
             console.log("new GRID COUNT", grid_count);
-            div.appendChild(but_group);
-
-            $(parent).append(div);
-
-
+            
             componentHandler.upgradeDom();
             checkForSmallScreen();
 

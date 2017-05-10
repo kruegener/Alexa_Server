@@ -70,10 +70,10 @@ class IO_Block (BaseBlock):
         if para in "histogram":
             histo = HistogramBlock()
             SessChain.addBlock(histo)
-            SessChain.Chain_pickle()
             Group("alexa").send({
                 "text": histo.GetNode()
             })
+            SessChain.Chain_pickle()
         else:
             raise NameError("wrong option")
 
