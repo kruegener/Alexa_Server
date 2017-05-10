@@ -11,6 +11,7 @@ class BaseBlock:
         self.content_type = content_type
         self.options = ["execute"]
         self.vars = []
+        self.block_num = ""
 
 
     # name (has to be unique or does it get an id from models?)
@@ -43,7 +44,7 @@ class BaseBlock:
         import json
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "content_type": self.content_type,
                 "options": self.options,
                 "vars": self.vars,

@@ -346,8 +346,8 @@
                 div.className = "content mdl-cell mdl-cell--middle mdl-shadow--6dp";
             }
             else {
-                console.log("update block", data.block_id);
-                name = "grid_block" + data.block_id;
+                console.log("update block", data.block_num);
+                name = "grid_block" + data.block_num;
                 console.log(name);
                 div = document.getElementById(name);
                 div.innerHTML = "";
@@ -356,7 +356,7 @@
                 // deleting the vars associated with the old status
                 var table = document.getElementById("var_body");
                 var tableRow_del = $("td.block_num").filter(function() {
-                    return $(this).text() == data.block_id;
+                    return $(this).text() == data.block_num;
                 }).closest("tr");
                 var num_del_vars = tableRow_del.length;
                 console.log("deleting num vars:", num_del_vars);
@@ -365,7 +365,7 @@
                 }
                 // renumbering rest variables
                 var tableRow = $("td.block_num").filter(function() {
-                    return $(this).text() > data.block_id;
+                    return $(this).text() > data.block_num;
                 }).closest("tr");
                 for (i = 0; i < tableRow.length; i++){
                     var cur_row = tableRow[i];
@@ -385,7 +385,7 @@
                     new_Var(data.vars, grid_count);
                 }
                 else{
-                    new_Var(data.vars, data.block_id);
+                    new_Var(data.vars, data.block_num);
                 }
                 // save vars in div
                 jQuery.data( div, "vars", {
@@ -397,8 +397,6 @@
                 var p = document.createElement("p");
                 p.className = "content";
                 p.appendChild(document.createTextNode(data.block_type));
-                p.appendChild(document.createElement("br"));
-                p.appendChild(document.createTextNode(data.block_id));
                 p.appendChild(document.createElement("br"));
                 p.appendChild(document.createTextNode(data.msg));
                 div.appendChild(p);
@@ -413,7 +411,7 @@
             }
             else if (data.block_type == "rich_image") {
                 var img = document.createElement("img");
-                console.log("PCA:", data.call_path);
+                console.log("file:", data.call_path);
                 img.src = data.call_path;
                 var p = document.createElement("p");
                 p.className = "Info mdl-shadow--6dp";
@@ -452,7 +450,7 @@
                 if(data.update == "false")
                     number.textContent = grid_count;
                 else
-                    number.textContent = data.block_id;
+                    number.textContent = data.block_num;
             }
             else{
                 number.textContent = grid_count;
@@ -469,7 +467,7 @@
                 if(data.update == "true"){
                     console.log("update")
                     jQuery.data( but, "call", {
-                        num: data.block_id,
+                        num: data.block_num,
                         opt: data.options[opt]
                     });
                 }
@@ -502,7 +500,7 @@
             but.className = "func del mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised";
             if (data.update == "true"){
                 jQuery.data( but, "call", {
-                    num: data.block_id,
+                    num: data.block_num,
                     opt: "del"
                 });
             }
@@ -595,7 +593,7 @@
         }
 
         function light_up(data){
-            name = "draggable_block" + data.block_id;
+            name = "draggable_block" + data.block_num;
             $( "#" + name ).effect("highlight", {}, 3000);
         }
 
@@ -884,12 +882,10 @@
                 if (event.target.checked) {
                     for (var i = 0, length = boxes.length; i < length; i++) {
                         boxes[i].MaterialCheckbox.check();
-                        //boxes[i].MaterialCheckbox.updateClasses();
                     }
                 } else {
                     for (var i = 0, length = boxes.length; i < length; i++) {
                         boxes[i].MaterialCheckbox.uncheck();
-                        //boxes[i].MaterialCheckbox.updateClasses();
                     }
                 }
             };
@@ -904,12 +900,10 @@
                 if (event.target.checked) {
                     for (var i = 0, length = boxes.length; i < length; i++) {
                         boxes[i].MaterialCheckbox.check();
-                        //boxes[i].MaterialCheckbox.updateClasses();
                     }
                 } else {
                     for (var i = 0, length = boxes.length; i < length; i++) {
                         boxes[i].MaterialCheckbox.uncheck();
-                        //boxes[i].MaterialCheckbox.updateClasses();
                     }
                 }
             };

@@ -23,7 +23,7 @@ class SandFilterBlock (BaseBlock):
         self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
         self.update = "false"
         print("Inside SandFilter")
-
+        self.block_num = ""
         self.data = data["data"]
 
         # local processing
@@ -69,7 +69,7 @@ class SandFilterBlock (BaseBlock):
 
         # update data to be an update block
         self.update = "true"
-        self.block_id = number
+        self.block_num = number
         # send
         Group("alexa").send({
             "text": self.GetNode()
@@ -78,7 +78,7 @@ class SandFilterBlock (BaseBlock):
         # reset state
         self.update = "false"
 
-        # creating a new block
+        # creating a new block instead of updating
         # IO = IO_Block(sub_file_name, session=self.session, abs_path=further_cache_path)
         # SessChain.addBlock(IO)
         #
@@ -92,7 +92,7 @@ class SandFilterBlock (BaseBlock):
         print("showBlock");
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "show",
                 "call_path": call_path,
                 }
@@ -107,7 +107,7 @@ class SandFilterBlock (BaseBlock):
         add_data = [self.name]
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.block_id,
+                "block_num": self.block_num,
                 "file_name": self.file_name,
                 "content_type": "PCA",
                 "call_path": settings.CACHE_URL + "/" + self.session + "/" + self.file_name,

@@ -11,12 +11,13 @@ class MessageBlock (BaseBlock):
         self.msg = msg
         self.options = ["read"]
         self.vars = []
+        self.block_num = ""
 
     # Node builder
     def GetNode(self):
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "content_type": "text",
                 "msg": self.msg,
                 "options": self.options,
@@ -26,7 +27,7 @@ class MessageBlock (BaseBlock):
 
     def executeBlock(self, num):
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "light_up",
                 }
         print("executing MessageBlock")

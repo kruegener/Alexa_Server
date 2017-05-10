@@ -18,7 +18,7 @@ class HistogramBlock (BaseBlock):
         self.options = ["plot", "show"]
         self.cache_path = ""
         self.vars = ["data table"]
-
+        self.block_num = ""
 
         # load data
         # from /import
@@ -50,7 +50,7 @@ class HistogramBlock (BaseBlock):
         print("showBlock");
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "show",
                 "call_path": call_path,
                 }
@@ -67,7 +67,7 @@ class HistogramBlock (BaseBlock):
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "content_type": "image",
                 "call_path": call_path,
                 "options": self.options,
@@ -77,7 +77,7 @@ class HistogramBlock (BaseBlock):
 
     def executeBlock(self, num):
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "light_up",
                 }
         print("executing MessageBlock")
