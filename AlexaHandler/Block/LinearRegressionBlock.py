@@ -23,6 +23,8 @@ class LinearRegressionBlock(BaseBlock):
         self.update = "false"
         self.sub_file_name = ""
 
+        self.block_num = "2"
+
         self.data = data["data"]
         self.x = []
         self.y = []
@@ -42,7 +44,7 @@ class LinearRegressionBlock(BaseBlock):
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "file_name": self.file_name,
                 "content_type": "image",
                 "call_path": call_path,
@@ -57,7 +59,7 @@ class LinearRegressionBlock(BaseBlock):
         print("showBlock")
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "show",
                 "call_path": call_path,
                 }
@@ -86,7 +88,7 @@ class LinearRegressionBlock(BaseBlock):
 
             self.options = ["show"]
             self.update = "true"
-            self.block_id = number
+            self.block_num = number
 
             Group("alexa").send({
                 "text": self.GetNode()
