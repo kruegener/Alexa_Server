@@ -19,8 +19,9 @@ class SandFilterBlock (BaseBlock):
         self.type = "rich_image"
         self.session = session
         self.options = ["sand", "glass", "void"]
-        self.vars = []
+        self.vars = [self.file_name]
         self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
+        self.update = "false"
         print("Inside SandFilter")
 
         self.data = data["data"]
@@ -37,7 +38,7 @@ class SandFilterBlock (BaseBlock):
         #self.filterParameter("sand")
 
 
-    def getOption(self, para):
+    def getOption(self, para, number):
         SessChain = consumers.getSessChain()
         if para == "sand":
             set = self.sand
@@ -59,13 +60,34 @@ class SandFilterBlock (BaseBlock):
         further_cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name + sub_file_name
         plt.imsave(further_cache_path, subset)
 
-        IO = IO_Block(sub_file_name, session=self.session, abs_path=further_cache_path)
-        SessChain.addBlock(IO)
-        SessChain.Chain_pickle()
+        # override old block
+        self.cache_path = further_cache_path
+        self.file_name = self.file_name + sub_file_name
+        self.name = number
+        self.options = ["show"]
+        self.vars = [self.file_name]
+
+        # update data to be an update block
+        self.update = "true"
+        self.block_id = number
+
+        # send
         Group("alexa").send({
-            "text": IO.GetNode()
+            "text": self.GetNode()
         })
 
+        # reset state
+        self.update = "false"
+
+        # creating a new block
+        # IO = IO_Block(sub_file_name, session=self.session, abs_path=further_cache_path)
+        # SessChain.addBlock(IO)
+        #
+        # Group("alexa").send({
+        #     "text": IO.GetNode()
+        # })
+        #
+        SessChain.Chain_pickle()
 
     def showBlock(self, num=""):
         print("showBlock");
@@ -93,6 +115,7 @@ class SandFilterBlock (BaseBlock):
                 "add_data": add_data,
                 "options": self.options,
                 "vars": self.vars,
+                "update": self.update
                 }
         return json.dumps(data)
 
