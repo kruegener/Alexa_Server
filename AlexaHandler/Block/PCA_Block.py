@@ -21,6 +21,7 @@ class PCA_Block (BaseBlock):
         self.options = ["show larger", "save"]
         self.vars = []
         self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
+        self.block_num = ""
         print("Inside PCA")
 
         self.data = data["data"]
@@ -62,7 +63,7 @@ class PCA_Block (BaseBlock):
         print("showBlock");
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "show",
                 "call_path": call_path,
                 }
@@ -77,7 +78,7 @@ class PCA_Block (BaseBlock):
         add_data = [self.name]
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "file_name": self.file_name,
                 "content_type": "PCA",
                 "call_path": settings.CACHE_URL + "/" + self.session + "/" + self.file_name,

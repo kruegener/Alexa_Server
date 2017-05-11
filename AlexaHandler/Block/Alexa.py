@@ -207,7 +207,7 @@ def loadFile(session, num=0):
                 Group("alexa").send({
                     "text": IO.GetNode()
                 })
-                #SessChain.Chain_pickle()
+                SessChain.Chain_pickle()
                 msg = "File " + str(num) + " successfully loaded"
             except:
                 print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")

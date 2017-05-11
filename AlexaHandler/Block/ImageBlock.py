@@ -16,6 +16,7 @@ class ImageBlock(BaseBlock):
         self.makeCached()
         self.options = ["show"]
         self.vars = [self.name, "fakevar1", "fakevar2"]
+        self.block_num = ""
 
     def setImgPath(self, img_path):
         self.img_path = img_path
@@ -70,7 +71,7 @@ class ImageBlock(BaseBlock):
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "content_type": "image",
                 "call_path": call_path,
                 "options": self.options,
@@ -80,7 +81,7 @@ class ImageBlock(BaseBlock):
 
     def executeBlock(self, num):
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "light_up",
                 }
         print("executing ImageBlock")
@@ -92,7 +93,7 @@ class ImageBlock(BaseBlock):
         print("showBlock");
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
         data = {"type": "cmd",
-                "block_id": num,
+                "block_num": num,
                 "cmd": "show",
                 "call_path": call_path,
                 }

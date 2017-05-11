@@ -29,6 +29,7 @@ class IO_Block (BaseBlock):
         self.file_type = ".".join(self.file_name.split(".")[-1:])
         self.display_type = ""
         self.call_path = ""
+        self.block_num = ""
 
         if abs_path == "":
             self.path = settings.IMPORT_DIR + "/" + self.file_name
@@ -72,10 +73,10 @@ class IO_Block (BaseBlock):
         if para in "histogram":
             histo = HistogramBlock()
             SessChain.addBlock(histo)
-            SessChain.Chain_pickle()
             Group("alexa").send({
                 "text": histo.GetNode()
             })
+            SessChain.Chain_pickle()
         else:
             raise NameError("wrong option")
 
@@ -85,7 +86,7 @@ class IO_Block (BaseBlock):
         if self.type == "image":
             call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
             data = {"type": "cmd",
-                    "block_id": num,
+                    "block_num": num,
                     "cmd": "show",
                     "call_path": call_path,
                     }
@@ -106,7 +107,7 @@ class IO_Block (BaseBlock):
         IO_data = ["Variable Name:", self.vars, "Dimensions:", self.data.shape, "Type:", self.display_type]
         data = {"type": "block",
                 "block_type": self.type,
-                "block_id": self.name,
+                "block_num": self.block_num,
                 "file_name": self.file_name,
                 "content_type": "IO_data",
                 "IO_data": IO_data,
