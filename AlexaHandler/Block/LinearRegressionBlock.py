@@ -7,6 +7,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from django.conf import settings
+from .. import consumers
 
 class LinearRegressionBlock(BaseBlock):
 
@@ -19,12 +20,13 @@ class LinearRegressionBlock(BaseBlock):
         self.vars = []
         self.file_name = self.var_name + ".LR.png"
         self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
+        self.update = "false"
+        self.sub_file_name = ""
 
-
-        self.data = data
+        self.data = data["data"]
         self.x = []
         self.y = []
-        for row in data:
+        for row in self.data:
             self.x.append(row[0])
             self.y.append(row[1])
 
@@ -46,6 +48,7 @@ class LinearRegressionBlock(BaseBlock):
                 "call_path": call_path,
                 "options": self.options,
                 "vars": self.vars,
+                "update": self.update,
                  }
         return json.dumps(data)
 
@@ -63,6 +66,44 @@ class LinearRegressionBlock(BaseBlock):
             "text": json.dumps(data)
         })
 
+
+    def getOption(self, para, number):
+        SessChain = consumers.getSessChain()
+
+        if para == "regression":
+            m, n = np.polyfit(self.x, self.y, 1)
+            plt.scatter(self.x, self.y, color='g')
+            new_x = [m*x+n for x in self.x]
+            plt.plot(self.x, new_x, '-', color='b')
+            print(m, n)
+
+            sub_file_name = para + ".png"
+            self.file_name = self.var_name + '.LR.'+ sub_file_name
+            further_cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
+            self.cache_path = further_cache_path
+            plt.savefig(self.cache_path)
+            plt.close()
+
+            self.options = ["show"]
+            self.update = "true"
+            self.block_id = number
+
+            Group("alexa").send({
+                "text": self.GetNode()
+            })
+
+            # reset state
+            self.update = "false"
+
+            SessChain.Chain_pickle()
+
+
+        else:
+            raise NameError("not a valid option")
+
+    def getData(self):
+        data = {"name": self.name, "type": self.type, "data": self.data}
+        return data
 
 
 

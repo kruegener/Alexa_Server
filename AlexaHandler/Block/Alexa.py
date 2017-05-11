@@ -43,7 +43,7 @@ def SessionEndedRequest(**kwargs):
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()
 
-OPTIONS = ["sand", "glass", "void", "histogram"]
+OPTIONS = ["sand", "glass", "void", "histogram", "regression line"]
 
 class OPT(fields.AmazonSlots):
     alexa_option = fields.AmazonCustom(label="OPTIONS", choices=OPTIONS)
@@ -332,7 +332,7 @@ def passOption(session, number=-1, alexa_option=""):
                 block.getOption(alexa_option, num)
                 msg = "processed"
             except:
-                print("\033[93mUnexpected error:", sys.exc_info(), "\033[0m")
+                print("\033[93m Unexpected error:", sys.exc_info(), "\033[0m")
                 msg = "error processing block" + str(num)
         else:
             msg = "Block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)

@@ -22,11 +22,15 @@ payload = {
     "locale": "en-GB",
     "timestamp": "2017-04-25T16:18:59Z",
     "intent": {
-      "name": "showImg",
+      "name": "passOption",
       "slots": {
-        "num": {
-          "name": "num",
-          "value": "0"
+        "number": {
+          "name": "number",
+          "value": 1
+        },
+        "alexa_option": {
+          "name": "alexa_option",
+          "value": "regression"
         }
       }
     }
