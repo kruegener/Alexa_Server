@@ -74,6 +74,11 @@ def ws_message(message):
 
     from .Block.IO_Block import IO_Block
 
+    if SessChain == "init":
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        print(type(SessChain))
+        print("Session:", SessChain)
+
     data = json.loads(message.content['text'])
     # print("JSON: ", data, "DATA: ", message.content['text'])
     if data['type'] == "msg" :
@@ -226,11 +231,13 @@ def ws_add(message):
             SessChain = pickle.load(open(SessModel.pickle, "rb"))
             print(SessChain)
         else:
-            print("\033[92m was already in active memory \033[0m")
+            print("Session:", SessChain)
+            print("\033[92mwas in active memory \033[0m")
+            print("Session:", SessChain)
 
         print(SessModel)
         print("got old Session")
-        print(SessChain)
+        print("Session:", SessChain)
 
     # TODO: add timestamp, because if server reboots, the whole thing is sent again
     data = {"type": "cmd",
