@@ -234,8 +234,9 @@ def ws_add(message):
         if SessChain == "init":
             oldT = time.time()
             SessChain = cache.get("alexa", "not_loaded")
-            # if SessChain == "not_loaded":
-            #     pickle.load(settings.CACHE_DIR + "session_save.p")
+            if SessChain == "not_loaded":
+                SessChain = BlockChain(name="alexa", session="alexa")
+                # pickle.load(settings.CACHE_DIR + "session_save.p")
             print("\033[92m reload from Cache \033[0m")
             print("done after: ", (time.time() - oldT), "seconds")
             print(SessChain)

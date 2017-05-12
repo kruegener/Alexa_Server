@@ -27,12 +27,10 @@
       <file leaf-file-name="consumers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="237" column="68" lean-forward="true" selection-start-line="236" selection-start-column="14" selection-end-line="237" selection-end-column="68" />
+            <state relative-caret-position="957">
+              <caret line="238" column="16" lean-forward="true" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
               <folding>
                 <element signature="e#29#66#0" expanded="true" />
-                <marker date="1494600968000" expanded="true" signature="9544:9735" ph="..." />
-                <marker date="1494600968000" expanded="true" signature="9821:10054" ph="..." />
               </folding>
             </state>
           </provider>
@@ -92,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2160">
-              <caret line="107" column="45" lean-forward="true" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="45" />
+              <caret line="107" column="45" lean-forward="false" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="45" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -121,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Hist</find>
       <find>err</find>
       <find>sys</find>
       <find>connec</find>
@@ -151,6 +148,7 @@
       <find>delet</find>
       <find>caches</find>
       <find>filter</find>
+      <find>not_</find>
     </findStrings>
     <replaceStrings>
       <replace>Sidebar</replace>
@@ -943,7 +941,7 @@
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
-          <caret line="107" column="45" lean-forward="true" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="45" />
+          <caret line="107" column="45" lean-forward="false" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="45" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -952,12 +950,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="237" column="68" lean-forward="true" selection-start-line="236" selection-start-column="14" selection-end-line="237" selection-end-column="68" />
+        <state relative-caret-position="957">
+          <caret line="238" column="16" lean-forward="true" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
           <folding>
             <element signature="e#29#66#0" expanded="true" />
-            <marker date="1494600968000" expanded="true" signature="9544:9735" ph="..." />
-            <marker date="1494600968000" expanded="true" signature="9821:10054" ph="..." />
           </folding>
         </state>
       </provider>
