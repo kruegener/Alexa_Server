@@ -49,10 +49,10 @@ class BlockChain:
             # check if list is really emptying
             self.ConnectionList = [entry if index not in entry else [] for entry in self.ConnectionList]
             del self.varList[index]
-
+            print("Block:", index, " deleted")
         else:
             print("Couldn't delete! index is not in BlockChain", file=sys.stderr)
-        self.Chain_pickle()
+        #self.Chain_pickle()
 
     def delBlockByElement(self, Block):
         if Block in self.BlockList:
@@ -61,6 +61,7 @@ class BlockChain:
             del self.varList[id]
             self.BlockList.remove(Block)
             Block.delBlock()
+            print("Block:", index, " deleted")
         else:
             print("Couldn't delete! Block is not in BlockChain", file=sys.stderr)
 
@@ -103,7 +104,7 @@ class BlockChain:
             os.makedirs(path)
         file = path + "/" + self.name + ".p"
         pickle.dump(self, open(file, "wb"))
-        print("pickling", self)
+        print("pickled", self)
 
     def __str__(self):
         msg = "BlockChain: " + self.name + ": Blocklist: " + str(len(self.BlockList)) + " Connections: " + str(len(self.ConnectionList)) + " Vars: " + str(sum(len(li) for li in self.varList))

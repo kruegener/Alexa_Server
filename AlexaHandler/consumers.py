@@ -77,6 +77,9 @@ def ws_message(message):
     if SessChain == "init":
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         print(type(SessChain))
+        SessModel = BlockChainModel.objects.get(Sess='alexa')
+        SessChain = pickle.load(open(SessModel.pickle, "rb"))
+        print(type(SessChain))
         print("Session:", SessChain)
 
     data = json.loads(message.content['text'])
@@ -221,17 +224,12 @@ def ws_add(message):
 
         SessModel = BlockChainModel.objects.get(Sess='alexa')
 
-        try:
-            SessChain
-            # first step in session handling
-            if type(SessChain) != BlockChain:
-                SessChain = pickle.load(open(SessModel.pickle, "rb"))
-        except NameError:
-            print("\033[92m reload from Cache \033[0m")
+        # first step in session handling
+        if SessChain == "init":
             SessChain = pickle.load(open(SessModel.pickle, "rb"))
+            print("\033[92m reload from Cache \033[0m")
             print(SessChain)
         else:
-            print("Session:", SessChain)
             print("\033[92mwas in active memory \033[0m")
             print("Session:", SessChain)
 
