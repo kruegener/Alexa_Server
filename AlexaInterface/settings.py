@@ -137,6 +137,14 @@ STATICFILES_DIRS = [
     "/static/AlexaHandler"
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table',
+    }
+}
+
+
 # either LOCAL or SERVER
 ENV = "SERVER"
 

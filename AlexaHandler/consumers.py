@@ -8,6 +8,7 @@ import time
 from django.db.models.fields.related import ManyToManyField
 
 from django.conf import settings
+from django.core.cache import cache
 
 # import watchdog
 from os import listdir
@@ -78,7 +79,10 @@ def ws_message(message):
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         print(type(SessChain))
         SessModel = BlockChainModel.objects.get(Sess='alexa')
-        SessChain = pickle.load(open(SessModel.pickle, "rb"))
+        print("loading from cache for message")
+        oldT = time.time()
+        SessChain = cache.get("alexa", "doesn't exist")
+        print("done after: ", (time.time() - oldT), "seconds")
         print(type(SessChain))
         print("Session:", SessChain)
 
@@ -216,18 +220,20 @@ def ws_add(message):
     if not oldSess:
         print("new Session")
         # TODO pickle field
-        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa', pickle="cache/alexa/alexa.p")
+        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa')
         SessModel.save()
         SessChain = BlockChain(name="alexa", session="alexa")
+        cache.set("alexa", SessChain)
         print(SessChain)
     else:
-
         SessModel = BlockChainModel.objects.get(Sess='alexa')
 
         # first step in session handling
         if SessChain == "init":
-            SessChain = pickle.load(open(SessModel.pickle, "rb"))
+            oldT = time.time()
+            SessChain = cache.get("alexa")
             print("\033[92m reload from Cache \033[0m")
+            print("done after: ", (time.time() - oldT), "seconds")
             print(SessChain)
         else:
             print("\033[92mwas in active memory \033[0m")
@@ -254,11 +260,17 @@ def getSessChain():
 
     global SessChain
 
-    try:
-        SessChain
+    if SessChain != "init":
         return SessChain
-    except NameError:
-        print("\033[91m SessChain currently not defined \033[0m")
+    else:
+        try:
+            print("getSessChain loading:")
+            oldT = time.time()
+            SessChain = cache.get("alexa")
+            print("done after: ", (time.time() - oldT), "seconds")
+            return SessChain
+        except NameError("getSessChain Error"):
+            print("\033[91m SessChain currently not defined \033[0m")
 
 # alexa / session wrapper
 def getFileList():
