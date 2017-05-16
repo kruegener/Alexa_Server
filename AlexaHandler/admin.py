@@ -12,3 +12,9 @@ admin.site.register(File)
 #admin.site.register(SessionVar)
 admin.site.register(BlockChainModel)
 admin.site.register(BlockModel)
+
+class CacheTableAdmin(admin.ModelAdmin):
+    list_display = ('cache_key', 'expires')
+    search_fields = ('cache_key', )
+
+admin.site.register(CacheTable, CacheTableAdmin)

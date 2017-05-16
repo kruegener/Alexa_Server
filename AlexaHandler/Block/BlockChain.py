@@ -8,6 +8,8 @@ import sys
 import os
 import pickle
 from django.conf import settings
+from django.core.cache import cache
+import time
 
 class BlockChain:
 
@@ -61,7 +63,7 @@ class BlockChain:
             del self.varList[id]
             self.BlockList.remove(Block)
             Block.delBlock()
-            print("Block:", index, " deleted")
+            print("Block deleted")
         else:
             print("Couldn't delete! Block is not in BlockChain", file=sys.stderr)
 
@@ -98,13 +100,17 @@ class BlockChain:
             self.varList[num] = vars
 
     def Chain_pickle(self):
-        path = settings.CACHE_DIR + "/" + self.session
+        # path = settings.CACHE_DIR + "/" + self.session
         # checking if dir already exists
-        if not os.path.exists(path):
-            os.makedirs(path)
-        file = path + "/" + self.name + ".p"
-        pickle.dump(self, open(file, "wb"))
-        print("pickled", self)
+        # if not os.path.exists(path):
+        #     os.makedirs(path)
+        # file = path + "/" + self.name + ".p"
+        # pickle.dump(self, open(file, "wb"))
+        # print("pickled", self)
+        oldT = time.time()
+        print("start caching")
+        cache.set("alexa", self, None)
+        print("done after: ", (time.time() - oldT), "seconds")
 
     def __str__(self):
         msg = "BlockChain: " + self.name + ": Blocklist: " + str(len(self.BlockList)) + " Connections: " + str(len(self.ConnectionList)) + " Vars: " + str(sum(len(li) for li in self.varList))
