@@ -179,4 +179,4 @@ else:
 SECURE_SSL_REDIRECT = False
 
 # set Amazon App ID
-os.environ["ALEXA_APP_ID_AlexaHandler"] = "amzn1.ask.skill.e54c5b30-3545-4d27-8a0a-72eaa0c479fa"
+os.environ["ALEXA_APP_ID_AlexaHandler"] = "amzn1.ask.skill.bf6e2a85-f64d-470f-9629-007b31d226b6"
