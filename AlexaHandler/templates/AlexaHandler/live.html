@@ -242,16 +242,9 @@
         }
         // end deprecated
 
-        // django template for ENV var
-        var environ = "{{ ENV }}"
-        {% if environ == "LOCAL" %}
-            // LOCAL VERSION
-            var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
-        {% else %}
-            // SERVER VERSION
-            var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
-        {% endif %}
-        //alert(socket.readyState);
+
+        var socket = new ReconnectingWebSocket("{{ SOCKET }}");
+
         socket.debug = true;
 
         // pulse for Alexa Indication

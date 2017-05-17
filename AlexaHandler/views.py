@@ -8,7 +8,7 @@ from .models import Person
 
 def live(request):
 	context = {'Title': "Live Alexa",
-				'ENV': settings.ENV}
+				'SOCKET': settings.SOCKET_URL}
 	return render(request, 'AlexaHandler/live.html', context)
 
 def serve_cache(request):
