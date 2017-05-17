@@ -37,21 +37,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1552">
-              <caret line="193" column="27" lean-forward="false" selection-start-line="193" selection-start-column="27" selection-end-line="193" selection-end-column="27" />
-              <folding>
-                <marker date="1495033406000" expanded="true" signature="4290:4451" ph="..." />
-                <marker date="1495033406000" expanded="true" signature="4457:4552" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="940">
+              <caret line="157" column="34" lean-forward="false" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -70,10 +57,10 @@
       <file leaf-file-name="live.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="78" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="15" selection-end-column="78" />
+            <state relative-caret-position="357">
+              <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
               <folding>
-                <marker date="1495031575000" expanded="true" signature="6209:6265" ph="{% if environ == &quot;LOCAL&quot; ... %}" />
+                <marker date="1495034181000" expanded="true" signature="6209:6265" ph="{% if environ == &quot;LOCAL&quot; ... %}" />
               </folding>
             </state>
           </provider>
@@ -86,7 +73,7 @@
               <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#648#689#0" expanded="true" />
-                <marker date="1495030248000" expanded="true" signature="889:1317" ph="..." />
+                <marker date="1495034181000" expanded="true" signature="889:1317" ph="..." />
               </folding>
             </state>
           </provider>
@@ -556,7 +543,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1096" height="1896" extended-state="6" />
+    <frame x="-8" y="-8" width="1096" height="1896" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20648149" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -849,7 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="69" column="29" lean-forward="false" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4471">
           <caret line="272" column="31" lean-forward="false" selection-start-line="272" selection-start-column="31" selection-end-line="272" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,9 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3570">
           <caret line="238" column="16" lean-forward="false" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
-          <folding>
-            <element signature="e#29#66#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -885,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,17 +901,17 @@
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="e#648#689#0" expanded="true" />
-            <marker date="1495030248000" expanded="true" signature="889:1317" ph="..." />
+            <marker date="1495034181000" expanded="true" signature="889:1317" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="78" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="15" selection-end-column="78" />
+        <state relative-caret-position="357">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
           <folding>
-            <marker date="1495031575000" expanded="true" signature="6209:6265" ph="{% if environ == &quot;LOCAL&quot; ... %}" />
+            <marker date="1495034181000" expanded="true" signature="6209:6265" ph="{% if environ == &quot;LOCAL&quot; ... %}" />
           </folding>
         </state>
       </provider>
@@ -962,12 +942,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1552">
-          <caret line="193" column="27" lean-forward="false" selection-start-line="193" selection-start-column="27" selection-end-line="193" selection-end-column="27" />
-          <folding>
-            <marker date="1495033406000" expanded="true" signature="4290:4451" ph="..." />
-            <marker date="1495033406000" expanded="true" signature="4457:4552" ph="..." />
-          </folding>
+        <state relative-caret-position="940">
+          <caret line="157" column="34" lean-forward="false" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
