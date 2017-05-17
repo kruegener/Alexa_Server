@@ -43,7 +43,7 @@ def SessionEndedRequest(**kwargs):
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()
 
-OPTIONS = ["sand", "glass", "void", "histogram", "regression line"]
+OPTIONS = ["sand", "glass", "void", "histogram", "regression"]
 
 class OPT(fields.AmazonSlots):
     alexa_option = fields.AmazonCustom(label="OPTIONS", choices=OPTIONS)
@@ -265,6 +265,8 @@ def doPCA(session, num=0):
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
+
+
 
 # (Sand) Image Filter intent
 @intent(slots=Num, app="AlexaHandler")

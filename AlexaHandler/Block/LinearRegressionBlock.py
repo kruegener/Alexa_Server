@@ -30,7 +30,7 @@ class LinearRegressionBlock(BaseBlock):
         self.y = []
         for row in self.data:
             self.x.append(row[0])
-            self.y.append(row[1])
+            self.y.append(row[3])
 
         #fit_fn = np.poly1d(fit)
         plt.scatter(self.x, self.y, color='g')
@@ -79,10 +79,9 @@ class LinearRegressionBlock(BaseBlock):
             plt.plot(self.x, new_x, '-', color='b')
             print(m, n)
 
-            sub_file_name = para + ".png"
-            self.file_name = self.var_name + '.LR.'+ sub_file_name
-            further_cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
-            self.cache_path = further_cache_path
+            self.var_name = para
+            self.file_name = self.var_name + '.LR.png'
+            self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
             plt.savefig(self.cache_path)
             plt.close()
 

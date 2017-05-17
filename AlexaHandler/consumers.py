@@ -190,14 +190,11 @@ def ws_message(message):
                 print ('Linear Regression')
 
             elif "regression line" in str(data["opt"]):
-                a = SessChain.getBlock(data["num"])
-                data = a.getData()
-
-
-                #SessChain.addBlock(LR)
-                Group("alexa").send({
-                    "text": LR.GetNode()
-                })
+                from .Block.LinearRegressionBlock import LinearRegressionBlock
+                print (data)
+                block = SessChain.getBlock(data["num"])
+                #data = block.getData()
+                block.getOption("regression", data["num"])
 
 
 
