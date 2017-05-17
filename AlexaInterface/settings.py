@@ -171,7 +171,7 @@ EXPORT_DIR = (
 
 print("CACHE: ", CACHE_DIR)
 print("IMPORT: ", IMPORT_DIR)
-print("EXPOR: ", EXPORT_DIR)
+print("EXPORT: ", EXPORT_DIR)
 
 if ENV is "SERVER":
     #SERVER VERSION
