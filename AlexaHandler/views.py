@@ -3,14 +3,17 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import Person
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required(login_url='/login/')
 def live(request):
 	context = {'Title': "Live Alexa",
 				'SOCKET': settings.SOCKET_URL}
 	return render(request, 'AlexaHandler/live.html', context)
 
+@login_required(login_url='/login/')
 def serve_cache(request):
 	print("File_Request: ", request.path.split("cache", 1)[1])
 	file = request.path.split("cache", 1)[1]
