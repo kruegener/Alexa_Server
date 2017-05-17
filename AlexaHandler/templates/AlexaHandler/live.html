@@ -242,17 +242,9 @@
         }
         // end deprecated
 
-        // django template for ENV var
-        var environ = "{{ ENV }}"
-        {% if environ == "LOCAL" %}
-            // LOCAL VERSION
-            var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
-        {% else %}
-            // SERVER VERSION
-            //var socket = new ReconnectingWebSocket("wss://talktoyourdata.upc.edu/alexa/");
-            var socket = new ReconnectingWebSocket("ws://localhost:8000/alexa/");
-        {% endif %}
-        //alert(socket.readyState);
+
+        var socket = new ReconnectingWebSocket("{{ SOCKET }}");
+
         socket.debug = true;
 
         // pulse for Alexa Indication
@@ -428,8 +420,8 @@
                 p.appendChild(document.createElement("br"));
                 p.appendChild(document.createTextNode("File Name: " + data.file_name));
                 p.appendChild(document.createElement("br"));
-                for (var item = 0; item < data.IO_data.length; item += 2) {
-                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item + 1]));
+                for(var item = 0; item < data.IO_data.length; item+=2){
+                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item+1]));
                     p.appendChild(document.createElement("br"));
                 }
 
@@ -562,7 +554,7 @@
                 $(parent).append(div);
             }
             console.log("new GRID COUNT", grid_count);
-            
+
             componentHandler.upgradeDom();
             checkForSmallScreen();
 

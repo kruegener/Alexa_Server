@@ -8,6 +8,7 @@ import time
 from django.db.models.fields.related import ManyToManyField
 
 from django.conf import settings
+from django.core.cache import cache
 
 # import watchdog
 from os import listdir
@@ -27,6 +28,7 @@ from .Block.StatisticsBlock import StatisticsBlock
 
 from .Block.BlockChain import BlockChain
 import pickle
+import sched
 
 SessChain = "init"
 # initial fileList
@@ -74,6 +76,19 @@ def ws_message(message):
     global fileList
 
     from .Block.IO_Block import IO_Block
+
+    if SessChain == "init" or SessChain is None:
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        print(type(SessChain))
+        print("loading from cache for message")
+        oldT = time.time()
+        SessChain = cache.get("alexa", "doesn't exist")
+        if SessChain == "doesn't exist":
+            SessChain = BlockChain(name="alexa", session="alexa")
+            print("\033[93m made a new session \033[0m")
+        print("done after: ", (time.time() - oldT), "seconds")
+        print(type(SessChain))
+        print("Session:", SessChain)
 
     data = json.loads(message.content['text'])
     # print("JSON: ", data, "DATA: ", message.content['text'])
@@ -242,30 +257,31 @@ def ws_add(message):
 
     if not oldSess:
         print("new Session")
-        # TODO pickle field
-        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa', pickle="cache/alexa/alexa.p")
+        SessModel = BlockChainModel(name = "alexa", Sess = 'alexa')
         SessModel.save()
         SessChain = BlockChain(name="alexa", session="alexa")
+        cache.set("alexa", SessChain)
         print(SessChain)
     else:
-
         SessModel = BlockChainModel.objects.get(Sess='alexa')
 
-        try:
-            SessChain
-            # first step in session handling
-            if type(SessChain) != BlockChain:
-                SessChain = pickle.load(open(SessModel.pickle, "rb"))
-        except NameError:
+        # first step in session handling
+        if SessChain == "init":
+            oldT = time.time()
+            SessChain = cache.get("alexa", "not_loaded")
+            if SessChain == "not_loaded":
+                SessChain = BlockChain(name="alexa", session="alexa")
+                # pickle.load(settings.CACHE_DIR + "session_save.p")
             print("\033[92m reload from Cache \033[0m")
-            SessChain = pickle.load(open(SessModel.pickle, "rb"))
+            print("done after: ", (time.time() - oldT), "seconds")
             print(SessChain)
         else:
-            print("\033[92m was already in active memory \033[0m")
+            print("\033[92mwas in active memory \033[0m")
+            print("Session:", SessChain)
 
         print(SessModel)
         print("got old Session")
-        print(SessChain)
+        print("Session:", SessChain)
 
     # TODO: add timestamp, because if server reboots, the whole thing is sent again
     data = {"type": "cmd",
@@ -284,11 +300,17 @@ def getSessChain():
 
     global SessChain
 
-    try:
-        SessChain
+    if SessChain != "init":
         return SessChain
-    except NameError:
-        print("\033[91m SessChain currently not defined \033[0m")
+    else:
+        try:
+            print("getSessChain loading:")
+            oldT = time.time()
+            SessChain = cache.get("alexa")
+            print("done after: ", (time.time() - oldT), "seconds")
+            return SessChain
+        except NameError("getSessChain Error"):
+            print("\033[91m SessChain currently not defined \033[0m")
 
 # alexa / session wrapper
 def getFileList():
@@ -314,3 +336,15 @@ def AlexaEnded():
     Group("alexa").send({
         "text": json.dumps(data)
     })
+
+# periodic saving
+# s = sched.scheduler(time.time, time.sleep)
+# def save_cache(sc):
+#     print("auto-saving")
+#     oldT = time.time()
+#     pickle.dump(SessChain, open(settings.CACHE_DIR + "session_save.p", "wb"))
+#     print("done after: ", (time.time() - oldT), "seconds")
+#     s.enter(60, 1, save_cache, (sc,))
+#
+# s.enter(60, 1, save_cache, (s,))
+# s.run()

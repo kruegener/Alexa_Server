@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'AlexaHandler',
     'channels',
-
-
 ]
 
 CHANNEL_LAYERS = {
@@ -137,40 +135,63 @@ STATICFILES_DIRS = [
     "/static/AlexaHandler"
 ]
 
-# either LOCAL or SERVER
-ENV = "LOCAL"
+CACHES = {
+    # DB Cache Backend
+    # 'default': {
+    #     'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+    #     'LOCATION': 'cache_table',
+    # }
+    # Memcached Backend
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
-print("SETTING " + ENV)
+
+# either SERVER or LOCAL
+ENV = "LOCAL"
+# your domain
+BASE_URL = "talktoyourdata.upc.edu/"
+# base directory
+DIR = os.path.dirname(__file__)
+print("SETTINGS DIRECTORY: ", DIR)
+# CACHE Directory
+CACHE_DIR = (
+        os.path.abspath(os.path.join(DIR, '..', 'cache'))
+    )
+
+IMPORT_DIR = (
+        os.path.abspath(os.path.join(DIR, '..', 'import'))
+    )
+
+EXPORT_DIR = (
+        os.path.abspath(os.path.join(DIR, '..', 'export'))
+)
+
+print("CACHE: ", CACHE_DIR)
+print("IMPORT: ", IMPORT_DIR)
+print("EXPORT: ", EXPORT_DIR)
 
 if ENV is "SERVER":
     #SERVER VERSION
-    CACHE_DIR = (
-        "/home/alexa_server/Alexa_Server/cache"
-    )
     CACHE_URL = (
-        "https://talktoyourdata.upc.edu/AlexaHandler/cache"
+        "https://" + BASE_URL + "AlexaHandler/cache"
     )
-    IMPORT_DIR = (
-        "/home/alexa_server/Alexa_Server/import"
+    SOCKET_URL = (
+        "wss://" + BASE_URL + "alexa"
     )
 
 else:
     # LOCAL VERSION
-    CACHE_DIR = (
-        "/home/ignacio/Alexa_Server/cache"
-    )
-    EXPORT_DIR = (
-        "/home/ignacio/Alexa_Server/export"
-    )
-    IMPORT_DIR = (
-        "/home/ignacio/Alexa_Server/import"
-    )
     CACHE_URL = (
         "http://localhost:8000/AlexaHandler/cache"
     )
-
+    SOCKET_URL = (
+        "ws://localhost:8000/alexa"
+    )
 
 SECURE_SSL_REDIRECT = False
-
-# set Amazon App ID
-os.environ["ALEXA_APP_ID_AlexaHandler"] = "amzn1.ask.skill.e54c5b30-3545-4d27-8a0a-72eaa0c479fa"
+LOGIN_REDIRECT_URL = '/'
+# set Amazon Skill ID
+os.environ["ALEXA_APP_ID_AlexaHandler"] = "amzn1.ask.skill.bf6e2a85-f64d-470f-9629-007b31d226b6"

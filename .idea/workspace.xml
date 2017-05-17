@@ -2,14 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7c7f7a7-91ea-4aa8-83e5-5264996cfdf8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cache/alexa/test.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/alexa/scatter.LR.png" afterPath="$PROJECT_DIR$/cache/alexa/scatter.LR.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cache/alexa/test.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlexaHandler/migrations/0019_remove_blockchainmodel_pickle.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlexaHandler/migrations/0020_cachetable.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/login.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cache/alexa/IRIS.PCA.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cache/alexa/alexa.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cache/alexa/plot.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/Alexa.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/Alexa.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/LinearRegressionBlock.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/LinearRegressionBlock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" afterPath="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/admin.py" afterPath="$PROJECT_DIR$/AlexaHandler/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/consumers.py" afterPath="$PROJECT_DIR$/AlexaHandler/consumers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bibliography" afterPath="$PROJECT_DIR$/Bibliography" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/alexa/alexa.p" afterPath="$PROJECT_DIR$/cache/alexa/alexa.p" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/models.py" afterPath="$PROJECT_DIR$/AlexaHandler/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" afterPath="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/urls.py" afterPath="$PROJECT_DIR$/AlexaHandler/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaHandler/views.py" afterPath="$PROJECT_DIR$/AlexaHandler/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaInterface/settings.py" afterPath="$PROJECT_DIR$/AlexaInterface/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlexaInterface/urls.py" afterPath="$PROJECT_DIR$/AlexaInterface/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,8 +48,8 @@
       <file leaf-file-name="consumers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="197" column="0" lean-forward="true" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+            <state relative-caret-position="2286">
+              <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
               <folding>
                 <element signature="e#29#66#0" expanded="true" />
               </folding>
@@ -48,7 +60,7 @@
       <file leaf-file-name="BaseBlock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-366">
+            <state relative-caret-position="198">
               <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
@@ -58,18 +70,18 @@
       <file leaf-file-name="live.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10944">
+            <state relative-caret-position="-6110">
               <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="609" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bibliography" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bibliography">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+            <state relative-caret-position="102">
+              <caret line="152" column="12" lean-forward="false" selection-start-line="152" selection-start-column="12" selection-end-line="152" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -78,18 +90,8 @@
       <file leaf-file-name="IO_Block.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PCA_Block.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/PCA_Block.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="954">
-              <caret line="58" column="19" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="58" selection-end-column="19" />
+            <state relative-caret-position="-216">
+              <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -98,7 +100,7 @@
       <file leaf-file-name="SandFilterBlock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-222">
+            <state relative-caret-position="198">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="24" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -110,8 +112,8 @@
       <file leaf-file-name="Alexa.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="330" column="47" lean-forward="false" selection-start-line="330" selection-start-column="47" selection-end-line="330" selection-end-column="47" />
+            <state relative-caret-position="606">
+              <caret line="333" column="50" lean-forward="true" selection-start-line="333" selection-start-column="50" selection-end-line="333" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -120,7 +122,7 @@
       <file leaf-file-name="LinearRegressionBlock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/LinearRegressionBlock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
+            <state relative-caret-position="1890">
               <caret line="105" column="71" lean-forward="false" selection-start-line="105" selection-start-column="71" selection-end-line="105" selection-end-column="71" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -203,7 +205,6 @@
         <option value="$PROJECT_DIR$/AlexaHandler/alexa.py" />
         <option value="$PROJECT_DIR$/histogram.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/views.py" />
-        <option value="$PROJECT_DIR$/AlexaInterface/settings.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/HistogramBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/BlockChain.py" />
@@ -212,13 +213,14 @@
         <option value="$PROJECT_DIR$/AlexaHandler/Block/MessageBlock.py" />
         <option value="$PROJECT_DIR$/import/headbrain.txt" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/LinearRegression.py" />
-        <option value="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" />
         <option value="$PROJECT_DIR$/prompt.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/Alexa.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html" />
         <option value="$PROJECT_DIR$/Bibliography" />
         <option value="$PROJECT_DIR$/AlexaHandler/Block/LinearRegressionBlock.py" />
         <option value="$PROJECT_DIR$/AlexaHandler/consumers.py" />
+        <option value="$PROJECT_DIR$/AlexaInterface/settings.py" />
+        <option value="$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py" />
       </list>
     </option>
   </component>
@@ -253,6 +255,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,20 +265,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="import" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,35 +328,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaHandler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaHandler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Block" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -608,20 +574,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="7" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14339623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282365" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -657,13 +623,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
@@ -774,21 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2808">
-          <caret line="156" column="5" lean-forward="false" selection-start-line="156" selection-start-column="5" selection-end-line="156" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/ImageBlock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -801,13 +745,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cache/alexa/alexa.p">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cache/alexa/alexa.p" />
     <entry file="file://$PROJECT_DIR$/import/headbrain.csv" />
     <entry file="file://$PROJECT_DIR$/import/headbrain.txt" />
     <entry file="file://$PROJECT_DIR$/import/firstdata.csv">
@@ -845,11 +783,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cache/alexa/IRIS.PCA.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cache/alexa/IRIS.PCA.png" />
     <entry file="file://$PROJECT_DIR$/cache/alexa/MV_HFV_012.Filter.png.subset.glass.jpg" />
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/StatisticsBlock.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -863,13 +797,6 @@
         <state relative-caret-position="180">
           <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/alexa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="33" column="71" lean-forward="false" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -887,9 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -897,22 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="954">
           <caret line="58" column="19" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="58" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10944">
-          <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="609" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -933,17 +841,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="330" column="47" lean-forward="false" selection-start-line="330" selection-start-column="47" selection-end-line="330" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/BaseBlock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-366">
+        <state relative-caret-position="198">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
@@ -951,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/SandFilterBlock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-222">
+        <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -961,7 +861,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/LinearRegressionBlock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
+        <state relative-caret-position="1890">
           <caret line="105" column="71" lean-forward="false" selection-start-line="105" selection-start-column="71" selection-end-line="105" selection-end-column="71" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -969,10 +869,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/alexa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="33" column="71" lean-forward="false" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alexa.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6110">
+          <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="609" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="152" column="12" lean-forward="false" selection-start-line="152" selection-start-column="12" selection-end-line="152" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/IO_Block.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlexaHandler/Block/Alexa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="333" column="50" lean-forward="true" selection-start-line="333" selection-start-column="50" selection-end-line="333" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/consumers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="197" column="0" lean-forward="true" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+        <state relative-caret-position="2286">
+          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
           <folding>
             <element signature="e#29#66#0" expanded="true" />
           </folding>

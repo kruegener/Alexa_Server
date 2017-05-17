@@ -23,13 +23,14 @@ class IO_Block (BaseBlock):
         self.session = session
 
         self.file_name = file_name
-        self.options = ["statistics"]
+
         self.vars = [".".join(self.file_name.split(".")[:-1])]
         self.data_name = ".".join(self.file_name.split(".")[:-1])
         self.file_type = ".".join(self.file_name.split(".")[-1:])
         self.display_type = ""
         self.call_path = ""
         self.block_num = ""
+        self.options = []
 
         if abs_path == "":
             self.path = settings.IMPORT_DIR + "/" + self.file_name
@@ -45,6 +46,7 @@ class IO_Block (BaseBlock):
             self.options.append("PCA")
             self.options.append("PLOT")
             self.options.append("SCATTER")
+            self.options.append("statistics")
 
 
         elif self.file_type in ["png", "jpg", "jpeg"]:
@@ -55,6 +57,7 @@ class IO_Block (BaseBlock):
             self.cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.file_name
             self.call_path = settings.CACHE_URL + "/" + self.session + "/" + self.file_name
             self.options.append("PROCESS")
+            self.options.append("SHOW")
             print("copying to cache")
             print("PATHS: ", self.path, self.cache_path)
             try:

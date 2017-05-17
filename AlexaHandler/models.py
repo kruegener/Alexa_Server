@@ -94,9 +94,6 @@ class BlockChainModel(models.Model):
     name = models.CharField(max_length=1000, default="block_chain")
     # list all associated blocks as Json
     Chain = models.ManyToManyField("BlockModel")
-    # pickle
-    # TODO on Model delete -> Cache delete
-    pickle = models.FilePathField(path="cache/", recursive=True)
 
     def __str__(self):
         return self.name
@@ -109,4 +106,12 @@ class ClientSession(models.Model):
     
     def __str__(self):
         return self.SessID
+
+class CacheTable(models.Model):
+    cache_key = models.CharField(max_length=255, primary_key=True)
+    value = models.TextField()
+    expires = models.DateTimeField(null=True, blank=True, default=None)
+
+    class Meta:
+        db_table = 'cache_table'
 
