@@ -177,6 +177,6 @@ else:
 
 
 SECURE_SSL_REDIRECT = False
-
+LOGIN_REDIRECT_URL = '/'
 # set Amazon App ID
 os.environ["ALEXA_APP_ID_AlexaHandler"] = "amzn1.ask.skill.bf6e2a85-f64d-470f-9629-007b31d226b6"

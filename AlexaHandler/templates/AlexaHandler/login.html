@@ -1,0 +1,14 @@
+{% extends 'AlexaHandler/base.html' %}
+
+{% block head %} <script>
+ document.title = "Login";
+ </script>{% endblock %}
+
+{% block body %}
+  <h2>Please log in</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}

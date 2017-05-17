@@ -6,19 +6,6 @@ from .models import Person
 
 # Create your views here.
 
-def index(request):
-	# acc = ""
-	# for app_config in apps.get_app_configs():
-	# 	acc = acc + " \n" + app_config.name
-	# if not TRIGGER:
-	# 	return HttpResponse(acc)
-	# else:
-	# 	return HttpResponse("TRIGGERED!!!!")
-	name_list = Person.objects.all()
-	context = {'People': name_list}
-	return render(request, 'AlexaHandler/list.html', context)
-
-
 def live(request):
 	context = {'Title': "Live Alexa",
 				'ENV': settings.ENV}

@@ -15,16 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 import AlexaHandler
 
 
 urlpatterns = [
+
 	url(r'^AlexaHandler/', include('AlexaHandler.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', admin.site.urls),
-    url(r'^$', AlexaHandler.views.live, name='live'),
+    url(r'^$', AlexaHandler.views.live, name="live"),
+    url(r'^login/$', auth_views.login, {'template_name': 'AlexaHandler/login.html'}, name='login'),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+    url(r'^live/', AlexaHandler.views.live, name='live'),
     url(r'^', include('django_alexa.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
