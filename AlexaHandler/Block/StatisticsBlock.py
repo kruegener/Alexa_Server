@@ -12,13 +12,13 @@ class StatisticsBlock(BaseBlock):
         self.name = name
         self.type = "stat"
         self.session = session
-        self.options = ["read"]
+        self.options = ["read","show"]
         self.vars =[]
         self.cache_path = ""
         self.msg = msg
 
 
-        self.data = data
+        self.data = data["data"]
         self.column = []
         self.mean = []
         self.median = []
@@ -27,7 +27,7 @@ class StatisticsBlock(BaseBlock):
         self.variance = []
         index = 0
         while index < 4:
-            for e in data:
+            for e in self.data:
                 self.column.append(float(e[index]))
 
             self.mean.append("%.2f" % stat.mean(self.column))
@@ -37,12 +37,6 @@ class StatisticsBlock(BaseBlock):
             self.variance.append("%.2f" % stat.pvariance(self.column))
             index += 1
         print self.mean, self.median, self.mode, self.variance
-
-
-
-
-    def getData(self):
-        return self.data
 
 
     def GetNode(self):

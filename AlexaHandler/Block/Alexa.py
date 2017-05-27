@@ -5,6 +5,7 @@ from .BlockChain import BlockChain
 from .IO_Block import IO_Block
 from .PCA_Block import PCA_Block
 from .SandFilterBlock import SandFilterBlock
+from .TrainTestBlock import TrainTest
 from channels import Group
 from .. import consumers
 import sys
@@ -42,6 +43,14 @@ def SessionEndedRequest(**kwargs):
 # define slots
 class Num(fields.AmazonSlots):
     num = fields.AmazonNumber()
+
+class TrainTest(fields.AmazonSlots):
+    train_size = fields.AmazonNumber()
+    num = fields.AmazonNumber()
+
+
+
+
 
 OPTIONS = ["sand", "glass", "void", "histogram", "regression"]
 
@@ -317,7 +326,7 @@ def doSandFilter(session, num=0):
 @intent(slots=OPT, app="AlexaHandler")
 def passOption(session, number=-1, alexa_option=""):
     """
-         option passing
+        option passing
         ---
         pass option {alexa_option} to block {number}
         option {alexa_option} block {number}
@@ -444,3 +453,96 @@ def minimize(session):
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
+
+@intent(slots=TrainTest, app="AlexaHandler")
+def TrainTest(session, num=0, train_size=50):
+    """
+    separates train data from test 
+    ---
+    block {num} separate train data with train size {train_size} per cent
+    block {num} choose train data with train size {train_size} per cent
+    block {num} separate train data from test with {train_size} 
+    separate train data from test
+    separate test from train
+    separate train from test
+    separate test data from train
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if type(train_size) is int:
+            if num < SessChain.getBlockListLength():
+                try:
+                    block = SessChain.getBlock(num)
+                    print (block)
+                    TrainTest = TrainTest(name="TrainTest", session="alexa", u=float(train_size)/100)
+                    print("New TrainTest Block")
+                    SessChain.addBlock(TrainTest)
+
+                    Group("alexa").send({
+                        "text": json.dumps(data)
+                    })
+
+                    SessChain.Chain_pickle()
+                    msg = "Processed. You now have available either train or test data"
+                except:
+                    print ("Something bad happened inside the try")
+                    msg = "Error dividing data"
+            else:
+                msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+        else:
+            msg = "please provide a number for train size"
+    else:
+        msg = "Please provide a number"
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+
+
+
+
+@intent(slots=None, app="Alexa_Handler")
+def WhatToDo(session, num):
+    """
+    Ask Alexa what to do
+    ---
+    What can I do with block {num}?
+    What can I do now?
+    How can I continue?
+    What are my options?
+    """
+    Sesschain = consumers.getSessChain()
+    block = Sesschain.getBlock(num)
+    if type(num) is int:
+        if num < Sesschain.getBlockListLenght():
+            block = SessChain.getBlock(num)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

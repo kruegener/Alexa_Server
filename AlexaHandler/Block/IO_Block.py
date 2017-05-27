@@ -43,10 +43,12 @@ class IO_Block (BaseBlock):
             self.data = np.genfromtxt(self.path, delimiter=",")
             self.display_type = "matrix"
             self.type = "matrix"
+            self.options.append("SCATTER")
             self.options.append("PCA")
             self.options.append("PLOT")
-            self.options.append("SCATTER")
             self.options.append("statistics")
+            self.options.append("TRAIN/TEST")
+            print (self.options)
 
 
         elif self.file_type in ["png", "jpg", "jpeg"]:

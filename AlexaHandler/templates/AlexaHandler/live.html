@@ -420,9 +420,19 @@
                 p.appendChild(document.createElement("br"));
                 p.appendChild(document.createTextNode("File Name: " + data.file_name));
                 p.appendChild(document.createElement("br"));
-                for(var item = 0; item < data.IO_data.length; item+=2){
-                    p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item+1]));
+                if (data.content_type == "IO_data") {
+                    p.appendChild(document.createTextNode("File Name: " + data.file_name));
                     p.appendChild(document.createElement("br"));
+                    for (var item = 0; item < data.IO_data.length; item += 2) {
+                        p.appendChild(document.createTextNode(data.IO_data[item] + " " + data.IO_data[item + 1]));
+                        p.appendChild(document.createElement("br"));
+                    }
+                }
+                else if (data.content_type == "TT_data") {
+                    for (var item = 0; item < data.TT_data.lenght; item+=2){
+                        p.appenChild(document.createTextNode(data.TT_data[item]+ " " + data.TT_data[item+1]));
+                        p.appendChild(document.createElement("br"));
+                    }
                 }
 
                 div.appendChild(p);
