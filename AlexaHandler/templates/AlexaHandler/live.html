@@ -395,7 +395,7 @@
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--2-col"
             }
-            else if (data.block_type == "image" || data.block_type == "histogram" || data.block_type == "LR") {
+            else if (data.block_type == "image" || data.block_type == "histogram" || data.block_type == "LR" || data.block_type == "plot") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
                 {#                img.onclick = function() {fillDiv($(div), true)};#}
@@ -418,8 +418,7 @@
                 p.className = "Info mdl-shadow--6dp";
                 p.appendChild(document.createTextNode("Type: " + data.block_type));
                 p.appendChild(document.createElement("br"));
-                p.appendChild(document.createTextNode("File Name: " + data.file_name));
-                p.appendChild(document.createElement("br"));
+                console.log(data.content_type)
                 if (data.content_type == "IO_data") {
                     p.appendChild(document.createTextNode("File Name: " + data.file_name));
                     p.appendChild(document.createElement("br"));
@@ -428,13 +427,14 @@
                         p.appendChild(document.createElement("br"));
                     }
                 }
-                else if (data.content_type == "TT_data") {
-                    for (var item = 0; item < data.TT_data.lenght; item+=2){
-                        p.appenChild(document.createTextNode(data.TT_data[item]+ " " + data.TT_data[item+1]));
+                else if (data.content_type == "TT_data"){
+                    for (var item = 0; item < data.TT_data.length; item += 2) {
+                        console.log(data.TT_data.length);
+                        p.appendChild(document.createTextNode(data.TT_data[item] + " " + data.TT_data[item + 1]));
                         p.appendChild(document.createElement("br"));
                     }
+                    console.log("Dins TT_data");
                 }
-
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--2-col"
             }

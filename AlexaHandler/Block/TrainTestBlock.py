@@ -4,20 +4,17 @@ import json
 from sklearn.model_selection import train_test_split
 
 class TrainTest(BaseBlock):
-    def __init__(self, name="TrainTest", session="", u=0.5):
+    def __init__(self, data, name="TrainTest", session="", u=0.5):
         self.name = name
         self.session = session
         self.block_num = ""
         self.type = "matrix"
-        self.options = []
-
-        from .IO_Block import IO_Block
-
-        data_dict = IO_Block.getData()
-        self.data = data_dict["data"]
+        self.options = ["boxplot", "histogram", "statistics"]
+        self.vars = ""
+        self.data = data["data"]
         self.train, self.test = train_test_split(self.data, train_size=u)
 
-        print(self.train, self.test)
+        print (len(self.train), len(self.test))
 
 
     def getData(self):

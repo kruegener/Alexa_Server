@@ -180,9 +180,9 @@ def ws_message(message):
                 })
             elif "statistics" in str(data["opt"]):
                 # get the clicked block
-                a = SessChain.getBlock(data['num'])
+                block = SessChain.getBlock(data['num'])
                 # get the data of the clicked block
-                data = a.getData()
+                data = block.getData()
                 # make a new statistics block and give it the data
                 Stat = StatisticsBlock(data = data, session="alexa")
                 SessChain.addBlock(Stat)
@@ -205,10 +205,10 @@ def ws_message(message):
                 print ('Linear Regression')
 
             elif "TRAIN/TEST" in str(data["opt"]):
-                import TrainTestBlock
+                from .Block.TrainTestBlock import TrainTest
                 a = SessChain.getBlock(data["num"])
                 data = a.getData()
-                TT = TrainTestBlock.TrainTest(session="alexa", u=0.5)
+                TT = TrainTest(data, session="alexa", u=0.75)
                 SessChain.addBlock(TT)
                 Group("alexa").send({
                     "text": TT.GetNode()

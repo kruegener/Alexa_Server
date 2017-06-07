@@ -6,6 +6,8 @@ from .IO_Block import IO_Block
 from .PCA_Block import PCA_Block
 from .SandFilterBlock import SandFilterBlock
 from .TrainTestBlock import TrainTest
+from .BoxplotBlock import Boxplot
+from .StatisticsBlock import StatisticsBlock
 from channels import Group
 from .. import consumers
 import sys
@@ -47,6 +49,10 @@ class Num(fields.AmazonSlots):
 class TrainTest(fields.AmazonSlots):
     train_size = fields.AmazonNumber()
     num = fields.AmazonNumber()
+
+class Statistics(fields.AmazonSlots):
+    num = fields.AmazonNumber()
+    col = fields.AmazonNumber()
 
 
 
@@ -497,6 +503,121 @@ def TrainTest(session, num=0, train_size=50):
                                            reprompt="",
                                            end_session=False,
                                            launched=True)
+
+
+
+@intent(slots=Num, app="AlexaHandler")
+def Boxplot(session, num=0):
+    """
+    makes boxplot
+    ---
+    Block {num} boxplot
+    Boxplot block {num}
+    Make a boxplot from block {num}
+    Do a boxplot to block {num}
+    Do boxplot to {num}
+    Create boxplot to {num}
+    Boxplot
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            try:
+                block = SessChain.getBlock(num)
+                data = block.getData()
+                Boxplot = Boxplot(data, name="boxplot", session="alexa")
+                SessChain.addBlock(Boxplot)
+                Group("alexa").send({
+                 "text": json.dumps(data)
+                })
+
+                SessChain.Chain_pickle()
+                msg = "Processed."
+            except:
+                print ("Error in Boxplot")
+                msg = "Couldn't create boxplot"
+        else:
+            msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        msg = "Please provide a number"
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+
+@intent(slots=Num, app="AlexaHandler")
+def Statistics(session, num=0, col=0):
+    """
+    Descriptive statistics
+    ---
+    Block {num} show statistics for column {col}
+    Block {num} show statistics for {col}
+    Show statistics for {col}
+    Show statistics
+    Block {num} do statistics
+    Do statistics to block {num}
+    Do statistics
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            data = block.getData()
+            if type(col) is int:
+                try:
+                    Statistics = StatisticsBlock(data, col, name="StatisticsCol"+col, session="alexa")
+                    SessChain.addBlock(Statistics)
+                    msg = "Statistics for column " + col +  "processed."
+                except:
+                    print ("Error en StatisticBlock")
+                    msg = "Couldn't create statistics block"
+            else:
+                Statistics = StatisticsBlock(data, "all", name="Statistics", session="alexa")
+                SessChain.addBlock(Statistics)
+                msg = "Processed."
+        else:
+            msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        block = SessChain.getBlock(SessChain.getBlockListLength() - 1)
+        data = block.getData()
+        if type(col) is int:
+            try:
+                Statistics = StatisticsBlock(data, col, name="StatisticsCol"+col, session="alexa")
+                SessChain.addBlock(Statistics)
+                msg = "Statistics for column " + para + "processed."
+            except:
+                print ("Error en StatisticBlock")
+                msg = "Couldn't create statistics block"
+        else:
+            Statistics = StatisticsBlock(data, "all", name="Statistics", session="alexa")
+            SessChain.addBlock(Statistics)
+            msg = "Processed."
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
