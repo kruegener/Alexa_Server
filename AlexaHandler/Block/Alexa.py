@@ -480,12 +480,12 @@ def TrainTest(session, num=0, train_size=50):
                 try:
                     block = SessChain.getBlock(num)
                     print (block)
-                    TrainTest = TrainTest(name="TrainTest", session="alexa", u=float(train_size)/100)
+                    traintest = TrainTest(name="TrainTest", session="alexa", u=float(train_size)/100)
                     print("New TrainTest Block")
-                    SessChain.addBlock(TrainTest)
+                    SessChain.addBlock(traintest)
 
                     Group("alexa").send({
-                        "text": json.dumps(data)
+                        "text": traintest.getNode()
                     })
 
                     SessChain.Chain_pickle()
@@ -507,39 +507,71 @@ def TrainTest(session, num=0, train_size=50):
 
 
 @intent(slots=Num, app="AlexaHandler")
-def Boxplot(session, num=0):
+def Boxplot(session, num="", var='default'):
     """
     makes boxplot
     ---
+    Block {num} boxplot with variable {var}
+    Boxplot block {num} variable {var}
+    Boxplot block {num} with variable {var}
+    Boxplot block {num} column {var}
+    Boxplot
+    Create boxplot
+    Do boxplot with variable {var}
+    Do boxplot with column {var}
     Block {num} boxplot
     Boxplot block {num}
-    Make a boxplot from block {num}
-    Do a boxplot to block {num}
-    Do boxplot to {num}
-    Create boxplot to {num}
-    Boxplot
     """
     SessChain = consumers.getSessChain()
     if type(num) is int:
         if num < SessChain.getBlockListLength():
-            try:
-                block = SessChain.getBlock(num)
-                data = block.getData()
-                Boxplot = Boxplot(data, name="boxplot", session="alexa")
-                SessChain.addBlock(Boxplot)
-                Group("alexa").send({
-                 "text": json.dumps(data)
-                })
+            if type(var) is int:
+                try:
+                    block = SessChain.getBlock(num)
+                    data = block.getData()
+                    boxplot = Boxplot(data,para=var, name="boxplot", session="alexa")
+                    SessChain.addBlock(boxplot)
+                    Group("alexa").send({
+                     "text": boxplot.getNode()
+                    })
 
-                SessChain.Chain_pickle()
-                msg = "Processed."
-            except:
-                print ("Error in Boxplot")
-                msg = "Couldn't create boxplot"
+                    SessChain.Chain_pickle()
+                    msg = "Processed."
+                except:
+                    print ("Error in Boxplot")
+                    msg = "Couldn't create boxplot."
+            else:
+                msg = "Please provide a number for the variable."
         else:
             msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
     else:
-        msg = "Please provide a number"
+        if type(var) is int:
+            try:
+                block = SessChain.getBlock(-1)
+                data = block.getData()
+                boxplot = Boxplot(data,para=var, name="boxplot", session="alexa")
+                SessChain.addBlock(boxplot)
+                Group("alexa").send({
+                    "text": boxplot.getNode()
+                })
+                SessChain.Chain_pickle
+                msg = "Processed boxplot from statistics."
+            except:
+                msg = "Function not available for last block."
+        else:
+            try:
+                block = SessChain.getBlock(-1)
+                data = block.getData()
+                boxplot = Boxplot(data, name="boxplot", session="alexa")
+                SessChain.addBlock(boxplot)
+                Group("alexa").send({
+                    "text": boxplot.getNode()
+                })
+                SessChain.Chain_pickle
+                msg = "Processed boxplot from statistics."
+            except:
+                msg = "Function not available for last block."
+
     return ResponseBuilder.create_response(message=msg,
                                            reprompt="",
                                            end_session=False,
@@ -586,7 +618,7 @@ def Statistics(session, num=0, col=0):
             try:
                 Statistics = StatisticsBlock(data, col, name="StatisticsCol"+col, session="alexa")
                 SessChain.addBlock(Statistics)
-                msg = "Statistics for column " + para + "processed."
+                msg = "Statistics for column " + col + "processed."
             except:
                 print ("Error en StatisticBlock")
                 msg = "Couldn't create statistics block"
@@ -621,24 +653,24 @@ def Statistics(session, num=0, col=0):
 
 
 
-
-
-
-@intent(slots=None, app="Alexa_Handler")
-def WhatToDo(session, num):
-    """
-    Ask Alexa what to do
-    ---
-    What can I do with block {num}?
-    What can I do now?
-    How can I continue?
-    What are my options?
-    """
-    Sesschain = consumers.getSessChain()
-    block = Sesschain.getBlock(num)
-    if type(num) is int:
-        if num < Sesschain.getBlockListLenght():
-            block = SessChain.getBlock(num)
+#
+#
+#
+# @intent(slots=None, app="Alexa_Handler")
+# def WhatToDo(session, num):
+#     """
+#     Ask Alexa what to do
+#     ---
+#     What can I do with block {num}?
+#     What can I do now?
+#     How can I continue?
+#     What are my options?
+#     """
+#     Sesschain = consumers.getSessChain()
+#     block = Sesschain.getBlock(num)
+#     if type(num) is int:
+#         if num < Sesschain.getBlockListLenght():
+#             block = SessChain.getBlock(num)
 
 
 

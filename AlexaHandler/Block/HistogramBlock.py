@@ -1,7 +1,6 @@
 from .BaseBlock import BaseBlock
 import json
 from channels import Group
-import csv
 import matplotlib
 import os
 matplotlib.use("Agg")
@@ -11,41 +10,42 @@ from django.conf import settings
 
 class HistogramBlock (BaseBlock):
 
-    def __init__(self, name="Histogram", session=""):
+    def __init__(self, data,para="default", name="Histogram", session=""):
         self.name = name
-        self.type = "histogram"
+        self.type = "plot"
         self.session = session
-        self.options = ["plot", "show", "export"]
+        self.options = ["show","Test normality"]
         self.cache_path = ""
-        self.vars = ["data table"]
+        self.vars = [""]
         self.block_num = ""
+        self.data = data["data"]
+        self.para = para
 
-        #make histogram
-        file = open('import/firstdata.csv', 'rb')
-        reader = csv.reader(file)
-        a = []
-        for row in reader:
-            for e in row:
-                if e == '':
-                    pass
-                else:
-                    a.append(int(e))
 
         #plot.cla()
         #plot.clf()
-        fig = plot.figure()
-        plot.hist(a, bins=30)
-        plot.xlabel('protein numbers')
+        if type(self.para) is int:
+            self.titles = data["titles"]
+            #fig = plot.figure()
+            print "inside int"
+            self.data = self.data[self.titles[self.para]]
+            plot.hist(self.data, bins=30)
+            plot.xlabel(self.titles[self.para])
+        elif self.para == "default":
+            print "inside default"
+            self.title = data["title"]
+            print self.title
+            plot.hist(self.data, bins=30)
+            plot.xlabel(self.title)
         print("saving")
-        plot.savefig("cache/alexa/plot.png")
-        self.name = "plot.png"
+        plot.savefig("cache/alexa/"+self.name)
         plot.close()
 
         # save /cache path in self.cache_path
 
     def showBlock(self, num=""):
         print("showBlock");
-        call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
+        call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name +'.png'
         data = {"type": "cmd",
                 "block_num": num,
                 "cmd": "show",
@@ -55,13 +55,12 @@ class HistogramBlock (BaseBlock):
         Group("alexa").send({
             "text": json.dumps(data)
         })
-
     # Node builder
     def GetNode(self):
         #if not self.cached:
         #    self.makeCached()
         print("get image Node")
-        call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name
+        call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name +'.png'
         data = {"type": "block",
                 "block_type": self.type,
                 "block_num": self.block_num,
@@ -82,6 +81,9 @@ class HistogramBlock (BaseBlock):
             "text": json.dumps(data)
         })
 
+    def getData(self):
+        data = {"name":self.name, "type":self.type, "data":self.data}
+        return data
 
     def export(self):
         cache_path = settings.CACHE_DIR + "/" + self.session + "/" + self.name   #"/home/ignacio/Alexa_Server/cache/alexa/plot.png"

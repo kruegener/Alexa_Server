@@ -2,6 +2,7 @@ from .BaseBlock import BaseBlock
 from django.conf import settings
 import json
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 class TrainTest(BaseBlock):
     def __init__(self, data, name="TrainTest", session="", u=0.5):
@@ -9,23 +10,36 @@ class TrainTest(BaseBlock):
         self.session = session
         self.block_num = ""
         self.type = "matrix"
-        self.options = ["boxplot", "histogram", "statistics"]
-        self.vars = ""
+        self.options = ["boxplot", "histogram", "statistics", "scatter"]
+        self.vars = []
         self.data = data["data"]
+        self.titles = data["titles"]
+
         self.train, self.test = train_test_split(self.data, train_size=u)
 
-        print (len(self.train), len(self.test))
-
+        for title in self.titles:
+            i=0
+            binary = True
+            while i<len(self.train[title]) and binary==True:
+                if self.train[title][i]!=0 and self.train[title][i]!=1:
+                    binary = False
+                else:
+                    i+=1
+            if binary == False:
+                self.vars.append(title)
+            else:
+                newvar = title + ": Binary"
+                self.vars.append(newvar)
 
     def getData(self):
         #separar train de test per poder triar
-        data = {"name":self.name, "type": self.type, "data": self.data, "train_data": self.train, "test_data": self.train}
+        data = {"name":self.name, "type": self.type, "data": self.train, "train_data": self.train, "test_data": self.test, "titles":self.titles, "vars":self.vars}
         return data
 
 
     def GetNode(self):
         print("get Train Test Node")
-        TT_data = ["Variable Name:", self.name, "Type:", self.type, "Train Dimensions:", self.train.shape, "Test Dimensions", self.test.shape]
+        TT_data = ["Variable Name:", self.name, "Type:", self.type, "Train Dimensions:", str(len(self.train))+"x"+str(len(self.train[0])), "Test Dimensions", str(len(self.test))+"x"+str(len(self.test[0]))]
         data = {"type": "block",
                 "block_type": self.type,
                 "block_num": self.block_num,

@@ -395,6 +395,16 @@
                 div.appendChild(p);
                 div.className += " " + "mdl-cell--2-col"
             }
+            else if (data.block_type == "Normal"){
+                var p = document.createElement("p");
+                p.className = "content";
+                console.log("name :", data.name);
+                p.appendChild(document.createTextNode(data.name));
+                p.appendChild(document.createElement("br"));
+                p.appendChild(document.createTextNode(data.data));
+                div.appendChild(p);
+                div.className += " " + "mdl-cell--2-col"
+            }
             else if (data.block_type == "image" || data.block_type == "histogram" || data.block_type == "LR" || data.block_type == "plot") {
                 var img = document.createElement("img");
                 img.src = data.call_path;
@@ -1049,7 +1059,7 @@
         <main id ="area" class="mdl-layout__content">
             <div id="offScreen" class="overlay" onclick=send_minimize()>
                 YOU SHOULDN'T SEE THIS!!!
-                <img src="http://i.imgur.com/nWGCwiE.gif">
+                <img src="https://i.imgur.com/nWGCwiE.gif">
             </div>
 
             {#            optional buttons for pulse#}

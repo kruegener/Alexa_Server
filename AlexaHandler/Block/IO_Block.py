@@ -14,17 +14,18 @@ import os
 from channels import Group
 from .. import consumers
 from .HistogramBlock import HistogramBlock
-from .LinearRegressionBlock import LinearRegressionBlock
 
-class IO_Block (BaseBlock):
+
+class IO_Block(BaseBlock):
     def __init__(self, file_name, name="IO", session="", abs_path=""):
         self.name = name
         self.type = "IO"
         self.session = session
+        self.vars = []
 
         self.file_name = file_name
 
-        self.vars = [".".join(self.file_name.split(".")[:-1])]
+        #self.vars = [".".join(self.file_name.split(".")[:-1])]
         self.data_name = ".".join(self.file_name.split(".")[:-1])
         self.file_type = ".".join(self.file_name.split(".")[-1:])
         self.display_type = ""
@@ -37,10 +38,13 @@ class IO_Block (BaseBlock):
         else:
             self.path = abs_path
 
+
         print("Inside IO")
+        print(self.path)
 
         if self.file_type in ["csv", "txt", "dat"]:
-            self.data = np.genfromtxt(self.path, delimiter=",")
+            self.data = np.genfromtxt(self.path, delimiter=",", dtype=None, names=True)
+            self.titles = self.data.dtype.names
             self.display_type = "matrix"
             self.type = "matrix"
             self.options.append("SCATTER")
@@ -49,6 +53,8 @@ class IO_Block (BaseBlock):
             self.options.append("statistics")
             self.options.append("TRAIN/TEST")
             print (self.options)
+            print self.data[0]
+            print self.data[0]["SUBJECT_ID"]
 
 
         elif self.file_type in ["png", "jpg", "jpeg"]:
@@ -103,13 +109,16 @@ class IO_Block (BaseBlock):
             raise NameError("Function not available for non-Image IO")
 
     def getData(self):
-        data = {"name": self.data_name, "type": self.file_type, "data": self.data}
+        data = {"name": self.data_name, "type": self.file_type, "data": self.data, "titles":self.titles}
         return data
+
+    def getTitles(self):
+        return self.titles
 
     # Node builder
     def GetNode(self):
         print("get IO Node")
-        IO_data = ["Variable Name:", self.vars, "Dimensions:", self.data.shape, "Type:", self.display_type]
+        IO_data = ["Variable Name:", self.vars, "Dimensions:", str(len(self.data))+ "x"+ str(len(self.data[0])), "Type:", self.display_type]
         data = {"type": "block",
                 "block_type": self.type,
                 "block_num": self.block_num,
@@ -130,3 +139,5 @@ class IO_Block (BaseBlock):
             print("\033[93m couldnt remove image block cache", sys.exc_info(), "\033[0m")
 
         del self
+
+

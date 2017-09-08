@@ -41,6 +41,7 @@ class ImageBlock(BaseBlock):
         self.img_path = new_path
 
 
+
     def export(self):
         path = "/home/alexa_server/Alexa_Server/export/" + self.session
         # checking if dir already exists

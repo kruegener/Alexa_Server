@@ -24,6 +24,8 @@ from .Block.MessageBlock import MessageBlock
 from .Block.ImageBlock import ImageBlock
 from .Block.HistogramBlock import HistogramBlock
 from .Block.StatisticsBlock import StatisticsBlock
+from .Block.BoxplotBlock import Boxplot
+from .Block.NormalTest import NormalTest
 
 
 from .Block.BlockChain import BlockChain
@@ -184,23 +186,53 @@ def ws_message(message):
                 # get the data of the clicked block
                 data = block.getData()
                 # make a new statistics block and give it the data
-                Stat = StatisticsBlock(data = data, session="alexa")
+                Stat = StatisticsBlock(data = data, session="alexa", para=7)
                 SessChain.addBlock(Stat)
                 # send the new block to everyone
                 Group("alexa").send({
                     "text": Stat.GetNode()
                 })
 
+            elif "histogram" in str(data["opt"]):
+                block = SessChain.getBlock(data["num"])
+                data = block.getData()
+                Histogram = HistogramBlock(data,para=8, session="alexa")
+                SessChain.addBlock(Histogram)
+                Group("alexa").send({
+                    "text": Histogram.GetNode()
+                })
+
+            elif "boxplot" in str(data['opt']):
+                block = SessChain.getBlock(data['num'])
+                data = block.getData()
+                Box = Boxplot(data=data, session="alexa", name="Boxplot")
+                SessChain.addBlock(Box)
+                Group("alexa").send({
+                    "text": Box.GetNode()
+                })
+
+            elif "Test normality" in str(data["opt"]):
+                block = SessChain.getBlock(data['num'])
+                data = block.getData()
+                Normal = NormalTest(data, session="alexa")
+                SessChain.addBlock(Normal)
+                Group("alexa").send({
+                    "text": Normal.GetNode()
+                })
+
+
+
+
                 print("statistics")
 
-            elif "SCATTER" in str(data["opt"]):
-                from .Block.LinearRegressionBlock import LinearRegressionBlock
-                a = SessChain.getBlock(data['num'])
-                data = a.getData()
-                LR = LinearRegressionBlock(data=data, session="alexa")
-                SessChain.addBlock(LR)
+            elif "scatter" in str(data["opt"]):
+                from .Block.LinearRegressionBlock import Scatterplot
+                block = SessChain.getBlock(data['num'])
+                data = block.getData()
+                scatterplot = Scatterplot(data=data, var2=8, session="alexa")
+                SessChain.addBlock(scatterplot)
                 Group("alexa").send({
-                    "text": LR.GetNode()
+                    "text": scatterplot.GetNode()
                 })
                 print ('Linear Regression')
 
@@ -208,7 +240,7 @@ def ws_message(message):
                 from .Block.TrainTestBlock import TrainTest
                 a = SessChain.getBlock(data["num"])
                 data = a.getData()
-                TT = TrainTest(data, session="alexa", u=0.75)
+                TT = TrainTest(data, session="alexa", u=0.98)
                 SessChain.addBlock(TT)
                 Group("alexa").send({
                     "text": TT.GetNode()
@@ -216,8 +248,7 @@ def ws_message(message):
 
 
             elif "regression line" in str(data["opt"]):
-                from .Block.LinearRegressionBlock import LinearRegressionBlock
-                print (data)
+                from .Block.LinearRegressionBlock import Scatterplot
                 block = SessChain.getBlock(data["num"])
                 #data = block.getData()
                 block.getOption("regression", data["num"])
