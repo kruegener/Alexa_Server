@@ -52,7 +52,6 @@ class Scatterplot(BaseBlock):
 
 
     def GetNode(self):
-        print("get LR Node")
         call_path = settings.CACHE_URL + "/" + self.session + "/" + self.name + '.png'
         data = {"type": "block",
                 "block_type": self.type,

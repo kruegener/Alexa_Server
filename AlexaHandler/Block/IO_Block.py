@@ -49,12 +49,14 @@ class IO_Block(BaseBlock):
             self.type = "matrix"
             self.options.append("SCATTER")
             self.options.append("PCA")
-            self.options.append("PLOT")
+            self.options.append("Histogram")
             self.options.append("statistics")
+            self.options.append("Normal Test")
             self.options.append("TRAIN/TEST")
             print (self.options)
             print self.data[0]
-            print self.data[0]["SUBJECT_ID"]
+            print self.data["ICUSTAY_ADMIT_SOFA"]
+            print self.data[0][0]
 
 
         elif self.file_type in ["png", "jpg", "jpeg"]:
@@ -118,7 +120,7 @@ class IO_Block(BaseBlock):
     # Node builder
     def GetNode(self):
         print("get IO Node")
-        IO_data = ["Variable Name:", self.vars, "Dimensions:", str(len(self.data))+ "x"+ str(len(self.data[0])), "Type:", self.display_type]
+        IO_data = ["Variable Name:", "IO_Block", "Dimensions:", str(len(self.data))+ "x"+ str(len(self.data[0])), "Type:", self.display_type]
         data = {"type": "block",
                 "block_type": self.type,
                 "block_num": self.block_num,

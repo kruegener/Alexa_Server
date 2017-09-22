@@ -8,6 +8,7 @@ from .SandFilterBlock import SandFilterBlock
 from .TrainTestBlock import TrainTest
 from .BoxplotBlock import Boxplot
 from .StatisticsBlock import StatisticsBlock
+from .LinearRegressionBlock import Scatterplot
 from channels import Group
 from .. import consumers
 import sys
@@ -44,10 +45,6 @@ def SessionEndedRequest(**kwargs):
 
 # define slots
 class Num(fields.AmazonSlots):
-    num = fields.AmazonNumber()
-
-class TrainTest(fields.AmazonSlots):
-    train_size = fields.AmazonNumber()
     num = fields.AmazonNumber()
 
 class Statistics(fields.AmazonSlots):
@@ -460,8 +457,12 @@ def minimize(session):
                                            end_session=False,
                                            launched=True)
 
+class TrainTest(fields.AmazonSlots):
+    train_size = fields.AmazonNumber()
+    num = fields.AmazonNumber()
+
 @intent(slots=TrainTest, app="AlexaHandler")
-def TrainTest(session, num=0, train_size=50):
+def TrainTest(session, num=0, train_size=65):
     """
     separates train data from test 
     ---
@@ -489,7 +490,7 @@ def TrainTest(session, num=0, train_size=50):
                     })
 
                     SessChain.Chain_pickle()
-                    msg = "Processed. You now have available either train or test data"
+                    msg = "Processed. Train data separated from test data."
                 except:
                     print ("Something bad happened inside the try")
                     msg = "Error dividing data"
@@ -632,7 +633,54 @@ def Statistics(session, num=0, col=0):
                                            launched=True)
 
 
+class Scatt(fields.AmazonSlots):
+    num1 = fields.AmazonNumber()
+    num2 = fields.AmazonNumber()
+    num = fields.AmazonNumber()
 
+@intent(slots=Scatt, app="AlexaHandler")
+def Scatterplot(session,num1="",num2="", num=""):
+    """
+        Scatterplot
+        ---
+        Block {num} draw a scatterplot for variables {num1} and {num2}
+        Block {num} draw a scatterplot for {num1} and {num2}
+        {num1} and {num2} scatterplot
+        Make a scatterplot for {num1} and {num2}
+        {num1} {num2} scatterplot
+    """
+    SessChain = consumers.getSessChain()
+    if type(num) is int and type(num1) is int and type(num2) is int:
+        if num < SessChain.getBlockListLength():
+            block = SessChain.getBlock(num)
+            data = block.getData()
+            if type(num1) is int and type(num2) is int:
+                try:
+                    Scatter = Scatterplot(data,num1,num2)
+                    SessChain.addBlock(Scatter)
+                    msg = "Scatterplot processed"
+                except:
+                    msg = "Couldn't create scatterplot"
+            else:
+                msg = "Please provide a number."
+        else:
+            msg = "block with number " + str(num) + " does not exist. Maximum block number is " + str(SessChain.getBlockListLength() - 1)
+    else:
+        block = SessChain.getBlock(-1)
+        data = block.getData()
+        if type(num1) is int and type(num2) is int:
+            try:
+                Scatter = Scatterplot(data, num1, num2)
+                SessChain.addBlock(Scatter)
+                msg = "Scatterplot processed"
+            except:
+                msg = "Couldn't create scatterplot"
+        else:
+            msg = "Provide a number please."
+    return ResponseBuilder.create_response(message=msg,
+                                           reprompt="",
+                                           end_session=False,
+                                           launched=True)
 
 
 

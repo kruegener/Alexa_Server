@@ -23,14 +23,15 @@ class Boxplot(BaseBlock):
         ax = fig.add_subplot(111)
         if type(self.para) is int:
             self.titles = data["titles"]
-            ax.boxplot(self.data[self.titles[self.para]]) #creates boxplot
+            bp=ax.boxplot(self.data[self.titles[self.para]]) #creates boxplot
             ax.set_xlabel(self.titles[para])
         else:
             self.title=data["title"]
-            ax.boxplot(self.data)
+            bp=ax.boxplot(self.data)
             ax.set_xlabel(self.title)
         ax.set_ylabel('Mean')
-
+        for flier in bp['fliers']:
+            flier.set(marker='o', color='red', alpha=0.5)
         fig.savefig('cache/alexa/'+self.name+'.png', bbox_inches='tight')
         plt.close()
 

@@ -9,7 +9,7 @@ class StatisticsBlock (BaseBlock):
         self.name = name
         self.type = "stat"
         self.session = session
-        self.options = ["histogram", "boxplot", "scatter", "max", "min"]
+        self.options = ["histogram", "boxplot", "scatter","normal test"]
         self.vars =[]
         self.cache_path = ""
         self.para = para

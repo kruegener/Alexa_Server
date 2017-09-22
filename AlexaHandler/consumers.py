@@ -26,7 +26,7 @@ from .Block.HistogramBlock import HistogramBlock
 from .Block.StatisticsBlock import StatisticsBlock
 from .Block.BoxplotBlock import Boxplot
 from .Block.NormalTest import NormalTest
-
+from .Block.RegressionBlock import MultipleRegression
 
 from .Block.BlockChain import BlockChain
 import pickle
@@ -196,7 +196,7 @@ def ws_message(message):
             elif "histogram" in str(data["opt"]):
                 block = SessChain.getBlock(data["num"])
                 data = block.getData()
-                Histogram = HistogramBlock(data,para=8, session="alexa")
+                Histogram = HistogramBlock(data, para=7, session="alexa")
                 SessChain.addBlock(Histogram)
                 Group("alexa").send({
                     "text": Histogram.GetNode()
@@ -205,7 +205,7 @@ def ws_message(message):
             elif "boxplot" in str(data['opt']):
                 block = SessChain.getBlock(data['num'])
                 data = block.getData()
-                Box = Boxplot(data=data, session="alexa", name="Boxplot")
+                Box = Boxplot(data=data,para=10, session="alexa", name="Boxplot")
                 SessChain.addBlock(Box)
                 Group("alexa").send({
                     "text": Box.GetNode()
@@ -218,6 +218,16 @@ def ws_message(message):
                 SessChain.addBlock(Normal)
                 Group("alexa").send({
                     "text": Normal.GetNode()
+                })
+
+            elif "Multiple Regression" in str(data["opt"]):
+                print( "hello")
+                block = SessChain.getBlock(data['num'])
+                data = block.getData()
+                MR = MultipleRegression(data, session="alexa")
+                SessChain.addBlock(MR)
+                Group("alexa").send({
+                    "text": MR.GetNode()
                 })
 
 
@@ -339,9 +349,7 @@ def ws_disconnect(message):
 
 # alexa / session wrapper
 def getSessChain():
-
     global SessChain
-
     if SessChain != "init":
         return SessChain
     else:

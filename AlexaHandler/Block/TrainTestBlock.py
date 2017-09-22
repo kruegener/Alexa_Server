@@ -10,7 +10,7 @@ class TrainTest(BaseBlock):
         self.session = session
         self.block_num = ""
         self.type = "matrix"
-        self.options = ["boxplot", "histogram", "statistics", "scatter"]
+        self.options = ["boxplot", "histogram", "statistics", "scatter","Multiple Regression","normal test"]
         self.vars = []
         self.data = data["data"]
         self.titles = data["titles"]
