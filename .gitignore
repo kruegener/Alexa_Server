@@ -1,3 +1,4 @@
 *.pyc
 virtenv/
 keys/
+venv/

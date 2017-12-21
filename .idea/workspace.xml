@@ -1,7 +1,677 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7c7f7a7-91ea-4aa8-83e5-5264996cfdf8" name="Default" comment="" />
+    <list default="true" id="d7c7f7a7-91ea-4aa8-83e5-5264996cfdf8" name="Default" comment="start">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/carlesm.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/actions.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/apps.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/checks.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/decorators.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/exceptions.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/filters.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/forms.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/helpers.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/af/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/af/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/af/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/af/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/am/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/am/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ar/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ar/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ar/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ar/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/az/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/az/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/az/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/az/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/be/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/be/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/be/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/be/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bg/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bg/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bg/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bg/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bn/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bn/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/br/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/br/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/br/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/br/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bs/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bs/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bs/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/bs/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ca/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ca/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ca/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/ca/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cs/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cs/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cs/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cs/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cy/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cy/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cy/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/cy/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/da/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/da/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/da/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/da/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/el/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/el/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/el/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/el/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/en/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/en/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/en/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/en/LC_MESSAGES/djangojs.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/locale/eo/LC_MESSAGES/djangojs.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/models.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/options.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/sites.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/tests.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/utils.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/views/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/views/decorators.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/views/main.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/admin/widgets.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/admin.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/apps.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/backends.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/base_user.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/checks.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/common-passwords.txt.gz" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/context_processors.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/decorators.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/forms.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/handlers/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/handlers/modwsgi.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/hashers.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/af/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/af/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ar/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ar/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ast/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ast/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/az/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/az/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/be/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/be/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/bg/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/bg/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/bn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/bn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/br/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/br/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/bs/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/bs/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ca/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ca/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/cs/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/cs/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/cy/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/cy/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/da/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/da/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/dsb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/dsb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/el/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/el/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/en/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/en/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/en_AU/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/en_AU/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/en_GB/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/en_GB/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/eo/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/eo/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_AR/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_AR/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_CO/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_CO/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_MX/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_MX/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_VE/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/es_VE/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/et/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/et/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/eu/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/eu/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fa/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fa/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fi/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fi/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fy/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/fy/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ga/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ga/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/gd/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/gd/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/gl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/gl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/he/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/he/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hi/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hi/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hsb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hsb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hu/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/hu/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ia/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ia/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/id/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/id/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/io/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/io/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/is/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/is/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/it/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/it/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ja/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ja/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ka/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ka/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/kk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/kk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/km/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/km/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/kn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/kn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ko/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ko/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/lb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/lb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/lt/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/lt/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/lv/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/lv/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/mk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/mk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ml/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ml/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/mn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/mn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/mr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/mr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/my/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/my/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/nb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/nb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ne/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ne/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/nl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/nl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/nn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/nn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/os/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/os/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pa/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pa/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pt/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pt/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pt_BR/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/pt_BR/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ro/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ro/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ru/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ru/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sq/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sq/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sr_Latn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sr_Latn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sv/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sv/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sw/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/sw/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ta/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ta/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/te/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/te/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/th/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/th/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/tr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/tr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/tt/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/tt/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/udm/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/udm/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/uk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/uk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ur/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/ur/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/vi/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/vi/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/zh_Hans/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/zh_Hans/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/zh_Hant/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/locale/zh_Hant/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/management/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/management/commands/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/management/commands/changepassword.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/management/commands/createsuperuser.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/middleware.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0001_initial.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0002_alter_permission_name_max_length.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0003_alter_user_email_max_length.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0004_alter_user_username_opts.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0005_alter_user_last_login_null.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0006_require_contenttypes_0002.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0007_alter_validators_add_error_messages.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/0008_alter_user_username_max_length.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/migrations/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/mixins.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/models.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/password_validation.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/signals.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/templates/auth/widgets/read_only_password_hash.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/templates/registration/password_reset_subject.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/tests/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/tests/utils.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/tokens.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/urls.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/validators.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/auth/views.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/admin/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/admin/options.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/admin/widgets.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/apps.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/base/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/base/adapter.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/base/features.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/base/models.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/base/operations.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/mysql/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/mysql/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/mysql/features.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/mysql/introspection.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/mysql/operations.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/mysql/schema.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/adapter.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/features.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/introspection.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/models.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/operations.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/oracle/schema.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/adapter.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/const.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/features.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/introspection.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/models.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/operations.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/pgraster.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/postgis/schema.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/adapter.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/client.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/features.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/introspection.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/models.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/operations.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/spatialite/schema.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/backends/utils.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/aggregates.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/fields.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/functions.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/lookups.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/manager.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/proxy.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/query.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/sql/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/db/models/sql/conversion.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/feeds.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/forms/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/forms/fields.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/forms/widgets.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/datasource.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/driver.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/envelope.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/error.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/feature.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/field.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/geometries.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/geomtype.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/layer.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/libgdal.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/ds.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/errcheck.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/generation.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/geom.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/raster.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/prototypes/srs.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/raster/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/raster/band.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/raster/const.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/raster/source.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/gdal/srs.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip/libgeoip.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip/prototypes.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip2/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip2/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geoip2/resources.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geometry/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geometry/backend/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geometry/backend/geos.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geometry/regex.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/collections.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/coordseq.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/error.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/factory.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/geometry.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/io.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/libgeos.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/linestring.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/mutable_list.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/point.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/polygon.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prepared.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/coordseq.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/errcheck.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/geom.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/io.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/misc.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/predicates.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/prepared.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/threadsafe.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/geos/prototypes/topology.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/af/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/af/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ar/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ar/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ast/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ast/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/az/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/az/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/be/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/be/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/bg/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/bg/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/bn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/bn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/br/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/br/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/bs/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/bs/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ca/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ca/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/cs/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/cs/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/cy/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/cy/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/da/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/da/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/de/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/de/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/dsb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/dsb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/el/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/el/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/en/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/en/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/en_AU/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/en_AU/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/en_GB/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/en_GB/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/eo/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/eo/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_AR/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_AR/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_CO/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_CO/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_MX/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_MX/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_VE/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/es_VE/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/et/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/et/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/eu/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/eu/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fa/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fa/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fi/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fi/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fy/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/fy/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ga/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ga/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/gd/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/gd/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/gl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/gl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/he/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/he/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hi/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hi/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hsb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hsb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hu/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/hu/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ia/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ia/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/id/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/id/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/io/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/io/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/is/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/is/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/it/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/it/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ja/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ja/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ka/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ka/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/kk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/kk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/km/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/km/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/kn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/kn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ko/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ko/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/lb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/lb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/lt/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/lt/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/lv/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/lv/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/mk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/mk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ml/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ml/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/mn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/mn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/mr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/mr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/my/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/my/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/nb/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/nb/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ne/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ne/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/nl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/nl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/nn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/nn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/os/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/os/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pa/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pa/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pt/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pt/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pt_BR/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/pt_BR/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ro/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ro/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ru/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ru/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sl/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sl/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sq/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sq/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sr_Latn/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sr_Latn/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sv/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sv/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sw/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/sw/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ta/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ta/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/te/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/te/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/th/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/th/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/tr/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/tr/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/tt/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/tt/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/udm/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/udm/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/uk/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/uk/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ur/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/ur/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/vi/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/vi/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/zh_Hans/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/zh_Hans/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/zh_Hant/LC_MESSAGES/django.mo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/locale/zh_Hant/LC_MESSAGES/django.po" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/management/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/management/commands/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/management/commands/inspectdb.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/management/commands/ogrinspect.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/measure.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/ptr.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/serializers/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/serializers/geojson.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/shortcuts.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/sitemaps/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/sitemaps/kml.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/sitemaps/views.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/css/ol3.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/img/draw_line_off.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/img/draw_line_on.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/img/draw_point_off.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/img/draw_point_on.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/img/draw_polygon_off.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/img/draw_polygon_on.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/static/gis/js/OLMapWidget.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/admin/openlayers.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/admin/openlayers.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/admin/osm.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/admin/osm.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/kml/base.kml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/kml/placemarks.kml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/openlayers-osm.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/templates/gis/openlayers.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/utils/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/utils/layermapping.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/utils/ogrinfo.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/utils/ogrinspect.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/utils/srs.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/utils/wkt.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/contrib/gis/views.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/archive.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/cache.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/dateformat.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/dates.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/datetime_safe.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/deconstruct.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/jslex.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/log.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/lru_cache.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/numberformat.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/safestring.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/termcolors.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/timesince.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/translation/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/translation/template.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/translation/trans_null.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/translation/trans_real.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/utils/version.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/csrf.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/debug.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/cache.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/clickjacking.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/csrf.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/debug.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/gzip.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/http.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/decorators/vary.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/defaults.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/generic/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/generic/base.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/generic/dates.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/generic/detail.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/generic/edit.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/generic/list.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/i18n.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/venv/lib/python2.7/site-packages/django/views/static.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/Alexa_Server.iml" afterPath="$PROJECT_DIR$/.idea/Alexa_Server.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +691,12 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1462">
+            <state relative-caret-position="0">
               <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
               <folding />
             </state>
@@ -37,8 +706,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="940">
-              <caret line="157" column="34" lean-forward="false" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+            <state relative-caret-position="180">
+              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -47,7 +716,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="105">
               <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
               <folding />
             </state>
@@ -57,11 +726,9 @@
       <file leaf-file-name="live.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="315">
               <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-              <folding>
-                <marker date="1495034181000" expanded="true" signature="6209:6265" ph="{% if environ == &quot;LOCAL&quot; ... %}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,11 +736,10 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaInterface/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="420">
               <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#648#689#0" expanded="true" />
-                <marker date="1495034181000" expanded="true" signature="889:1317" ph="..." />
               </folding>
             </state>
           </provider>
@@ -82,7 +748,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlexaHandler/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="150">
               <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding />
             </state>
@@ -183,7 +849,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1096" />
@@ -204,110 +870,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="import" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaInterface" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaHandler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaHandler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaHandler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alexa_Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlexaHandler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="Alexa_Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Alexa_Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
@@ -329,6 +910,61 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Alexa_Server" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration default="false" name="Alexa_Server" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="AlexaInterface.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Alexa_Server" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="Alexa_Server" />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -416,38 +1052,6 @@
       <option name="customRunCommand" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Alexa_Server" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <module name="Alexa_Server" />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -462,6 +1066,23 @@
       <scripts />
       <node-interpreter value="project" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Alexa_Server" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -482,55 +1103,13 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
-      <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Alexa_Server" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Alexa_Server" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="AlexaInterface.settings" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Alexa_Server" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method />
-    </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Django server.Alexa_Server" />
-    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -543,21 +1122,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1096" height="1896" extended-state="7" />
+    <frame x="0" y="22" width="1680" height="1028" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20648149" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13452381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837933" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17134193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32740587" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1705021" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938188" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="manage.py@Alexa_Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979476" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -565,7 +1144,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903716" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -747,13 +1328,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/shared_Vars.py" />
-    <entry file="file://$PROJECT_DIR$/run_behind_nginx.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="98" lean-forward="true" selection-start-line="0" selection-start-column="98" selection-end-line="0" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server_nginx.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -872,7 +1446,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
+        <state relative-caret-position="0">
           <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
           <folding />
         </state>
@@ -889,36 +1463,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaInterface/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="420">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="e#648#689#0" expanded="true" />
-            <marker date="1495034181000" expanded="true" signature="889:1317" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/live.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="315">
           <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding>
-            <marker date="1495034181000" expanded="true" signature="6209:6265" ph="{% if environ == &quot;LOCAL&quot; ... %}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/templates/AlexaHandler/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="105">
           <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding />
         </state>
@@ -926,7 +1494,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaHandler/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="150">
           <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding />
         </state>
@@ -936,14 +1504,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_behind_nginx.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AlexaInterface/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="157" column="34" lean-forward="false" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+        <state relative-caret-position="180">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
           <folding />
         </state>
       </provider>
